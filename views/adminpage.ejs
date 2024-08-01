@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Admin </title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="/stylesheets/adminpagecss.css">
+</head>
+
+<body>
+  <nav>
+
+    <div class="logo-name">
+        <div class="logo-image">
+        </div>
+
+        <span class="logo_name">Vivaaks tech</span>
+    </div>
+
+    <div class="menu-items">
+        <ul class="nav-links">
+            <li>
+                <a href="#" onclick="toggleSection('dashboard')">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dashboard</span>
+                </a>
+            </li>
+            <li><a href="#">
+                <i class="uil uil-files-landscapes"></i>
+                <span class="link-name">Content</span>
+            </a></li>
+            <li>
+                <a href="#" onclick="toggleSection('courseinfo')">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Courses</span>
+                </a>
+            </li>
+            <!-- <li><a href="#" onclick="toggleSection('setExamSection_')">
+              <i class="uil uil-file-edit-alt"></i>
+              <span class="link-name">Set Exam</span>
+          </a></li> -->
+          
+          <li><a href="#" onclick="toggleSection('set-Time')">
+            <i class="uil uil-clock"></i>
+            <span class="link-name">Set-Time</span>
+        </a></li>
+        <li><a href="#" onclick="toggleSection('Student-Test-Record')">
+          <i class="uil uil-chart"></i>
+
+          <span class="link-name">Exam Record</span>
+      </a></li>
+            
+              <li><a href="#" onclick="toggleSection('video-management')">
+                <i class="uil uil-chart"></i>
+                <!-- <i class="uil uil-thumbs-up"></i> -->
+                <span class="link-name">Video Section</span>
+            </a></li>
+
+            <li><a href="#"  onclick="toggleSection('student-data')">
+                <i class="uil uil-comments"></i>
+                <span class="link-name">Studnet-Data</span>
+            </a></li>
+            <li><a href="#">
+                <i class="uil uil-share"></i>
+                <span class="link-name">Share</span>
+            </a></li>
+        </ul>
+        
+                        
+
+        <ul class="logout-mode">
+            <li><a href="#">
+                <i class="uil uil-signout"></i>
+                <span class="link-name">
+                  <form action="/logoutadmin" method="GET">
+                    <form action="/logoutadmin" method="GET">
+                      <button type="submit">Logout</button>
+                    </form>
+                </span>
+            </a></li>
+
+            <li class="mode">
+                <a href="#">
+                    <i class="uil uil-moon"></i>
+                <span class="link-name">Dark Mode</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+        </li>
+        </ul>
+    </div>
+</nav>
+
+<section id="dashboard" class="dashboard">
+  <div class="top">
+      <i class="uil uil-bars sidebar-toggle"></i>
+
+      <div class="search-box">
+          <i class="uil uil-search"></i>
+          <input type="text" placeholder="Search here...">
+      </div>
+      
+      <img src="/images/profile.jpg" alt="">
+  </div>
+
+  <div class="dash-content">
+      <div class="overview">
+          <div class="title">
+              <i class="uil uil-tachometer-fast-alt"></i>
+              <span class="text">Dashboard</span>
+          </div>
+
+          <div class="boxes">
+              <div class="box box1">
+                  <i class="uil uil-thumbs-up"></i>
+                  <span class="text">courses</span>
+                  <span class="number">120</span>
+              </div>
+              <div class="box box2">
+                  <i class="uil uil-comments"></i>
+                  <span class="text">student</span>
+                  <span class="number">20,120</span>
+              </div>
+              <div class="box box3">
+                  <i class="uil uil-share"></i>
+                  <span class="text">users</span>
+                  <span class="number">10,120</span>
+              </div>
+          </div>
+      </div>
+
+      <div class="activity">
+          <div class="title">
+              <i class="uil uil-clock-three"></i>
+              <span class="text">Recent Activity</span>
+          </div>
+
+          <table class="user-data-table">
+            <tr id="user-data-heading">
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile NO</th>
+              <th>Login Time</th>
+              <th>Logout Time</th>
+            </tr>
+            <% for (const user of usersdata) { %>
+            <tr class="user-data-td">
+              <td ><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.mobileNumber %></td>
+              <td id="login-time-green"><%= user.loginTime %></td>
+              <td id="logout-time-red"><%= user.logoutTime %></td>
+            </tr>
+            <% } %>
+          </table>
+          
+          
+      </div>
+  </div>
+</section>
+<section id="courseinfo" class="dashboard">
+        
+  <div class="coursesectionallfunction">
+   
+   <span class="addcourserdiv box1">add course</span>
+  <span class="editcoursediv">edit/delete course</span>
+  <span class="allcoursediv">all courses</span>
+  
+  </div>
+   
+
+  <!-- <div class="fortheaddcourse">
+    <form action="/submit" method="post" enctype="multipart/form-data">
+      <label for="courseName">Course Name:</label>
+      <input type="text" id="courseName" name="courseName" required>
+    
+      <label for="courseProfessorName">Professor Name:</label>
+      <input type="text" id="courseProfessorName" name="courseProfessorName" required>
+    
+      <label for="courseDescription">Course Description:</label>
+      <textarea id="courseDescription" name="courseDescription" required></textarea>
+    
+      <label for="courseImage">Course Image:</label>
+      <input type="file" id="courseImage" name="courseImage" accept="image/*" required>
+    
+      <button type="submit">Submit</button>
+    </form>
+  </div> -->
+  <div class="fortheaddcourse">
+    <form action="/courses/submit" method="post" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Basic Course Information</legend>
+        
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName" name="courseName" required>
+        
+        <label for="courseProfessorName">Professor Name:</label>
+        <input type="text" id="courseProfessorName" name="courseProfessorName" required>
+        
+        <label for="instructors">Additional Instructors:</label>
+        <input type="text" id="instructors" name="instructors" placeholder="Comma-separated names">
+        
+        <label for="courseDescription">Course Description:</label>
+        <textarea id="courseDescription" name="courseDescription" required></textarea>
+        
+        <label for="courseImage">Course Image:</label>
+        <input type="file" id="courseImage" name="courseImage" accept="image/*" required>
+    </fieldset>
+
+    <!-- Course Details -->
+    <fieldset>
+        <legend>Course Details</legend>
+        
+        <label for="price">Price ($):</label>
+        <input type="number" id="price" name="price" step="0.01" min="0" required>
+        
+        <label for="duration">Total Course Duration:</label>
+        <input type="text" id="duration" name="duration" required>
+        
+        <label for="lastUpdated">Last Updated:</label>
+        <input type="date" id="lastUpdated" name="lastUpdated" required>
+        
+        <label for="languages">Languages:</label>
+        <input type="text" id="languages" name="languages" placeholder="Comma-separated list">
+    </fieldset>
+
+    <!-- Course Content -->
+    <fieldset>
+        <legend>Course Content</legend>
+        
+        <label for="videos">Number of Videos:</label>
+        <input type="number" id="videos" name="videos" min="0" required>
+        
+        <label for="liveLectures">Number of Live Lectures:</label>
+        <input type="number" id="liveLectures" name="liveLectures" min="0" required>
+        
+        <label for="articles">Number of Articles:</label>
+        <input type="number" id="articles" name="articles" min="0" required>
+        
+        <label for="codingExercises">Number of Coding Exercises:</label>
+        <input type="number" id="codingExercises" name="codingExercises" min="0" required>
+        
+        <label for="downloadableResources">Number of Downloadable Resources:</label>
+        <input type="number" id="downloadableResources" name="downloadableResources" min="0" required>
+    </fieldset>
+
+    <!-- Course Statistics -->
+    <fieldset>
+        <legend>Course Statistics</legend>
+        
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" required>
+        
+        <label for="ratingCount">Number of Ratings:</label>
+        <input type="number" id="ratingCount" name="ratingCount" min="0" required>
+        
+        <label for="studentsEnrolled">Number of Students Enrolled:</label>
+        <input type="number" id="studentsEnrolled" name="studentsEnrolled" min="0" required>
+    </fieldset>
+
+    <!-- Course Curriculum -->
+    <fieldset>
+        <legend>Curriculum</legend>
+        
+        <label for="curriculumTitle">Curriculum Title:</label>
+        <input type="text" id="curriculumTitle" name="curriculumTitle" required>
+        
+        <label for="overviewTitle">Overview Title:</label>
+        <input type="text" id="overviewTitle" name="overviewTitle" required>
+        
+        <label for="overviewDescription">Overview Description:</label>
+        <textarea id="overviewDescription" name="overviewDescription" required></textarea>
+    </fieldset>
+
+    <!-- Course Requirements and Objectives -->
+    <fieldset>
+        <legend>Requirements and Objectives</legend>
+        
+        <label for="requirements">Requirements:</label>
+        <textarea id="requirements" name="requirements" placeholder="Enter each requirement on a new line" required></textarea>
+        
+        <label for="learningObjectives">Learning Objectives:</label>
+        <textarea id="learningObjectives" name="learningObjectives" placeholder="Enter each objective on a new line" required></textarea>
+        
+        <label for="courseIncludes">Course Includes:</label>
+        <textarea id="courseIncludes" name="courseIncludes" placeholder="Enter each item on a new line" required></textarea>
+    </fieldset>
+
+    <!-- Submit Button -->
+    <button type="submit">Submit Course</button>
+    </form>
+</div>
+
+
+    
+
+  <div class="fortheeditcourse">
+
+    <div class="containerforcourse">
+      <!-- <h1>Admin Page</h1> -->
+    
+     <div class="showonlycourses">
+      <% if (courses.length === 0) { %>
+        <p>No courses available.</p>
+      <% } else { %>
+        <% courses.forEach(course => { %>
+          <div class="forshwingthecourses">
+            <img src="/uploads/<%= course.courseImage %>" alt="<%= course.courseName %> Image">
+            <h2><%= course.courseName %></h2>
+            <p>Professor: <%= course.courseProfessorName %></p>
+            <p>Description: <%= course.courseDescription %></p>
+    
+            <!-- Add an Edit button with a link to the edit route -->
+            <span style="display: flex;">
+              <a href="/editcourse/<%= course._id %>">
+                <button type="button">Edit Course</button>
+              </a>
+              <a href="/questionsSet/<%= course._id %>">
+                <button type="button">Show Questions</button>
+              </a>
+            </span>
+<!-- 
+            <button style="width: max-content;" type="button" class="set-exam-button" data-course-id="<%= course._id %>">
+              Set Exam
+            </button> -->
+            <!-- <button style="width: max-content;" type="button" class="set-exam-button" data-course-id="/set-exam/:courseId">
+              Set Exam
+            </button> -->
+            <a href="/set-exam/<%= course._id %>" target="_blank" class="set-exam-button">
+              <button style="width: max-content;" type="button">Set Exam</button>
+            </a>
+
+          <span style="display: flex;">
+            <a href="#" id="deleteExamButton" data-course-id="<%= course._id %>">
+              <button type="button">Delete Exam</button>
+            </a>
+            <!-- Add more details as needed -->
+    
+            <form method="post" action="/delete/<%= course._id %>">
+              <button type="submit">Delete Course</button>
+            </form>
+          </span>
+          </div>
+          <!-- <section id="setExamSection_<%= course._id %>" class="dashboard examsection" style="display: none;">
+
+            <div class="set-paper-heading">
+              <h1 class="exam-heading">Add Question for <%= course.courseName %></h1>
+              <p>Total Questions Set: <%=  course.questions.length  %> </p>
+            </div>
+            <form action="/add-question/<%= course._id%>" method="post" id="exma-form-id">
+              <label for="set" class="exam-lable">Question Set:</label>
+              <input type="text" name="set" class="exam-inputs" required /><br />
+          
+              <label for="question" class="exam-lable">Question:</label>
+              <input type="text" name="question" class="exam-inputs" required /><br />
+              <label for="options" class="exam-lable">Options (comma-separated):</label>
+              <input type="text" name="options" class="exam-inputs" required /><br />
+              <label for="correctOption" class="exam-lable"
+                >Correct Option (1-indexed):</label
+              >
+              <input
+                type="number"
+                name="correctOption"
+                class="exam-inputs"
+                required
+              /><br />
+              <button type="submit" class="exam-button">Add Question</button>
+            </form>
+          
+            
+          </section>       -->
+        <% }); %>
+      <% } %>
+     </div>
+    </div>
+
+  </div>
+  
+  <div class="fortheallcourse">
+    <div class="showonlycourses"> <% if (courses.length === 0) { %>
+      <p>No courses available.</p>
+    <% } else { %>
+      <% courses.forEach(course => { %>
+        <div>
+            <img src="/uploads/<%= course.courseImage %>" alt="<%= course.courseName %> Image">
+          <h2><%= course.courseName %></h2>
+          <p>Professor: <%= course.courseProfessorName %></p>
+          <p>Description: <%= course.courseDescription %></p>
+          <!-- Add more details as needed -->
+  
+          <!-- <form method="post" action="/delete/<%= course._id %>">
+            <button type="submit">Delete Course</button>
+          </form> -->
+        </div>
+      <% }); %>
+    <% } %></div>
+    
+    </div>
+  </div>
+  
+</section>
+
+  
+<section id="set-Time" class="dashboard">
+  <div class="maincontainer-set-total-time">
+    <h1 class="titlesettime">Set Total Time</h1>
+
+    <form class="settimeform" action="/set-total-time" method="post">
+      <label class="totaltime" for="totalTimeInSeconds"
+        >Total Time (in seconds):</label
+      >
+      <input
+        class="timeinput"
+        type="text"
+        name="newTotalTimeInSeconds"
+        placeholder="Enter total time in seconds"
+      />
+      <button class="submitbtn" type="submit">Set Total Time</button>
+    </form>
+  </div>
+</section>
+
+<section id="Student-Test-Record" class="dashboard">
+  <div class="examreportcontainer">
+    <h1 class="titlereport">Student Exam Report</h1>
+
+    <div class="exam-results">
+      <% if(StudentResult.length===0){%>
+        <p>NO data is available</p>
+      <%}else{%>
+      <table class="test-record-table">
+        <tr>
+          <th class="test-record-th">Name</th>
+          <th class="test-record-th">Email-Id</th>
+          <th class="test-record-th">Course Name</th>
+          <th class="test-record-th">Obtained Marks</th>
+          <th class="test-record-th">Total Marks</th>
+        </tr>
+        <% StudentResult.forEach((result)=>{ %>
+        <tr>
+          <td class="test-record-td"><%= result.name %></td>
+          <td class="test-record-td"><%= result.email %></td>
+          <td class="test-record-td">Java</td>
+          <td class="test-record-td"><%= result.score %></td>
+          <td class="test-record-td"><%= result.totalQuestions %></td>
+        </tr>
+        <% }) %>
+      </table>
+      <% } %>
+    </div>
+  </div>
+</section>
+<section id="video-management" class="dashboard">
+  <div class="toggle-buttons">
+    <button class="active" id="addVideosToggle">Add Videos</button>
+    <button id="seeVideosToggle">See Videos</button>
+    <button id="deleteVideosToggle">Delete Videos</button>
+  </div>
+
+  <div id="addVideosForm" style="display: block;">
+    <form action="/submit-video" method="post" enctype="multipart/form-data" style="margin-left: 31rem; display: flex; flex-direction: column; width: 21%; gap: 0rem;">
+      <h1>Add Video</h1>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required><br>
+      <label for="courseId">Course:</label>
+      <select id="courseId" name="courseId" required>
+        <% courses.forEach(course => { %>
+          <option value="<%= course._id %>"><%= course.courseName %></option>
+        <% }) %>
+      </select><br>
+      <label for="video">Video File:</label>
+      <input type="file" id="video" name="video" accept="video/*" required><br>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <div id="seeVideosContent" style="display: none; gap: 1rem; justify-content: center;">
+    <div>
+      <label for="course">Select a Course:</label>
+      <select id="course" onchange="fetchVideos()">
+        <option value="">Select a course</option>
+        <% courses.forEach(course => { %>
+          <option value="<%= course._id %>"><%= course.courseName %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div id="videosContainer">
+      <!-- Videos will be displayed here -->
+    </div>
+    <button onclick="deleteSelectedVideos()">Delete Selected Videos</button>
+  </div>
+
+  <div id="deleteVideosContent" style="display: none;">
+    <div>
+      <label for="course">Select a Course:</label>
+      <select id="course" onchange="fetchVideos()">
+        <option value="">Select a course</option>
+        <% courses.forEach(course => { %>
+          <option value="<%= course._id %>"><%= course.courseName %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div id="videosContainer">
+      <!-- Videos will be displayed here -->
+    </div>
+  </div>
+</section>
+
+<section class="dashboard" id="student-data">
+  <h1>Student List</h1>
+  <label for="courseSelect">Select Course:</label>
+  <select id="courseSelect" onchange="fetchStudentsByCourse()">
+      <option value="">All Courses</option>
+      <!-- Populate this dropdown with available courses -->
+      <% courses.forEach(course => { %>
+          <option value="<%= course.courseName %>"><%= course.courseName %></option>
+      <% }) %>
+  </select>
+  <table>
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Certificate Generated</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody id="studentList">
+          <!-- Student list will be populated here -->
+      </tbody>
+  </table>
+</section>
+
+<script>
+async function fetchStudentsByCourse() {
+    const selectedCourse = document.getElementById('courseSelect').value;
+    try {
+        let url = '/students';
+        if (selectedCourse) {
+            url += `?course=${encodeURIComponent(selectedCourse)}`;
+        }
+        const response = await fetch(url);
+        const students = await response.json();
+        const studentList = document.getElementById('studentList');
+        studentList.innerHTML = ''; // Clear previous content
+
+        students.forEach(student => {
+            const row = `
+                <tr>
+                    <td><a href="/student/${student._id}" target="_blank">${student.userName}</a></td>
+                    <td>${student.userEmail}</td>
+                    <td>${student.courseName}</td>
+                    <td><input type="checkbox" id="certificate_${student._id}" disabled ${student.certificateGenerated ? 'checked' : ''}></td>
+                    <td><button class="generate-certificate-btn" onclick="generateCertificate('${student._id}')">Generate Certificate</button></td>
+                </tr>
+            `;
+            studentList.insertAdjacentHTML('beforeend', row);
+        });
+    } catch (error) {
+        console.error('Error fetching students:', error);
+    }
+}
+
+async function generateCertificate(userId) {
+    try {
+        const response = await fetch(`/generate-certificate/${encodeURIComponent(userId)}`, {
+            method: 'POST'
+        });
+
+        const data = await response.json();
+        alert(data.message);
+
+        // Update the checkbox status after certificate generation
+        const checkbox = document.getElementById(`certificate_${userId}`);
+        checkbox.checked = true; // Mark checkbox as checked
+    } catch (error) {
+        console.error('Error generating certificate:', error);
+        alert('Error generating certificate. Please try again later.');
+    }
+}
+
+// Initial fetch of all students
+document.addEventListener('DOMContentLoaded', () => {
+    fetchStudentsByCourse();
+});
+</script>
+
+<script src="/javascripts/scriptforadminpage.js"></script>

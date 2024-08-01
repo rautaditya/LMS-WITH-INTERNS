@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .headingofclassroom {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .video-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .video-item:hover {
+    background-color: #eaeaea;
+  }
+
+  .video-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .video-player {
+    display: none;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #ddd;
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 2px;
+    width: 0%; /* Set initial width to 0% */
+    transition: width 0.3s ease;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .modal-content p {
+    margin: 0;
+    color: #333;
+  }
+
+  /* a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #da3a3a;
+    text-decoration: none;
+  } */
+  .coursenamehead {
+    text-align: center;
+  }

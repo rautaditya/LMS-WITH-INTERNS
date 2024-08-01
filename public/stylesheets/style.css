@@ -1,0 +1,652 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+
+}
+
+/* CSS file */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #F8F8FF;
+}
+
+/* this code for the navbar toggle icon */
+a {
+  text-decoration: none;
+}
+
+.navbarmainp {
+  display: flex;
+  padding: 1em;
+  position: relative;
+  background-image: linear-gradient(4deg, #a6a4a3 -300%, #127c6d 70%);
+
+  /* background-image: linear-gradient(4deg, #f55a29 -300%, #ff722e 70%); */
+  background-image: linear-gradient(4deg, #a6a4a3 -300%, #127c6d 70%);
+  padding: 10px;
+
+  width: 100%;
+  z-index: 1000;
+  height: 66px;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 1.5em;
+  height: 0.2em;
+  background-color: #d7720e;
+  margin: 8px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.menuiconcontainer {
+  cursor: pointer;
+  display: none;
+}
+
+/* 
+  navbarlist */
+.navbarlist {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  text-decoration: none;
+  flex-direction: row;
+  font-size: 17px;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+.leftlogonav img {
+  height: 1cm;
+  width: 3cm;
+}
+.iconmenu {
+  display: none;
+}
+
+.leftlogonav {
+  color: black;
+  font-family: sans-serif;
+}
+
+.p-10 {
+  padding: 10px;
+}
+.dropmenu {
+  position: relative;
+}
+.dropdownnav {
+  display: none;
+  position: absolute;
+  top: 1.4rem;
+}
+.navlistanddropicon {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.dropmenu:hover .dropdownnav {
+  display: block;
+}
+
+.dropdownnav a,
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.navbarlist.show {
+  display: block;
+  /* Show the navbar list when the "show" class is present */
+}
+
+.navlistanduserprofile {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrow {
+  border: solid rgb(246, 240, 240);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-bottom: 5px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.studym:hover .seven-contentssm {
+  display: block;
+}
+
+.seven-contentssm {
+  position: absolute;
+  top: 2px;
+  left: 100.5%;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  .seven-contentssm {
+    position: relative;
+    top: 0s;
+    left: 0;
+    font-size: 12px;
+    border-radius: 0px;
+  }
+  .dropdownnav {
+    position: relative;
+  }
+
+  .navbarlist {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 4.6rem;
+    left: 1px;
+    background-color: rgb(0, 213, 255);
+  }
+
+  .menuiconcontainer {
+    display: block;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  .navbarlist.show {
+    animation: slide 1s forwards;
+  }
+}
+/* Animation Slide */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* this code for the navbar toggle icon */
+a {
+  text-decoration: none;
+}
+
+.navbarmainp {
+  display: flex;
+  padding: 1em;
+  position: relative;
+  background-image: linear-gradient(4deg, #a6a4a3 -300%, #127c6d 70%);
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 1.5em;
+  height: 0.2em;
+  background-color: #333;
+  margin: 8px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.menuiconcontainer {
+  cursor: pointer;
+  display: none;
+}
+
+/* 
+  navbarlist */
+.navbarlist {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  text-decoration: none;
+  flex-direction: row;
+}
+.listofitom {
+  color: white;
+}
+
+.dropdown-content a {
+  color: black;
+}
+.logoofnav {
+  padding-right: 1em;
+  font-size: 500;
+}
+.dropmenu {
+  position: relative;
+}
+.dropdownnav {
+  display: none;
+
+  position: absolute;
+}
+.navlistanddropicon {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.dropmenu:hover .dropdownnav {
+  display: block;
+}
+
+.dropdownnav a,
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.navbarlist.show {
+  display: block;
+  /* Show the navbar list when the "show" class is present */
+}
+
+.navlistanduserprofile {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrow {
+  border: solid rgb(246, 240, 240);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.secondofnav {
+  display: flex;
+  align-items: center;
+  margin-right: 0rem;
+}
+
+.dfg10 {
+  display: flex;
+  gap: 10px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+.alinecentre {
+  align-items: center;
+}
+.userprofile:hover .userinfo {
+  display: block;
+}
+.gap7 {
+  gap: 7px;
+}
+.font14 {
+  font-size: 16px;
+  color: white;
+}
+.userinfo a:hover {
+  background-color: #f38c63;
+}
+.two-item {
+  display: block;
+  color: #333;
+}
+.userprofile:hover .userinfo {
+  display: block;
+}
+.userinfo {
+  display: none;
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: 1em;
+  border-radius: 3px;
+  position: absolute;
+  right: 1%;
+  top: 2.8rem;
+}
+.fontem {
+  font-size: 0.9em;
+}
+.two-content a,
+.two-contents a,
+.three-contents a,
+.four-contents a,
+.five-contents a,
+.six-contents a,
+.seven-contents a,
+.eight-contents a,
+.mycontentlist a,
+.studymlist a,
+.userinfo a {
+  text-decoration: none;
+  padding: 12px 8px;
+  /* border-radius: 12px 12px 0px 0px; */
+}
+.brbtm {
+  border-bottom: thin solid gray;
+}
+
+.mycontentlist a:hover {
+  background-color: #f38c63;
+}
+
+.commonformaillists {
+  display: block;
+  min-width: 250px;
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: NONE;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: max-content;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 1;
+  padding: 0px 10px;
+  border-radius: 10px;
+  margin-top: 1px;
+  font-size: 12px;
+}
+
+.twoway:hover .two-content {
+  display: block;
+}
+
+.twowaysecond:hover .two-contents {
+  display: block;
+}
+.dropdown-item {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+
+  /* Center text horizontally within the item */
+  display: flex;
+  align-items: center;
+  /* Center items vertically within the flex container */
+  justify-content: space-between;
+  /* Space items evenly, positioning the arrow to the right */
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f38c63;
+  color: #fff;
+}
+.two-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100.5%;
+  min-width: 350px;
+  /* Position the two to the right of its parent */
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  border-radius: 0% 10px 10px 0%;
+}
+
+.two-contents {
+  display: none;
+  position: absolute;
+  top: 38px;
+
+  left: 100.5%;
+  min-width: 350px;
+  /* Position the two to the right of its parent */
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  border-radius: 0% 10px 10px 0%;
+}
+.two-item {
+  display: block;
+  color: #333;
+}
+.three-contents {
+  display: none;
+  position: absolute;
+  top: 78px;
+
+  left: 100.5%;
+  min-width: 350px;
+  /* Position the two to the right of its parent */
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  border-radius: 0% 10px 10px 0%;
+}
+
+.thirdway:hover .three-contents {
+  display: block;
+}
+.twowaysecond:hover .two-contents {
+  display: block;
+}
+.fourway:hover .four-contents {
+  display: block;
+}
+
+.four-contents {
+  display: none;
+  position: absolute;
+  top: 118px;
+  left: 100.5%;
+  min-width: 350px;
+  /* Position the two to the right of its parent */
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  border-radius: 0% 10px 10px 0%;
+}
+.four-contents a:hover {
+  background-color: #f38c63;
+}
+.sevenway:hover .seven-contents {
+  display: block;
+}
+.seven-contents {
+  position: absolute;
+  top: 26rem;
+  left: 100.5%;
+}
+
+.sevenway:hover .seven-contents {
+  display: block;
+}
+
+.seven-contents a:hover {
+  background-color: #f38c63;
+}
+.common {
+  display: none;
+  min-width: 250px;
+  /* Position the two to the right of its parent */
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  border-radius: 0% 10px 10px 0%;
+}
+.studym:hover .seven-contentssm {
+  display: block;
+}
+.seven-contentssm {
+  position: absolute;
+  top: 2px;
+  left: 100.5%;
+  font-size: 12px;
+}
+.studymlist {
+  position: relative;
+}
+.studymaterial:hover .studymlist {
+  display: block;
+}
+.smtwo {
+  position: absolute;
+  left: 100%;
+  top: 2.2rem;
+}
+.studymtwo:hover .smtwo {
+  display: block;
+}
+.studymtwo:hover .smthree {
+  display: block;
+}
+.smthree {
+  position: absolute;
+  left: 100%;
+  top: 4.8rem;
+}
+.seven-contentssm a:hover {
+  background-color: #f38c63;
+}
+.smtwo a:hover {
+  background-color: #f38c63;
+}
+.smthree a:hover {
+  background-color: #f38c63;
+}
+
+.smfour a:hover {
+  background-color: #f38c63;
+}
+.smfour {
+  position: absolute;
+  left: 100%;
+  top: 7.3rem;
+}
+.studymtwo:hover .smfour {
+  display: block;
+}
+.smeight {
+  position: absolute;
+  left: 100%;
+  top: 16.9rem;
+}
+.studymtwo:hover .smeight {
+  display: block;
+}
+.smeight a:hover {
+  background-color: #f38c63;
+}
+.more:hover .commonformaillistsall {
+  display: block;
+}
+.commonformaillistsall {
+  display: none;
+  min-width: 250px;
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: 12px;
+  border-radius: 10px;
+  position: absolute;
+  top: 1.3rem;
+}
+@media screen and (max-width: 600px) {
+  .smtwo,
+  .smthree,
+  .smfour,
+  .smeight {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .seven-contentssm {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+  }
+  .two-content {
+    display: none;
+  }
+  .dropdownnav {
+    position: relative;
+  }
+  li {
+    padding: 10px;
+  }
+  .navbarlist {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 4.6rem;
+
+    background-color: rgb(0, 213, 255);
+  }
+
+  .menuiconcontainer {
+    display: block;
+  }
+  /* Animation Slide */
+  @keyframes slide {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  .navbarlist.show {
+    animation: slide 1s forwards;
+  }
+  .secondofnav {
+    display: flex;
+    align-items: center;
+    margin-left: 4rem;
+  }
+}

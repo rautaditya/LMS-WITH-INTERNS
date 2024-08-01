@@ -1,0 +1,172 @@
+
+#mycorsenav {
+  margin-top: 2rem;
+}
+.headingoftumnale {
+  padding: 10px 70px;
+  margin: 8rem 0rem;
+  color: rgb(77, 74, 74);
+
+}
+/* courses card css */
+.main-card-container {
+  width: 390px;
+  overflow: hidden;
+  background-color: #5d5e60;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Style for the card */
+.course-card-enroll {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Style for the image */
+.course-card-enroll img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+
+}
+
+/* Style for the info container */
+.course-info-enroll {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
+/* Style for the text in info container */
+.course-info-enroll p {
+  color: #fff;
+  padding: 10px;
+}
+
+/* Hover effect */
+.course-card-enroll:hover {
+  transform: scale(1.05);
+}
+
+.course-card-enroll:hover .course-info-enroll {
+  height: 100%;
+}
+
+/* Style for the buttons at the bottom */
+.course-buttons-start {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Style for the buttons */
+.course-buttons-start button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fdfdfd;
+  font-weight: 800;
+  background-color: #17a2b8;
+}
+
+/* Style for the course title */
+.course-enroll-title {
+  padding: 0;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.headingoftumnale {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* Style for each enrolled course card */
+.main-card-container {
+  /* width: calc(
+    33.33% - 10px
+  ); Adjust the width based on your preference, subtracting margin */
+  margin-bottom: 20px; /* Add margin between the cards */
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+  
+  box-shadow: 0px 5px 40px rgb(19 8 7);
+  transition: all .40s ease;
+}
+
+/* Style for the image inside the enrolled course card */
+.course-card-enroll img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Style for the enrolled course info container */
+.course-info-enroll {
+  padding: 10px;
+}
+
+/* Style for the enrolled course title and start button container */
+.course-buttons-start {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #17a2b8;
+}
+
+/* Style for the enrolled course title */
+.course-enroll-title {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Style for the buttons */
+.course-buttons-start button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 800;
+  background-color: #5d5e60;
+}
+
+/* Hover effect */
+.main-card-container:hover .main-card-container {
+  transform: scale(1.05);
+}
+.course-enroll-Professor {
+  padding: 0;
+  margin: 0;
+}
+#enroll-more-details {
+  color: #cde1fa;
+  font-style: italic;
+  text-decoration: underline;
+}

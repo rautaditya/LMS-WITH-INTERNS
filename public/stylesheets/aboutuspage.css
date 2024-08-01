@@ -1,0 +1,250 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* About Section */
+.abtSec {
+    background: linear-gradient(360deg, rgb(245, 255, 245) 0%, rgb(173, 202, 170) 100%);
+    padding: 100px 0 20px 0;
+    text-align: center;
+}
+
+.abtSec h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.abtSec p {
+    font-size: 1.5rem;
+    color: #323030;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.abtInfo {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.abtImg {
+    width: 20rem;
+    height: 20rem;
+}
+
+.abtImg img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.abtInfo p {
+    font-size: 1.3rem;
+    margin: 0 2rem;
+    text-align: justify;
+}
+
+.readmorebtnfortheaboutuspage {
+    border: none;
+    outline: 0;
+    padding: 10px;
+    margin: 2rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #40b736;
+    text-align: center;
+    cursor: pointer;
+    width: 15rem;
+    border-radius: 4px;
+}
+
+.readmorebtnfortheaboutuspage:hover {
+    background-color: #1f9405;
+}
+
+/* Team Section */
+.tmSec {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.tmSec h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.tmCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tmCard {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 18rem;
+    height: 25rem;
+    margin-top: 10px;
+}
+
+.tmCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.tmCardImg {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.tmCardInfo button {
+    margin: 2rem 1rem;
+}
+
+.tmCardName {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.tmCardRole,
+.tmCardEmail {
+    font-size: 1rem;
+    color: #888;
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .abtSec h1 {
+        font-size: 2rem;
+    }
+
+    .abtSec p {
+        font-size: 0.9rem;
+    }
+
+    .abtInfo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .abtImg {
+        width: 60%;
+        height: 60%;
+        margin-bottom: 1rem;
+    }
+
+    .abtInfo p {
+        margin: 1rem 2rem;
+    }
+
+    .readmorebtnfortheaboutuspage {
+        margin: 1rem 2rem;
+    }
+}
+/* Additional Sections Styles */
+
+#workFlow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 4rem;
+	padding: 6rem;
+	gap: 3rem;
+}
+
+.headingforabout {
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.para {
+    margin: 1rem auto;
+}
+
+.num-container {
+    width: 70%;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.num-item {
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+    color: #0060ff;
+}
+
+#goal {
+    width: 100%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.goal-left {
+    width: 60%;
+    line-height: 2rem;
+}
+
+.goal-left h2 {
+    font-size: 2.4rem;
+}
+
+.goal-left p {
+    line-height: 1.5rem;
+    margin: 1rem 0;
+}
+
+.goal-left ul {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.goal-left ul li::before {
+    line-height: 1.5rem;
+    content: "✓";
+    color: red;	padding-right: 15px;
+
+}
+
+.goal-right {
+    position: relative;
+    width: 35%;
+}
+
+.goal-right img {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    filter: drop-shadow(3px 4px 5px black);
+    transition: all 0.2s linear;
+}
+
+.goal-right img:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(5px 6px 7px black);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Exam - <%= course.courseName %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .dashboard {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .set-paper-heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .exam-heading {
+            color: #2c3e50;
+        }
+        .exam-lable {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .exam-inputs {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .exam-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .exam-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <section id="setExamSection_<%= course._id %>" class="dashboard examsection">
+        <div class="set-paper-heading">
+            <h1 class="exam-heading">Add Question for <%= course.courseName %></h1>
+            <p>Total Questions Set: <%= course.questions.length %></p>
+        </div>
+        <form action="/add-question/<%= course._id%>" method="post" id="exam-form-id">
+            <label for="set" class="exam-lable">Question Set:</label>
+            <input type="text" name="set" class="exam-inputs" required />
+
+            <label for="question" class="exam-lable">Question:</label>
+            <input type="text" name="question" class="exam-inputs" required />
+
+            <label for="options" class="exam-lable">Options (comma-separated):</label>
+            <input type="text" name="options" class="exam-inputs" required />
+
+            <label for="correctOption" class="exam-lable">Correct Option (1-indexed):</label>
+            <input type="number" name="correctOption" class="exam-inputs" required />
+
+            <button type="submit" class="exam-button">Add Question</button>
+        </form>
+    </section>
+</body>
+</html>

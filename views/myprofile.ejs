@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      
+    <div class="studentprofilepage">
+        <div class="profiledivone">
+            <div class="oneleft" style="display: flex; gap: 10px; align-items: center;">
+                <img src="Images/user.png" alt="" style="height: 50px;">
+                <span class="usernamelocation"">
+                 
+                    <p style="font-size: 21px;"><%=user.name%></p>
+                    <p>Location</p>
+                    
+                </span>
+            </div>
+            <div class="oneright">
+                <button class="editbtn">Edit Profile</button>
+                <button class="changepsd">Change password</button>
+            </div>
+        </div>
+        <div class="profiledivtwo">
+            <div class="profileducation">
+                <div class="educationonly">
+                    <span>Educational Info</span>
+                </div>
+                <div class="classboardetcinfo">
+                        <div class="divdesignforeducation" >
+                            <span>Class</span>
+                            <span class="classvalue  bold">12th</span>
+                        </div>
+                        <div class="student-profile-description-element-border">
+                            &nbsp;
+                    </div>
+                        <div class="divdesignforeducation">
+                            <span>University</span>
+                            <span class="uniname bold">MH</span>
+                        </div>
+                        <div class="student-profile-description-element-border">
+                            &nbsp;
+                    </div>
+                        <div  class="divdesignforeducation">
+                            <span>College</span>
+                            <span class="collegename bold">schoolname</span>
+                        </div>
+                        <div class="student-profile-description-element-border">
+                            &nbsp;
+                    </div>
+                        <div class="divdesignforeducation">
+                            <span>Target</span>
+                            <span class="targete bold">Java</span>
+                        </div>
+                </div>
+                <div>
+                <div class="parentinformation">
+                    <span>Parent info</span>
+                </div>
+                <form action="" class="formofparentinfor" >
+                    <div class="divdesignforeducation" ">
+                        <label for="" style="    color: #e6632f;">parent email</label>
+                        <span type="email"  class="inputdesign parentemail" style="letter-spacing: 4px; font-size: 16px;"><%= user.email%></span>
+                        
+                </div>
+                    <div class="student-profile-description-element-right remove-decoration student-profile-parent-phone divdesignforeducation" >
+                        <!-- ngIf: logic.parentContactNumAvailable() -->
+                        <label for="" style="    color: #e6632f;">parent mo no</label>
+                        <!-- ngIf: !logic.parentContactNumAvailable() -->
+                        <div>
+                        <select ng-if="!logic.parentContactNumAvailable()" class=" inputdesign  ng-pristine ng-valid ng-scope ng-valid-required ng-touched" required="" ng-model="parentInfo.countryCode">
+                            <!-- <option value="" disabled selected></option> -->
+                            <option value="91" selected="">+91</option>
+                            <option value="971">+971</option>
+                            <option value="65">+65</option>
+                            <option value="60">+60</option>
+                            <option value="966">+966</option>
+                            <option value="965">+965</option>
+                            <option value="974">+974</option>
+                            <option value="968">+968</option>
+                            <option value="977">+977</option>
+                            <option value="94">+94</option>
+                            <option value="1">+1</option>
+                            <option value="61">+61</option>
+                            <option value="44">+44</option>
+                            <option value="33">+33</option>
+                            <option value="49">+49</option>
+                            <option value="81">+81</option>
+                            <option value="86">+86</option>
+                            <option value="92">+92</option>
+                            <option value="880">+880</option>
+                            <option value="973">+973</option>
+                            <option value="234">+234</option>
+                            <option value="70">+70</option>
+                            <option value="255">+255</option>
+                            <option value="63">+63</option>
+                            <option value="88">+88</option>
+                            <option value="27">+27</option>
+                            <option value="989">+989</option>
+                            <option value="62">+62</option>
+                            <option value="79">+79</option>
+                            <option value="975">+975</option>
+                            <option value="256">+256</option>
+                            <option value="254">+254</option>
+                        </select>
+                    <!-- end ngIf: !logic.parentContactNumAvailable() -->
+                    <span type="email"  class="inputdesign parentmobileno" style="letter-spacing: 4px; font-size: 16px;"><%=user.phone  %></span>
+                    <div class="submit-parent-info-button-part">
+                            <!-- ngIf: logic.parentContactSaveBtn() -->
+                        </div> </div>
+                    </div>
+                </form>
+                
+                </div>
+            </div>
+        
+                
+            </div>
+            <div class="profiledivthree">
+                <div class="contactinfotag">
+                    <span>contact info</span>
+            </div>
+            <div class="contactdetails">
+                <div class="emailandcontactno ">
+                    <span>Email ID</span>
+                    <span><b>vivaaks@hr.com</b></span>
+                    <span style="padding-top: 5px;  color: #e6632f;">change email</span>
+                </div>
+  
+                <div class="emailandcontactno" style="border-left: 0.5px solid gray;">
+                    <span>Primary contact no</span>
+                    <span><b>+919999999999</b></span>
+                    <span style="padding-top: 5px;  color: #e6632f; ">change number</span>
+                </div>
+  
+            </div>
+            </div>
+        </div>
+         <!-- this page for the useredit form this is one type form beacuse this change the valuw of user details -->
+         <div class="useredtidetailsform">
+            <div class="educationinfoeditdetails">
+              <span class="headofeducation">Edit Educational Info</span>
+              <div class="detailsofedu">
+                <span>
+                  <label for="classdropdown">Class</label>
+                  <input type="text" id="chooseclass">
+                </span>
+                <br>
+                <span>
+                  <label for="Board">University</label>
+                  <input type="text" id="choosetheuniversity">
+                </span><br>
+                <span>
+                  <label for="class">College</label>
+                  <input type="text" id="choosecollege">
+                </span>
+  
+  
+  
+              </div>
+              <div class="parentinfoeditopetion">
+              <span class="parentinfoedit">Edit Parent Info</span>
+              <div class="parentedit">
+                <span class="infoparent">
+                  <label for="">parent email</label>
+                  <input type="email" id="chooseemail">
+                </span>
+                <span class="infoparent">
+                  <label for="">parent number</label>
+                  <input type="text" id="choosemobileno">
+                </span>
+              </div>
+            </div>
+            <button class="savebtn">Save Data</button>
+          </div>
+  
+            </div>
+</body>
+</html>

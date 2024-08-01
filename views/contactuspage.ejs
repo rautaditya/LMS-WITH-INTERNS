@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LMS System</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        #section-wrapper {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .box-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .info-wrap {
+            width: 100%;
+            background-image: linear-gradient(to bottom right, #3498db, #2980b9);
+            padding: 40px;
+            color: white;
+        }
+
+        .info-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .info-sub-title {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .info-details {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .info-details li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .info-details li i {
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        .info-details li a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-details li a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            list-style: none;
+            display: flex;
+        }
+
+        .social-icons li {
+            margin-right: 15px;
+        }
+
+        .social-icons li a {
+            color: white;
+            font-size: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icons li a:hover {
+            opacity: 0.8;
+        }
+
+        .form-wrap {
+            width: 100%;
+            background-color: white;
+            padding: 40px;
+        }
+
+        .form-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #3498db;
+        }
+
+        .form-fields {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #2980b9;
+        }
+
+        @media (min-width: 768px) {
+            #section-wrapper {
+                padding: 50px 20px;
+            }
+
+            .box-wrapper {
+                flex-direction: row;
+            }
+
+            .info-wrap {
+                width: 40%;
+            }
+
+            .form-wrap {
+                width: 60%;
+            }
+
+            .info-title {
+                font-size: 28px;
+            }
+
+            .info-sub-title {
+                font-size: 18px;
+            }
+
+            .info-details li {
+                font-size: 16px;
+            }
+
+            .info-details li i {
+                font-size: 20px;
+            }
+
+            .social-icons li a {
+                font-size: 24px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .form-fields {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+            }
+
+            .submit-button {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .info-wrap {
+                padding: 60px;
+            }
+
+            .form-wrap {
+                padding: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="section-wrapper">
+        <div class="box-wrapper">
+            <div class="info-wrap">
+                <h2 class="info-title">Contact Information</h2>
+                <h3 class="info-sub-title">We're here to help! Reach out to us anytime.</h3>
+                <ul class="info-details">
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Phone:</span> <a href="tel:+12352355980">9901325810</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Email:</span> <a href="mailto:support@lmssystem.com">vivaakshr@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-globe"></i>
+                        <span>Website:</span> <a href="#">www.vivaakstechnology.com</a>
+                    </li>
+                </ul>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <div class="form-wrap">
+                <form action="/submitForm" method="POST">
+                    <h2 class="form-title">Send us a message</h2>
+                    <div class="form-fields">
+                        <div class="form-group">
+                            <input type="text" name="firstName" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastName" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!-- views/studentDetail.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details</title>
+  <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
+</head>
+<body>
+  <style>
+/* public/stylesheets/style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+strong {
+  color: #2c3e50;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+  </style>
+  <h1>Student Details</h1>
+  <p><strong>Name:</strong> <%= student.userName %></p>
+  <p><strong>Email:</strong> <%= student.userEmail %></p>
+  <p><strong>Course:</strong> <%= student.courseName %></p>
+  <p><strong>Certificate Generated:</strong> 
+    <input type="checkbox" id="certificateCheckbox" disabled <%= student.certificateGenerated ? 'checked' : '' %>>
+  </p>
+  <button onclick="generateCertificate('<%= student._id %>')">Generate Certificate</button>
+  <br>
+  <a href="/dashboard">Back to Dashboard</a>
+
+  <script>
+  async function generateCertificate(userId) {
+      try {
+          const response = await fetch(`/generate-certificate/${encodeURIComponent(userId)}`, {
+              method: 'POST'
+          });
+
+          const data = await response.json();
+          alert(data.message);
+
+          // Update the checkbox status after certificate generation
+          const checkbox = document.getElementById('certificateCheckbox');
+          checkbox.checked = true; // Mark checkbox as checked
+      } catch (error) {
+          console.error('Error generating certificate:', error);
+          alert('Error generating certificate. Please try again later.');
+      }
+  }
+  </script>
+</body>
+</html>

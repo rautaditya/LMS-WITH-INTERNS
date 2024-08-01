@@ -1,0 +1,212 @@
+.editbtn {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 3px;
+  background-color: #ff6d26;
+  padding: 6px 12px;
+  text-decoration: none;
+  margin-right: 7px;
+  display: inline-block;
+}
+.bold {
+  font-weight: bold;
+}
+
+.changepsd {
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: 1px solid #b7cad3;
+  font-size: 12px;
+  color: #001620;
+  padding: 6px 14px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.profiledivone {
+  display: flex;
+  justify-content: space-between;
+}
+
+.studentprofilepage {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+.profiledivtwo {
+  background-color: white;
+}
+
+#myprofile {
+  background-image: linear-gradient(to top, #ffffff, #eeeeee);
+  background-color: #eeeeee;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.profileducation {
+  padding: 24px 38px 24px 24px;
+  background-color: #ffffff;
+  margin-top: 31px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.educationonly {
+  padding: 0 0 20px 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #001620;
+}
+
+.classboardetcinfo {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eaeaea;
+  justify-content: space-evenly;
+  padding-top: 21px;
+}
+
+.student-profile-description-element-border {
+  border-right: 1px solid #eaeaea;
+}
+
+.parentinformation {
+  padding: 24px 38px 20px 0;
+  color: #001620;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.formofparentinfor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.inputdesign {
+  outline: none;
+  height: 56px;
+  padding: 18px 22px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: solid 1px #b7cad3;
+  background-color: white;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6d8592;
+  width: auto;
+}
+
+.divdesignforeducation {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.profiledivthree {
+  padding: 24px 24px 24px 24px;
+  background-color: #ffffff;
+  margin-top: 24px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.contactinfotag {
+  padding: 0 0 20px 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #001620;
+}
+
+.contactdetails {
+  display: flex;
+  row-gap: 70px;
+  column-gap: 20px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.emailandcontactno {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 9px;
+}
+
+.headlineofuc {
+  height: 300px;
+}
+/* 
+this page for the my purcheses */
+.mypuchesessection {
+  margin-top: 5rem;
+  text-align: center;
+}
+.myptext {
+  margin-top: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  font-size: 19px;
+  color: gray;
+  justify-content: space-around;
+  padding-bottom: 4rem;
+}
+.f29 {
+  font-size: 29px;
+}
+.stextofmyp {
+  width: 65%;
+  margin: auto;
+}
+
+/* responsiveness of my profile*/
+@media only screen and (max-width: 900px) {
+  .profiledivone {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 45px;
+  }
+  .oneright {
+    display: flex;
+  }
+  .studentprofilepage {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .formofparentinfor {
+    display: block;
+  }
+  .inputdesign {
+    padding: 15px 8px;
+  }
+  .contactdetails {
+    display: block;
+  }
+  .emailandcontactno {
+    display: flex;
+    flex-direction: column;
+    padding: 21px;
+    gap: 9px;
+    font-size: 20px;
+  }
+}

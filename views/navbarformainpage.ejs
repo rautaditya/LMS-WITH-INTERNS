@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="/stylesheets/navbar.css"> -->
+<style>
+      .navbarforpagemainpage {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        height: 50px;
+        background-color: #34495e;
+        border-radius: 2px;
+      }
+
+      .navbarforpagemainpage a {
+        line-height: 50px;
+        height: 100%;
+        font-size: 0.9rem;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* .navbarforpagemainpage .animation {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        z-index: 0;
+        transition: all 0.5s ease 0s;
+        border-radius: 8px;
+      } */
+
+      .routeofnavbarformainpage a {
+        padding: 0px 10px;
+      }
+
+      .logoofcompany img {
+        height: 100%;
+        width: 100%;
+        padding-left: 10px;
+      }
+
+      .navbarforpagemainpage .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .navbarforpagemainpage .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #34495e;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border: 1px solid red;
+        box-shadow: 1px 1px 2px 2px mediumspringgreen;
+      }
+
+      .navbarforpagemainpage .dropdown-content a {
+        display: block;
+        color: white;
+        text-align: left;
+        /* padding: 10px; */
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .navbarforpagemainpage .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .secondofthemainnavbarformainpage {
+        padding-right: 7rem;
+      }
+
+      .hidden-section {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbarforpagemainpage">
+      <div class="routeofnavbarformainpage" style="display: flex">
+        <span class="logoofcompany"
+          ><img src="/images/logoname.png" alt="img"
+        /></span>
+
+        <span class="navigationitoms" style="padding-left: 20px; display: flex">
+          <a href="#" onclick="showSection('explorepage')">Home</a>
+          <a href="#" onclick="showSection('coursespage')">Courses</a>
+
+          <a href="#" onclick="showSection('myclassespage')">My Classes</a>
+          <a href="#" onclick="showSection('mycoursespage')">My Courses</a>
+          <!-- <a href="#" onclick="showSection('myschedule')">My Schedule</a> -->
+
+          <!-- Dropdown for "More" -->
+          <div class="dropdown">
+            <a href="#" onclick="showSection('morepage')">More</a>
+            <div class="dropdown-content">
+              <a href="#" onclick="showSection('')">Free Master Classes</a>
+              <a href="#" onclick="showSection('')"
+                >Computer Science Tuitions</a
+              >
+              <a href="#" onclick="showSection('')">Our Result</a>
+              <a href="#" onclick="showSection('')">Help</a>
+              <a href="#" onclick="showSection('')">Micro Courses</a>
+              <a href="#" onclick="showSection('')">About vivaaks</a>
+              <a href="#" onclick="showSection('faqpage')">FAQs</a>
+              <!-- Add more dropdown options as needed -->
+            </div>
+          </div>
+
+          <!-- Dropdown for "Study Material" -->
+          <div class="dropdown">
+            <a href="#" onclick="showSection('studymaterialpage')"
+              >Study Material</a
+            >
+            <div class="dropdown-content">
+              <a href="#" onclick="showSection('')">Java free notes</a>
+              <a href="#" onclick="showSection('')">python free notes</a>
+              <a href="#" onclick="showSection('')">node free notes</a>
+              <a href="#" onclick="showSection('')">mongodb free notes</a>
+
+              <!-- Add more dropdown options as needed -->
+            </div>
+          </div>
+
+          <!-- Dropdown for "My Content" -->
+          <div class="dropdown">
+            <a href="#" onclick="showSection('mycontentpage')">My Content</a>
+            <div class="dropdown-content">
+              <a href="#" onclick="showSection('testpage')">testpage</a>
+              <a href="#" onclick="showSection('assgnmentpage')"
+                >assinmentpage</a
+              >
+              <a href="#" onclick="showSection('')">Library</a>
+
+              <!-- Add more dropdown options as needed -->
+            </div>
+          </div>
+
+          <a href="#" onclick="showSection('aboutuspage')">about Us</a>
+
+          <a href="#" onclick="showSection('contactuspage')">contact Us</a>
+          <div class="animation start-home"></div>
+
+        </span>
+      </div>
+
+      <div class="secondofthemainnavbarformainpage">
+        <div class="dropdown">
+          <a href="#" onclick="showSection('')"><%= user.name %></a>
+          <div class="dropdown-content">
+            <a href="#" onclick="showSection('myprofile')">My Profile</a>
+            <a href="#" onclick="showSection('myaccount')">My Account</a>
+            <a href="#" onclick="showSection('mypurcheses')">My Purcheses</a>
+            <a href="/logout" onclick="showSection('')">Logout</a>">
+
+            <!-- Add more dropdown options as needed -->
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div>
+      <div class="section hidden-section" id="explorepage">
+        <% include explorepage.ejs %>
+      </div>
+      <div class="section hidden-section" id="myclassespage" class="">
+        <% include myclassespage.ejs %>
+      </div>
+      <div class="section hidden-section" id="mycoursespage" class="">
+        <% include mucoursespage.ejs %>
+      </div>
+      <!-- <div class="section hidden-section" id="myschedule" class="">
+            <% include myschedule.ejs %>
+        </div> -->
+      <div class="section hidden-section" id="aboutuspage" class="">
+        <% include aboutuspage.ejs %>
+      </div>
+      <div class="section hidden-section" id="faqpage" class="">
+        <% include faqpage.ejs %>
+      </div>
+      <div class="section hidden-section" id="testpage" class="">
+        <% include testpage.ejs %>
+      </div>
+      <div class="section hidden-section" id="assgnmentpage" class="">
+        <% include assignmentpage.ejs %>
+      </div>
+      <div class="section hidden-section" id="contactuspage" class="">
+        <% include contactuspage.ejs %>
+      </div>
+      <div class="section hidden-section" id="myprofile" class="">
+        <% include myprofile.ejs %>
+      </div>
+      <div class="section hidden-section" id="myaccount" class="">
+        <% include myaccountpage.ejs %>
+      </div>
+      <div class="section hidden-section" id="mypurcheses" class="">
+        <% include mypurchesespage.ejs %>
+      </div>
+      <div class="section hidden-section" id="coursespage" class="">
+        <% include courses.ejs %>
+      </div>
+      <div class="section hidden-section" id="aboutuspage" class="">
+        <% include aboutuspage.ejs %>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Set the default section to 'explorepage' (Home)
+          showSection("explorepage");
+        });
+
+        function showSection(sectionId) {
+          // Hide all sections
+          var sections = document.querySelectorAll(".section");
+          sections.forEach(function (section) {
+            section.style.display = "none";
+          });
+
+          // Show the selected section
+          var selectedSection = document.getElementById(sectionId);
+          if (selectedSection) {
+            selectedSection.style.display = "block";
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1269 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  /* ===== Colors ===== */
+  --primary-color: #3ca7e6;
+  --panel-color: #fff;
+  --text-color: #000;
+  --black-light-color: #707070;
+  --border-color: #e6e5e5;
+  --toggle-color: #ddd;
+  --box1-color: #43b291;
+  --box2-color: #ffe6ac;
+  --box3-color: #e7d1fc;
+  --title-icon-color: #fff;
+
+  /* ====== Transition ====== */
+  --tran-05: all 0.5s ease;
+  --tran-03: all 0.3s ease;
+  --tran-03: all 0.2s ease;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+}
+body.dark {
+  --primary-color: #3a3b3c;
+  --panel-color: #242526;
+  --text-color: #ccc;
+  --black-light-color: #ccc;
+  --border-color: #4d4c4c;
+  --toggle-color: #fff;
+  --box1-color: #3a3b3c;
+  --box2-color: #3a3b3c;
+  --box3-color: #3a3b3c;
+  --title-icon-color: #ccc;
+}
+/* === Custom Scroll Bar CSS === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a5b5e1;
+}
+
+body.dark::-webkit-scrollbar-thumb:hover,
+body.dark .activity-data::-webkit-scrollbar-thumb:hover {
+  background: #3a3b3c;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding: 10px 14px;
+  background-color: var(--panel-color);
+  border-right: 1px solid var(--border-color);
+  transition: var(--tran-05);
+}
+nav.close {
+  width: 73px;
+}
+nav .logo-name {
+  display: flex;
+  align-items: center;
+}
+nav .logo-image {
+  display: flex;
+  justify-content: center;
+  min-width: 45px;
+}
+nav .logo-image img {
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+nav .logo-name .logo_name {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-left: 14px;
+  transition: var(--tran-05);
+}
+nav.close .logo_name {
+  opacity: 0;
+  pointer-events: none;
+}
+nav .menu-items {
+  margin-top: 40px;
+  height: calc(100% - 90px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-items li {
+  list-style: none;
+}
+.menu-items li a {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  text-decoration: none;
+  position: relative;
+}
+.nav-links li a:hover:before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+body.dark li a:hover:before {
+  background-color: var(--text-color);
+}
+.menu-items li a i {
+  font-size: 24px;
+  min-width: 45px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-light-color);
+}
+.menu-items li a .link-name {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--black-light-color);
+  transition: var(--tran-05);
+}
+nav.close li a .link-name {
+  opacity: 0;
+  pointer-events: none;
+}
+.nav-links li a:hover i,
+.nav-links li a:hover .link-name {
+  color: var(--primary-color);
+}
+body.dark .nav-links li a:hover i,
+body.dark .nav-links li a:hover .link-name {
+  color: var(--text-color);
+}
+.menu-items .logout-mode {
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+.menu-items .mode {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.menu-items .mode-toggle {
+  position: absolute;
+  right: 14px;
+  height: 50px;
+  min-width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.mode-toggle .switch {
+  position: relative;
+  display: inline-block;
+  height: 22px;
+  width: 40px;
+  border-radius: 25px;
+  background-color: var(--toggle-color);
+}
+.switch:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  background-color: var(--panel-color);
+  border-radius: 50%;
+  transition: var(--tran-03);
+}
+body.dark .switch:before {
+  left: 20px;
+}
+
+.dashboard,
+.courseinfo {
+  position: relative;
+  left: 250px;
+  background-color: var(--panel-color);
+  min-height: 100vh;
+  width: calc(100% - 250px);
+  padding: 10px 14px;
+  transition: var(--tran-05);
+}
+nav.close ~ .dashboard,
+.courseinfo {
+  left: 73px;
+  width: calc(100% - 73px);
+}
+.dashboard .top {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  display: flex;
+  width: calc(100% - 250px);
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background-color: var(--panel-color);
+  transition: var(--tran-05);
+  z-index: 10;
+}
+nav.close ~ .dashboard .top {
+  left: 73px;
+  width: calc(100% - 73px);
+}
+.dashboard .top .sidebar-toggle {
+  font-size: 26px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.dashboard .top .search-box {
+  position: relative;
+  height: 45px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 30px;
+}
+.top .search-box input {
+  position: absolute;
+  border: 1px solid var(--border-color);
+  background-color: var(--panel-color);
+  padding: 0 25px 0 50px;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 400;
+  outline: none;
+}
+.top .search-box i {
+  position: absolute;
+  left: 15px;
+  font-size: 22px;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--black-light-color);
+}
+.top img {
+  width: 40px;
+  border-radius: 50%;
+}
+.dashboard .dash-content {
+  padding-top: 50px;
+}
+.dash-content .title {
+  display: flex;
+  align-items: center;
+  margin: 60px 0 30px 0;
+}
+.dash-content .title i {
+  position: relative;
+  height: 35px;
+  width: 35px;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+  color: var(--title-icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.dash-content .title .text {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-left: 10px;
+}
+.dash-content .boxes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dash-content .boxes .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  width: calc(100% / 3 - 15px);
+  padding: 15px 20px;
+  background-color: var(--box1-color);
+  transition: var(--tran-05);
+  cursor: pointer;
+}
+
+.boxes .box i {
+  font-size: 35px;
+  color: var(--text-color);
+}
+.boxes .box .text {
+  white-space: nowrap;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.boxes .box .number {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.boxes .box.box2 {
+  background-color: var(--box2-color);
+}
+.boxes .box.box3 {
+  background-color: var(--box3-color);
+}
+.dash-content .activity .activity-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.activity .activity-data {
+  display: flex;
+}
+.activity-data .data {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+}
+.activity-data .data-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.activity-data .data .data-list {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 20px;
+  white-space: nowrap;
+  color: var(--text-color);
+}
+.coursesectionallfunction {
+  display: flex;
+  justify-content: space-around;
+}
+.coursesectionallfunction span {
+  border-radius: 12px;
+  width: calc(100% / 3 - 15px);
+  padding: 25px 20px;
+  background-color: var(--box1-color);
+  transition: var(--tran-05);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fortheallcourse,
+.fortheeditcourse,
+.fortheaddcourse {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  nav {
+    width: 73px;
+  }
+  nav.close {
+    width: 250px;
+  }
+  nav .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+  nav.close .logo_name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+  nav.close li a .link-name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav ~ .dashboard {
+    left: 73px;
+    width: calc(100% - 73px);
+  }
+  nav.close ~ .dashboard {
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+  nav ~ .dashboard .top {
+    left: 73px;
+    width: calc(100% - 73px);
+  }
+  nav.close ~ .dashboard .top {
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+  .activity .activity-data {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 780px) {
+  .dash-content .boxes .box {
+    width: calc(100% / 2 - 15px);
+    margin-top: 15px;
+  }
+}
+@media (max-width: 560px) {
+  .dash-content .boxes .box {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  nav {
+    width: 0px;
+  }
+  nav.close {
+    width: 73px;
+  }
+  nav .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+  nav.close .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+  nav li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+  nav.close li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+  nav ~ .dashboard {
+    left: 0;
+    width: 100%;
+  }
+  nav.close ~ .dashboard {
+    left: 73px;
+    width: calc(100% - 73px);
+  }
+  nav ~ .dashboard .top {
+    left: 0;
+    width: 100%;
+  }
+  nav.close ~ .dashboard .top {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.forshwingthecourses {
+  display: flex;
+  flex-direction: column;
+}
+.fortheaddcourse form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 1rem;
+}
+.fortheaddcourse form input {
+  padding: 10px;
+}
+.fortheaddcourse form label {
+  color: blue;
+}
+.fortheaddcourse form button {
+  padding: 10px;
+  color: black;
+  background-color: #3ca7e6;
+  border-radius: 10px;
+}
+/* .forshwingthecourses 
+{
+    display: flex;
+    padding: 10px 15px;
+    border: 1px solid gray;
+   
+}
+.forshwingthecourses  img
+{
+  width: 30%;
+  height: 30%;
+} */
+.fortheeditcourse {
+  display: flex;
+  width: 30%;
+  padding: 10px 15px;
+}
+.forshwingthecourses img {
+  width: 30%;
+  height: 30%;
+}
+
+/*set exam css  admin */
+.set-paper-heading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exam-heading {
+  color: #333;
+}
+
+#exma-form-id {
+  width: 40vw;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.exam-lable {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.exam-inputs {
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  width: 100%;
+}
+
+.exam-button {
+  background-color: rgb(60, 60, 238);
+
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.exam-button:hover {
+  background-color: #45a049;
+}
+
+/* Optional: Add some simple animations */
+#exma-form-id {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* code of set timing in admin page */
+.maincontainer-set-total-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 50vh;
+  border: 2px solid black;
+  margin-left: 20rem;
+  margin-top: 9rem;
+  border-radius: 10px;
+  /* padding-top: 2rem; */
+  /* text-align: center; */
+}
+.titlesettime {
+  margin-bottom: 20px;
+  /* padding-left: 35rem; */
+  /* text-align: center; */
+}
+.totaltime {
+  font-size: 20px;
+}
+.timeinput {
+  width: 20rem;
+  padding: 5px;
+  font-size: 20px;
+}
+.settimeform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+}
+.submitbtn {
+  font-size: 18px;
+  /* padding-left: 60px; */
+  margin-left: 12rem;
+}
+/* CSS */
+.submitbtn {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.submitbtn:hover,
+.submitbtn:focus {
+  background-color: #07c;
+}
+
+.submitbtn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.submitbtn:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+
+/* table dashbord */
+.examreportcontainer {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titlereport {
+  text-align: center;
+  color: #333;
+  border-bottom: 2px solid #4158d0;
+}
+
+.examstudent-info,
+.exam-results {
+  margin-bottom: 20px;
+}
+
+.test-record-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 4px;
+}
+
+.test-record-th,
+.test-record-td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.test-record-th {
+  background-color: #f2f2f2;
+}
+.optionbtn {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform, opacity;
+  z-index: 0;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.optionbtn:hover {
+  background: #84ecaf;
+  color: #174ea6;
+  transform: scale(1, 1.5);
+  font-size: 10px;
+}
+
+.optionbtn:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+    0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.optionbtn:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.optionbtn:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.optionbtn:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+}
+
+.optionbtn:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.optionbtn:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
+    rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
+}
+
+.optionbtn:disabled {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+/* Style for the entire table */
+.table-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Style for the table headers */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 0rem 5rem;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.table-container th {
+  background-color: #494c49;
+  color: #131212;
+  width: -1px;
+  height: 60px;
+  text-align: center;
+}
+
+/* Style for the delete button in the Action column */
+.table-container button {
+  background-color: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.table-container button:hover {
+  background-color: #23e120;
+}
+/* Style for the entire form container */
+#addadmin {
+  padding: 10px;
+  border: 1.5px solid gray;
+  padding: 0rem 2rem;
+  /* background-color:#9f969d;*/
+
+  border-radius: 20px;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 50),
+    0 6px 20px 0 rgba(214, 62, 195, 50);
+  margin-top: 10%;
+}
+
+/* Style for the form header */
+#addadmin h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 5%;
+  text-align: center;
+}
+
+/* Style for form labels and inputs */
+#addadmin label {
+  display: block;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+#addadmin input {
+  width: 20rem;
+  padding: 8px;
+}
+
+/* Style for the submit button */
+#addadmin button {
+  background-color: #c95d14;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10%;
+
+  margin-left: 31%;
+  margin-bottom: 8%;
+}
+
+#addadmin button:hover {
+  background-color: #23d123;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 10%;
+  border: #000;
+}
+
+th,
+td {
+  border: 0px solid #ddd;
+  padding: 2px;
+  text-align: left;
+  text-align: center;
+}
+
+th {
+  background-color: #494c49;
+  color: #131212;
+  width: -1px;
+  height: 60px;
+  text-align: center;
+}
+.table-container tr {
+  border-color: #000;
+  border: 2px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#maindemo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 250px;
+  background-color: var(--panel-color);
+  min-height: 100vh;
+  width: calc(100% - 250px);
+  padding: 10px 14px;
+  transition: var(--tran-05);
+}
+#video-management
+{
+  border: 0.5px solid gray;
+}
+#video-management .toggle-buttons button
+{
+  padding: 20px 40px;
+
+}
+#video-management .toggle-buttons :nth-child(1)
+{
+  background-color: rgb(103, 176, 228);
+}
+#video-management .toggle-buttons :nth-child(2)
+{
+  background-color: rgb(228, 228, 103);
+}
+#video-management .toggle-buttons :nth-child(3)
+{
+  background-color: rgb(228, 103, 138);
+}
+#video-management .toggle-buttons 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.addVideosForm h1
+{
+ text-align: center;
+}
+.submit-btn
+{
+  background-color: rgb(103, 176, 228);
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.generate-certificate-btn
+{
+  background-color: #0078d0;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  outline: 0;
+  padding: 10px 13px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+}
+
+
+
+
+Course Section Styles
+#courseinfo {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+.fortheallcourse
+{
+  border: #000 solid 1px;
+  width: 30%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-left: 20px;
+}
+
+.coursesectionallfunction {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.coursesectionallfunction span {
+  padding: 10px 20px;
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.coursesectionallfunction span:hover {
+  background-color: #155db1;
+}
+
+/* Add Course Form Styles */
+.fortheaddcourse form {
+  background-color: #f9f9f9;
+  padding: 30px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fortheaddcourse fieldset {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.fortheaddcourse legend {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #333;
+}
+
+.fortheaddcourse label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.fortheaddcourse input[type="text"],
+.fortheaddcourse input[type="number"],
+.fortheaddcourse input[type="date"],
+.fortheaddcourse textarea,
+.fortheaddcourse input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.fortheaddcourse input[type="text"]:focus,
+.fortheaddcourse input[type="number"]:focus,
+.fortheaddcourse input[type="date"]:focus,
+.fortheaddcourse textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.fortheaddcourse textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.fortheaddcourse button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: block;
+  margin: 30px auto 0;
+}
+
+.fortheaddcourse button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.fortheaddcourse button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .fortheaddcourse form {
+    padding: 20px;
+  }
+  
+  .fortheaddcourse button {
+    width: 100%;
+  }
+}
+/* Course Display Styles */
+.showonlycourses {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px; */
+  display: flex;
+    gap: 20px;
+}
+
+.forshwingthecourses {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: max-content;
+}
+
+.forshwingthecourses:hover {
+  transform: translateY(-5px);
+}
+
+.forshwingthecourses img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.forshwingthecourses h2 {
+  padding: 10px;
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.forshwingthecourses p {
+  padding: 0 10px;
+  margin: 5px 0;
+  color: #666;
+}
+
+.forshwingthecourses button {
+  margin: 10px;
+  padding: 8px 15px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.forshwingthecourses button:hover {
+  background-color: #155db1;
+}
+
+/* Set Exam Section Styles */
+#setExamSection {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.set-paper-heading {
+  margin-bottom: 20px;
+}
+
+.exam-heading {
+  color: #333;
+  font-size: 1.5em;
+}
+
+#exma-form-id label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#exma-form-id input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.exam-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.exam-button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .coursesectionallfunction {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .coursesectionallfunction span {
+      margin-bottom: 10px;
+  }
+
+  .showonlycourses {
+      grid-template-columns: 1fr;
+  }
+}
+
+ 
+#addVideosToggle, #seeVideosToggle, #deleteVideosToggle
+{
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+#addVideosToggle , #seeVideosToggle, #deleteVideosToggle:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}

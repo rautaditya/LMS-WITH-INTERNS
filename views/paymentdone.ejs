@@ -1,0 +1,34 @@
+<!-- paymentdone.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Done</title>
+    <link rel="stylesheet" href="/stylesheets/paymetsusccesfullpage.css">
+</head>
+<body>
+  
+    <div class="payment-container">
+        <!-- <div class="success-icon">✔️</div> -->
+        <div class="success-icon">
+          <img src="/images/payment.png" alt="">
+        </div>
+        <!-- <div class="message">Thank You..</div> -->
+        <div class="success-message">Payment Successfull</div>
+        <p>You have successfully completed the payment for <%= course.courseName %> course.</p>
+
+        <p>Thank You...</p>
+      </div>
+    <!-- Add a script to show a pop-up and redirect to the home page -->
+    <script>
+        // Show a pop-up message
+        alert('Payment Successful!');
+
+        // Redirect to the home page after 2 seconds
+        setTimeout(function () {
+            window.location.href = '/home';
+        }, 4000); // 2000 milliseconds (2 seconds)
+    </script>
+</body>
+</html>

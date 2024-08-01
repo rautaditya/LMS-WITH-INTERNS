@@ -1,0 +1,48 @@
+.containerforcourse
+{
+  border: 1px solid black;
+  display: inline-block;
+  margin-left: 1rem;
+  /* display: flex;
+  flex-direction: column; */
+  
+}
+.containerforcourse img{
+  
+  height: 18rem;
+  width: 19rem;
+}
+.containerforcourse h2{
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-left: 10px;
+}
+.enrollbtn
+{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid rgb(218, 217, 218);
+    background-color:rgb(50, 136, 198);
+
+color:white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.containerforcourse p{
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 6px;
+    color: gray;
+}
+.containerforcourse p span{
+    color: blue;
+}
+.coursebtns
+{
+    display: flex;
+    justify-content: space-evenly;
+}

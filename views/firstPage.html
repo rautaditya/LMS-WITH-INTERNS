@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8" />
+  <title>Login Form Design | CodeLab</title>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/user.css">
+  <link rel="stylesheet" href="/stylesheets/mycourses.css">
+  <link rel="stylesheet" href="/stylesheets/testpage.css">
+  <link rel="stylesheet" href="/stylesheets/attempted.css">
+  <link rel="stylesheet" href="/stylesheets/assignment.css">
+  <link rel="stylesheet" href="/stylesheets/faq.css">
+  <link rel="stylesheet" href="/stylesheets/mycoursesnav.css">
+  <link rel="stylesheet" href="/stylesheets/mainfooter.css">
+  <link rel="stylesheet" href="/stylesheets/usereditdetails.css">
+  <link rel="stylesheet" href="/stylesheets/mySchedule.css">
+  <link rel="stylesheet" href="/stylesheets/adminsendcoursedesing.css">
+  <link rel="stylesheet" href="/stylesheets/exlporepage.css">
+  <link rel="stylesheet" href="/stylesheets/sendotp.css">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    
+</head>
+
+<body>
+  
+  <nav>
+    <div class="navbar">
+
+      <span class="menuiconcontainer">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </span>
+
+
+      <div class="leftlogonav p-10"
+                            style="font-weight: 500;display: flex; gap: 10px; align-items: center;">
+                           
+                          <img src="Images/logoname.png" alt="">
+                        </div>
+
+      <div class="navlistanduserprofile">
+        <ul class="navbarlist">
+          <li class="listhover nav-link listofitom" data-target="explorepage">Explore</li>
+          <!-- <li class="listhover nav-link listofitom" data-target="mycourses">My Classes</li>
+          <li class="listhover nav-link listofitom" data-target="mycorsenav">My Courses</li>
+          <li class="listhover nav-link listofitom" data-target="mushedulepage" id="mySchedule">My Schedule</li> -->
+          <li class="listhover nav-link listofitom" data-target="allcourses" id="">Courses</li>
+
+          <!-- <li class="dropmenu">
+            <span class="navlistanddropicon">
+              <a href="#" class="listofitom">Courses</a>
+              <i class="arrow down"></i>
+            </span>
+            <ul class="dropdownnav">
+              <div class=" mycontentlist commonformaillists">
+
+                <a href="#" class="two-item brbtm nav-link" >Java</a>
+                <a href="#" class="two-item brbtm nav-link" >Python</a>
+                <a href="#" class="two-item ">C++</a>
+
+              </div>
+            </ul>
+          </li> -->
+
+          <!-- <li class="dropmenu">
+            <span class="navlistanddropicon">
+              <a href="#" class="listofitom">My Content</a>
+              <i class="arrow down"></i>
+            </span>
+            <ul class="dropdownnav">
+              <div class=" mycontentlist commonformaillists">
+
+                <a href="#" class="two-item brbtm nav-link" data-target="testpage">Test</a>
+                <a href="#" class="two-item brbtm nav-link" data-target="assinmentpage">Assignment</a>
+                <a href="#" class="two-item ">Library</a>
+
+              </div>
+            </ul>
+          </li> -->
+          <li class="dropmenu">
+            <span class="navlistanddropicon">
+              <a href="#" class="listofitom">Study Material
+              </a>
+              <i class="arrow down"></i>
+            </span>
+            <ul class="dropdownnav">
+              <div class="studymlist commonformaillists">
+                <div class="studym">
+                  <a href="#" class="dropdown-item brbtm">NCERT Solutions<i class="ri-arrow-right-s-line"></i></a>
+
+                  <div class="seven-contentssm common">
+                    <a href="#" class="two-item brbtm">Class 12</a>
+                    <a href="#" class="two-item brbtm">Class 11</a>
+                    <a href="#" class="two-item brbtm">Class 10</a>
+                    <a href="#" class="two-item brbtm">Class 9</a>
+                    <a href="#" class="two-item brbtm">Class 8</a>
+                    <a href="#" class="two-item brbtm">Class 7</a>
+
+                    <a href="#" class="two-item ">Class 6</a>
+                  </div>
+
+
+                </div>
+                <div class="studymtwo">
+                  <a href="#" class="dropdown-item brbtm">Previours Year Papers<i class="ri-arrow-right-s-line"></i></a>
+                  <div class="smtwo common">
+                    <a href="#" class="two-item brbtm">CBSE Class 10</a>
+                    <a href="#" class="two-item brbtm">CBSE Class 12</a>
+                    <a href="#" class="two-item brbtm">CBSE Class 10</a>
+                    <a href="#" class="two-item brbtm">JEE Main papers</a>
+                    <a href="#" class="two-item brbtm">JEE Advance papers</a>
+                    <a href="#" class="two-item ">KCET Papers</a>
+                  </div>
+
+                </div>
+                <div class="studymtwo">
+                  <a href="#" class="dropdown-item brbtm ">Mock Test<i class="ri-arrow-right-s-line"></i></a>
+
+                  <div class="smthree common">
+                    <a href="#" class="two-item brbtm">JEE Main Mock Test </a>
+                    <a href="#" class="two-item ">JEE Advance Mock Test</a>
+                  </div>
+                </div>
+                <div class="studymtwo">
+                  <a href="#" class="dropdown-item brbtm">Sample Papers<i class="ri-arrow-right-s-line"></i></a>
+
+                  <div class="smfour common">
+                    <a href="#" class="two-item brbtm">CBSE</a>
+                    <a href="#" class="two-item brbtm">Class 12</a>
+                    <a href="#" class="two-item brbtm">Class 10</a>
+                    <a href="#" class="two-item brbtm ">Class 9</a>
+
+                    <a href="#" class="two-item brbtm">ICSE</a>
+                    <a href="#" class="two-item ">Class 10</a>
+                  </div>
+
+                </div>
+
+              </div>
+            </ul>
+          </li>
+          <li class="dropmenu">
+            <span class="navlistanddropicon">
+              <a href="#" class="listofitom">More</a>
+              <i class="arrow down"></i>
+            </span>
+            <ul class="dropdownnav commonformaillistsall">
+              <a href="#" class="dropdown-item brbtm">Free Master Classes</a>
+              <a href="#" class="dropdown-item brbtm">Computer Science Tuitions</a>
+              <a href="#" class="dropdown-item brbtm">Our Result</a>
+              <a href="#" class="dropdown-item brbtm">Help/a>
+               
+                <a href="#" class="dropdown-item brbtm">Micro Courses</a>
+                <a href="#" class="dropdown-item brbtm">About vivaaks</a>
+                <a href="#" class="dropdown-item nav-link" data-target="faqs">FAQs</a>
+            </ul>
+          </li>
+
+        </ul>
+
+
+        <!-- <span>
+          <div class="secondofnav">
+            <div class="naviconsright dfg10 ml20 alinecentre">
+              <img src="Images/save.png" alt="" style="height: 18px;">
+              <div class="userprofile dfg10 alinecentre gap7">
+                <img src="Images/user.png" alt="" style="height: 23px;">
+                <p class="font14">user</p>
+                <i class="arrow down"></i>
+
+                <div class="userinfo">
+                  <a href="#" class="two-item  brbtm nav-link fontem" data-target="myprofile">My Profile</a>
+                  <a href="#" class="two-item  brbtm nav-link fontem" data-target="myaccount">My Account</a>
+                  <a href="#" class="two-item  brbtm nav-link fontem" data-target="mypurcheses">My Purcheses</a>
+                  <a href="#" class="two-item ">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </span> -->
+      </div>
+      <div class="otp-all-container">
+        <button id="openPopupButton" >SignUP</button>
+  
+        <div class="popup" id="otpPopup">
+          <span class="popup-close" onclick="closePopup()">X</span>
+          
+          <div class="sub-logo-main">
+            <p class="otp-logo">VIVAAKS</p>
+            <p class="sub-logo">
+              Enroll now to learn LIVE Online from India's best teachers
+            </p>
+          </div>
+          
+          <div id="result"></div>
+          <div class="otp-form">
+      
+         
+          <form id="otpForm" method="post">
+            <label for="name" class="sendotp-label">Name:</label>
+            <input type="text" id="name" name="name" required />
+            
+            <label for="" class="sendotp-label">Mobile:</label>
+            <input type="number" id="phone" name="phone" required />
+           
+            <label for="email" class="sendotp-label">Email:</label>
+            <input type="email" id="email" name="email" required />
+            
+            <button type="button" onclick="sendOTP()" id="sendButton" class="otp-btn">
+              Send OTP
+            </button>
+            <br />
+            <label for="otp" class="sendotp-label">Enter OTP:</label>
+            <input type="text" id="otp" name="otp" required />
+            <br />
+            <button type="button" onclick="verifyOTP()" class="otp-btn">Verify OTP</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+    
+  </nav>
+<!-- 
+starting the pages of different different and first is user page my profile -->
+
+ 
+<div class="pageofbody">
+<!-- this page for explore page -->
+<div class="section" id="explorepage">
+  <div class="Explorermain"  style="position: relative; "> 
+    <div class="ExplorerSlider-container">
+        <div class="Explorer-slides" style="height: 70%; max-width: fit-content;">
+           <div class="Explorer-slide"><img src="/images/pic1.jpg" alt="Image 1"></div>
+            <div class="Explorer-slide"><img src="/images/pic2.jpg" alt="Image 2"></div>
+            <div class="Explorer-slide"><img src="/images/pic3.jpg" alt="Image 3"></div>
+            <!-- Add more slides as needed -->
+        </div>
+    
+
+
+    </div>
+
+    
+    <div class="Explorer-flex-container" >
+        <div class="Explorer-box" >
+            <h1 style>3 lakh</h1>
+            <p>views</p>
+
+        </div>
+        <div class="Explorer-box">
+            <h1>1.5lakh</h1>
+            <p>Happy Student</p>
+
+        </div>
+        <div class="Explorer-box">
+            <h1>2.5lakh</h1>
+            <p>Registration</p>
+            
+
+        </div>
+        <div class="Explorer-box">
+            <h1>50 k</h1> 
+            <p>Placed</p>
+            
+            
+
+        </div>
+    </div>
+  
+ </div>
+    <div class="Explorer-middle1">
+        <div class="Explorer-first">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.  <br>
+                 Quo repellendus facere cumque nihil saepe dolorem earum <br>
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                 Quo repellendus facere cumque nihil saepe dolorem earum  <br>
+               
+                  in corrupti dolores illum!</p>
+        </div>
+        <div class="Explorer-second">
+            <h2>More Information</h2>
+            <img src="/images/youtube.png" alt="" style="height: 300px; width: 400px;">
+        </div>
+    </div>
+
+    <div class="Explorer-middle2" >
+        <div class="Explrer-founder">
+            <h3>Founder</h3>
+            <img src="/images/founder1.jfif" alt=""style="height: 300px; width: 400px;" >
+        </div>
+        <div class="Explorer-motive" style="height: 300px; width: 400px;">
+            <h2>Our Values</h2>
+            <h4>1. Student is central</h4>
+            <h4>2. Fail fast, learn faster</h4>
+            <h4>3. Commitment to quality education</h4>
+        </div>
+    </div>
+ <div class="Explorer-tech">
+    <h1>Technology</h1>
+    <div class="Explorer-marquee-container" style="width: 20%;">
+        <div class="marquee-content" style="position: fixed;overflow-x:auto ;">
+            <img src="/images/html.png" alt="Image 1" >
+            <img src="/images/css.png" alt="Image 2" >
+            <img src="/images/js.png" alt="Image 3">
+            <img src="/images/angular1.jfif" alt="Image 4">
+            <img src="/images/nodejs.png" alt="Image 5">
+            <img src="/images/mongodb.jfif" alt="Image 6">
+            <img src="/images/java.png" alt="Image 7">
+            <img src="/images/oracle.png" alt="Image 8">
+            <img src="/images/python.png" alt="Image 9">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+</div>
+      
+  <div class="Explorer-contact-section" >
+    <h2>Contact</h2>
+    <i class="fas fa-phone contact-icon"></i>
+    <a href="tel:+123456789" class="Explorer-contact-link">Call us</a>
+
+    <i class="fab fa-whatsapp contact-icon"></i>
+    <a href="https://wa.me/+91-7588675171" class="Explorer-contact-link" target="_blank">WhatsApp</a>
+
+    <i class="fab fa-instagram contact-icon"></i>
+    <a href="https://www.instagram.com/your_instagram" class="Explorer-contact-link" target="_blank">Instagram</a>
+
+    <i class="fab fa-twitter contact-icon"></i>
+    <a href="https://twitter.com/your_twitter" class="Explorer-contact-link" target="_blank">Twitter</a>
+    </div>
+
+   <footer class="Explorer-footer">
+    @copyright Vivaaks Technology
+   </footer>
+
+</div>
+ <!--this page for faq of project in more option -->
+ <div class="section" id="faqs">
+  <div>
+      <div class="firstoffaqone">
+        FAQs
+      </div>
+      <div class="navbaroffaqitoms">
+          <div id="higerTab" class="firstnavitomfaq faqnavdesign active ">1-to-1(Higher Grades)</div>
+          <div id="refundTab" class="firstnavitomfaq ">Refund</div>
+          <div id="learningTab" class="firstnavitomfaq ">Early Learning Courses</div>
+      </div>
+  </div>
+      <div class="forquestions">
+          
+          <div class="whiteboxcenter">
+              <div class="higergradediv faqcontent opentabs"id="higerTabContent">
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How to accept a course plan?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+                </div>
+                <div class="course-plan">
+                  <div class="course-heading">
+                      <p>Where do I find the course plans that I've enrolled for?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How do I cancel the session?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+              
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>I did not take a session, how do I reschedule that session?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                           
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>I want to change my subject's teacher. How do I do it?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                         
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>I've by mistake given wrong rating to a teacher, how do I change it?
+                      </p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                          
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>Where do I find my remaining hours?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                             
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>I've hours remaining, but I'm unable to schedule my sessions. What should I do?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                             
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How to accept a course plan?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                            
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How frequently will I get my tests/assignments from teachers?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>Can I download the past session replay?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How to download my Session Notes?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>What is the procedure to get refund of my money?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+          </div>
+          <div class="refundfaq faqcontent opentabs" id="refundTabContent">
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How to accept a course plan?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+                </div>
+                <div class="course-plan">
+                  <div class="course-heading">
+                      <p>What is the procedure to get refund of my money?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How can I get a refund? (in cases where applicable)
+                      </p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+          </div>
+          <div class="learningclassesfaq faqcontent opentabs" id="learningTabContent">
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How to accept a course plan?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+                </div>
+                <div class="course-plan">
+                  <div class="course-heading">
+                      <p>What is the procedure to get refund of my money?</p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+              <div class="course-plan">
+                  <div class="course-heading">
+                      <p>How can I get a refund? (in cases where applicable)
+                      </p>    
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="course-details"">
+                    <p>Follow the below steps :-</p>
+                      <div style="padding: 12px 29px;">
+                             <ol>
+                              <li class="paditop7">Login to your vivaaks Account.</li>
+                              <li class="paditop7">Click on "My Subscription" you would see on top of the page.</li>
+                              <li class="paditop7">Click on "1-to-1" Tab under "My Subscription".</li>
+                              <li class="paditop7">You would see your active course plan. Click on "View Details".</li>
+                              <li class="paditop7">You would be able to see a Join Course button. Click on it.</li>
+                              <li class="paditop7">Once you've join the course you would be able to see pay and join option in the right corner.</li>
+                          </ol>
+                      </div>
+
+                  </div>
+                  <hr class="hrline">
+              </div>
+          </div>
+      </div>
+
+
+
+      </div>
+   <div class="helpdeskno">
+    
+             <p style="font-size: 2vh; ">In case you face any issues you can reach us at</p>
+             <p class="mobileno">+918888888887</p>
+          </div>
+</div>
+
+<div class="section" id="allcourses">
+  <div><h1>this is student page our courses</h1></div>
+  <% courses.forEach(course => { %>
+      <div class="containerforcourse">
+        <img class="" src="/uploads/<%= course.courseImage %>" alt="<%= course.courseName %> Image">
+        <h2><%= course.courseName %></h2>
+        <p><span>Professor</span>: <%= course.courseProfessorName %></p>
+        <p><span>Course Price</span>: <%= course.courseDescription %></p>
+        <div class="coursebtns">
+          <a href="/enroll/<%= course._id %>">
+            <button class="enrollbtn">Enroll</button>
+        </a>          <!-- Add more details as needed -->
+        <a href="/courseoverview/<%= course._id %>">
+          <button class="enrollbtn">Course Overview</button>
+      </a>
+        </div>
+      </div>
+    <% }); %>
+</div>
+<footer>
+  <div class="footer" id="footerall">
+
+      <div class="data">
+          <div class="QLDiv">
+              <h3>QUICK LINKS</h3>
+              <ul>
+
+                  <li><a href="">Home</a> </li>
+                  <li><a href="">Why teach with vivaaks</a></li>
+                  <li><a href="">Try Whiteboard</a></li>
+                  <li><a href=""> Try WAVE</a></li>
+                  <li><a href="">Micro Courses</a></li>
+                  <li><a href="">About Us</a></li>
+                  <li><a href="">Careers</a></li>
+                  <li><a href="">Contact Us</a></li>
+                  <li><a href="">Blog</a></li>
+              </ul>
+          </div>
+
+          <div class="TEDiv">
+              <h3>TARGET EXAMS</h3>
+              <ul>
+
+                  <li><a href="">CBSE Tuitions</a></li>
+                  <li><a href="">ICSE Tuitions</a></li>
+                  <li><a href="">JEE Main</a></li>
+                  <li><a href="">Revision Notes</a></li>
+                  <li><a href="">IGCSE Past Papers</a></li>
+                  <li><a href="">Previous Year Question Paper</a></li>
+                  <li><a href="">Sample Papers</a></li>
+                  <li><a href="">HC Verma Solutions</a></li>
+                  <li><a href="">ICSE Class 10 Solutions</a></li>
+              </ul>
+          </div>
+
+          <div class="INFODiv">
+              <h3>INFO</h3>
+              <ul>
+
+                  <li><a href="">Benefits</a></li>
+                  <li><a href="">Why vivaaks?</a></li>
+                  <li><a href="">Testimonials</a></li>
+                  <li><a href="">News</a></li>
+                  <li><a href="">Terms and Conditions</a></li>
+                  <li><a href="">Privacy Policy</a></li>
+                  <li><a href="">About us</a></li>
+              </ul>
+          </div>
+
+          <div class="FRDiv">
+              <h3>FREE RESOURCES</h3>
+              <ul>
+
+                  <li><a href="">NCERT Solutions</a></li>
+                  <li><a href="">NCERT Solutions for Class 9 Maths</a></li>
+                  <li><a href="">NCERT Solutions for Class 9 Science</a></li>
+                  <li><a href="">NCERT Solutions for Class 10 Maths</a></li>
+                  <li><a href="">NCERT Solutions for Class 10 Science</a></li>
+                  <li><a href="">NCERT Solutions for Class 11 Maths</a></li>
+                  <li><a href="">NCERT Solutions for Class 11 Physics</a></li>
+                  <li><a href="">NCERT Solutions for Class 12 Maths</a></li>
+                  <li><a href="">NCERT Solutions for Class 12 Physics</a></li>
+                  <li><a href="">NCERT Solutions for Class 12 Physics</a></li>
+                  <li><a href="">RD Sharma Class 10 Solutions</a></li>
+                  <li><a href="">Practice Questions</a></li>
+              </ul>
+          </div>
+
+          <div class="HTDiv">
+              <h3>HOME TUITION</h3>
+              <ul class="footeranker">
+
+                  <li><a href="">Home Tuition in Bangalore</a></li>
+                  <li><a href="">Home Tuition in Hyderabad</a></li>
+                  <li><a href="">Home Tuition in Chennai</a></li>
+                  <li><a href="">Home Tuition in New Delhi</a></li>
+                  <li><a href="">Home Tuition in Mumbai</a></li>
+                  <li><a href="">Home Tuition in Pune</a></li>
+                  <li><a href="">Math Teacher</a></li>
+                  <li><a href="">Science Teacher</a></li>
+                  <li><a href="">Physics Tuition</a></li>
+                  <li><a href="">Chemistry Tuition</a></li>
+              </ul>
+              <div>
+                  <div class="icon">
+                      <a href=""> <i class="fa-brands fa-facebook"></i></a>
+                      <a href=""> <i class="fa-brands fa-twitter"></i></a>
+                      <a href=""> <i class="fa-brands fa-blogger-b"></i></a>
+                  </div>
+                  <div class="contact">
+                      <div class="TM">
+                          <a href="">
+                              <span>Toll Free:</span>
+                              <strong>1800-120-456-456</strong></a><br>
+                          <a href="">
+                              <span>Mobile:</span>
+                              <strong>+91 988-660-2456</strong></a><br>
+                      </div>
+                      <a href="">
+                          <small>(Mon-Sat:10AM - 9PM, Sun:10AM - 7PM) <br>
+                              Questions? Chat with us</small>
+                      </a>
+
+                  </div>
+              </div>
+
+          </div>
+      </div>
+
+  </div>
+  </div>
+</footer>
+
+  </div>
+
+
+
+<script src="/javascripts/sendotp.js"></script>
+  <script src="/javascripts/navbar.js"></script>
+  <script src="/javascripts/script.js"></script>
+  <script src="/javascripts/explorepage.js"></script>
+  
+</body>
+
+</html>

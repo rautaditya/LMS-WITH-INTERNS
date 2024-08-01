@@ -1,0 +1,115 @@
+.mainofmycourses {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 3rem;
+}
+.smallcard {
+  background-color: #f9e94c;
+  padding: 18px 35px 18px 35px;
+
+  margin-bottom: 4rem;
+  border-radius: 8px;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+.smallcard img {
+  height: 7rem;
+  padding: 10px 10px 20px 0px;
+}
+.smallcard p {
+  font-size: 18px;
+}
+.blackbtn {
+  width: max-content;
+  padding: 13px 18px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.upcomingclassesslide {
+  width: 100%;
+  background-color: rgb(241, 245, 249);
+}
+.headlineofuc {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  height: fit-content;
+}
+.headlineofuc p {
+  font-size: 20px;
+  font-weight: 600;
+}
+.headlineofuc a {
+  color: orange;
+  text-decoration: none;
+}
+/* Google Fonts - Poppins */
+/* Google Fonts - Poppins */
+.upcomingclassesslide {
+  height: 150px;
+  margin-bottom: 2rem;
+  width: 80%;
+}
+.coursedes {
+  display: flex;
+  width: 100%;
+  height: max-content;
+  background-color: #ff6d26;
+  gap: 0px;
+  padding: 20px 0px 20px 0px;
+
+  justify-content: space-evenly;
+  margin-top: 5%;
+  /* rgb(216,213,213)) */
+}
+.boxdivfour {
+  padding: 20px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  gap: 15px;
+  width: 15%;
+  justify-content: center;
+  font-weight: bolder;
+  border-radius: 10px;
+}
+.boxdivfour img {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+}
+
+.lastdivofmycoursepage {
+  background-color: rgb(216, 213, 213);
+  margin-top: 8%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.twodivonmcp {
+  display: flex;
+  gap: 8rem;
+  padding: 2rem;
+}
+.twoonecp img {
+  height: 14rem;
+  width: 14rem;
+}
+.firstonecp p {
+  font-size: 40px;
+  font-weight: bold;
+}
+.firstonecp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

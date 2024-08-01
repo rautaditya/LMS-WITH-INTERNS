@@ -1,0 +1,59 @@
+.payment-container {
+    text-align: center;
+ 
+    border-radius: 10px;
+    background-color: rgba(80, 187, 132, 0.9);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+    border: 1px solid gray;
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .success-icon {
+    color: #4CAF50;
+     font-size: 2rem;
+     /* margin-bottom: 20px;  */
+    animation: rotateScale 0.8s ease-in-out;
+    
+  }
+
+  .success-message {
+    font-size: 2.1rem;
+    color: #333;
+      margin-bottom: 20px; 
+     display: flex;
+     flex-direction: column;
+      
+     
+  }
+
+   @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rotateScale {
+    0% {
+      transform: rotate(0) scale(0);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  } 
+  
+    
+
+  

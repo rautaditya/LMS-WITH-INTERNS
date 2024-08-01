@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperAdmin</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <link rel="stylesheet" href="/stylesheets/adminpagecss.css">
+
+</head>
+<style>
+  .admin-panel {
+    display: none;
+  }
+
+  .visible {
+    display: block;
+  }
+</style>
+
+<body>
+
+  <nav>
+    <div class="logo-name">
+        <div class="logo-image">
+
+        </div>
+
+        <span class="logo_name">Vivaaks Tech</span>
+    </div>
+
+    <div class="menu-items">
+        <ul class="nav-links">
+            <li>
+                <a href="#" onclick="toggleSection('dashboard')">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dashboard</span>
+                </a>
+            </li>
+            <li><a href="#">
+                <i class="uil uil-files-landscapes"></i>
+                <span class="link-name">Content</span>
+            </a></li>
+            <li>
+                <a href="#maindemo" onclick="toggleSection('maindemo')">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Super Admin</span>
+                </a>
+            </li>
+            <li><a href="">
+                <i class="uil uil-thumbs-up"></i>
+                <span class="link-name">Like</span>
+            </a></li>
+            <li><a href="#">
+                <i class="uil uil-comments"></i>
+                <span class="link-name">Comment</span>
+            </a></li>
+            <li><a href="#">
+                <i class="uil uil-share"></i>
+                <span class="link-name">Share</span>
+            </a></li>
+        </ul>
+        <!-- ... (previous code) ... -->
+
+<ul class="logout-mode">
+  <li>
+    <a href="#">
+      <i class="uil uil-signout"></i>
+      <span class="link-name">Logout</span>
+    </a>
+  </li>
+
+  <div style="display: flex; gap: 15px;">
+
+  <li id="darkModeToggle" class="mode">
+    <a href="#" onclick="darkmode()">
+      <i class="uil uil-moon"></i>
+      <span class="link-name">Dark Mode</span>
+    </a>
+
+    <li class="checkbox-wrapper-6" style="margin-top: 1%;">
+      <input class="tgl tgl-light" id="cb1-6" type="checkbox" onclick="darkmode()"/>
+      <label class="tgl-btn" for="cb1-6">
+      </li>
+      
+  </li>
+  </div>
+</ul>
+
+
+
+<!--        
+        <ul class="logout-mode">
+            <li><a href="#">
+                <i class="uil uil-signout"></i>
+                <span class="link-name">Logout</span>
+            </a></li>
+
+            <li  id="darkModeToggle"  class="mode">
+                <a href="#">
+                    <i class="uil uil-moon"></i>
+                <span class="link-name">Dark Mode</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+        </li>
+        </ul>
+-->      
+    </div>
+</nav>
+
+<section id="#dashboard" class="dashboard">
+  <div class="top">
+      <i class="uil uil-bars sidebar-toggle"></i>
+
+      <div class="search-box">
+          <i class="uil uil-search"></i>
+          <input type="text" placeholder="Search here...">
+      </div>
+      
+      <img src="/images/profile.jpg" alt="">
+  </div>
+
+  <div class="dash-content">
+      <div class="overview">
+          <div class="title">
+              <i class="uil uil-tachometer-fast-alt"></i>
+              <span class="text"> SuperAdmin Dashboard</span>
+          </div>
+
+          <div class="boxes">
+              <div class="box box1">
+                  <i class="uil uil-thumbs-up"></i>
+                  <span class="text">courses</span>
+                  <span class="number">120</span>
+              </div>
+              <div class="box box2">
+                  <i class="uil uil-comments"></i>
+                  <span class="text">student</span>
+                  <span class="number">20,120</span>
+              </div>
+              <div class="box box3">
+                  <i class="uil uil-share"></i>
+                  <span class="text">users</span>
+                  <span class="number">10,120</span>
+              </div>
+          </div>
+      </div>
+
+      </div>
+      </section>
+
+
+    <section id="maindemo" >
+       
+        <h1 class="headingsuperadmin" style="color: blue;">Welcome to SuperAdmin!</h1>
+
+      <div class="adminlinks">
+        <a data-taget="#alladmin" onclick="showPanel('alladmin')" class="optionbtn" ><spam >All Admin</spams></a>  
+         
+        <a data-taget="#addadmin" onclick="showPanel('addadmin')" href="#addadmin" class="optionbtn"> <spam >Add Admin</spam></a>
+          
+      
+         <a data-taget="#deleteadmin" onclick="showPanel('deleteadmin')" href="#deleteadmin" class="optionbtn"><spam>Delete Admin</spam></a> 
+
+      </div>
+
+    
+      <div id="alladmin" class="admin-panel visible" style="height: 100%; margin-top: 10%; margin-left: -5%;">  
+                  <h2 style="text-align: center;">Available Admins</h2>
+                  <div class="table-container">
+          <% if (admins.length > 0) { %>
+            <table>
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Name</th>
+                  <th>Mobile</th>
+           <!--       <th>Action</th>  Add a new column for the delete action -->
+                </tr>
+              </thead>
+              <tbody>
+                <% admins.forEach(admin => { %>
+                  <tr>
+                    <td><%= admin.email %></td>
+                    <td><%= admin.name %></td>
+                    <td><%= admin.mobile %></td>
+              <!--      <td>
+                    
+                      <form method="post" action="/deleteadmin/<%= admin._id %>" onsubmit="return confirm('Are you sure you want to delete this admin?')">
+                        <button type="submit">Delete</button>
+                      </form>
+                    </td>
+                -->
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          <% } else { %>
+            <p>No admins found.</p>
+          <% } %>
+        </div>
+      
+      
+       </div>
+    
+     
+    <div id="addadmin" class="admin-panel">  
+
+    <div cl>
+        <h2>Add New Admin</h2>
+        <form action="/addadmin" method="post">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required><br>
+      
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required><br>
+          <label for="mobile">mobileno:</label>
+          <input type="number" id="mobile" name="mobile" required><br>
+      
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+      
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required><br>
+      
+          <label for="image">Image URL:</label>
+          <input type="text" id="image" name="image" required><br>
+      
+          <button type="submit">Add Admin</button>
+        </form> 
+    </div>
+     </div>
+     
+     <!---->
+
+   <div id="deleteadmin" class="admin-panel" style="    margin-top: 10%;
+   margin-left: -5%;">
+     <h2 style="text-align: center;" >Delete Admin</h2>
+
+     <div class="table-container">
+        <% if (admins.length > 0) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Action</th> <!-- Add a new column for the delete action -->
+              </tr>
+            </thead>
+            <tbody>
+              <% admins.forEach(admin => { %>
+                <tr>
+                  <td><%= admin.email %></td>
+                  <td><%= admin.name %></td>
+                  <td><%= admin.mobile %></td>
+                  <td>
+                    <!-- Add a delete button or link -->
+                    <form method="post" action="/deleteadmin/<%= admin._id %>" onsubmit="return confirm('Are you sure you want to delete this admin?')">
+                      <button type="submit">Delete</button>
+                    </form>
+                    
+                  </td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <p>No admins found.</p>
+        <% } %>
+      </div>
+
+
+
+   </div>
+
+</section> 
+ 
+ 
+
+    <script>
+      function showPanel(panelId) {
+    // Hide panels that are not selected
+    var panels = document.querySelectorAll('.admin-panel');
+    for (var i = 0; i < panels.length; i++) {
+      if (panels[i].id === panelId) {
+        panels[i].classList.add('visible');
+      } else {
+        panels[i].classList.remove('visible');
+      }
+    }
+  }
+ 
+
+
+// Function to toggle between dashboard and courses sections
+
+
+   
+
+
+function darkmode()
+{
+  const body=document.body;
+  body.classList.toggle("dark-mode");
+}
+</script>
+
+
+    
+    
+
+
+    
+
+<script src="/javascripts/scriptforadminpage.js"></script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="js.js"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.css">
+
+  <link rel="stylesheet" href="/stylesheets/chatbotpage.css">
+</head>
+
+<body>
+<div>
+  <div class="containerforchatbor">
+  <div class="mainbtn">
+
+  <i class="b1" onclick="showbtn()"><img src="/images/click-to-call.svg" alt=""  class="iconbase"></i>
+    
+</div>
+  <div class="windowforchatbot">
+  <div id="popupwindow">
+   
+    <div class="fbtn">
+          
+      <span>CALL ME BACK</span>
+      <div class="icon1">
+      <div class="fa-sharp fa-solid fa-phone" style="color: red;" id="init"></div>
+  </div> 
+</div>
+
+&nbsp;
+
+  <div class="sbtn ">
+      <span>CALL WITH US</span>
+      <i class="fa-solid fa-message" style="color: #f72e18; font-size: 40px;" onclick="showchatbotbody()">
+      </i>
+  </div>
+
+  </div>
+</div>
+</div>
+<div id="containerchatbot">
+ 
+  <div class="chat-header">
+    <div class="logo">
+         <i class="fa-solid fa-robot"></i>
+    </div>
+    <div class="title">
+    Chat Buddy
+    </div>
+    <!-- <div class="dots" onclick="dotsFunctions()">
+      <i class="fas fa-ellipsis-h" style="color: #050505;"></i>
+    </div> -->
+    <div class="dots">
+    <i class="fas fa-ellipsis-h" style="color: #050505;"></i>
+  </div>
+    <div class="dotselement" style="display: none;">
+
+      <div class="emailpageforchatbot" onclick="emailpage()">
+           <img src="/images/downloadofchatbot.png" alt="" style="height: 12px ;">&nbsp;
+          Email this transcript
+       </div>
+       <hr>
+       
+       <div class="emailbox" style="display: none;">
+        <header>
+        <img src="/images/less-than-solid.svg" alt="" id="closeemailbody" onclick="emailclose()"> 
+        <p>Email this transcript</p>    
+        
+      </header>
+        <div class="emailbody">
+          <p id="p1">Email</p>
+          <input type="email" id="email" name="email" required>
+          <p id="resultMessage"></p>
+
+          <p id="p2">Please enter the email address where you'd like to send   the transcript of this conversation</p>
+         
+         <br> <div id="sendmeemail" onclick="validateEmail()">
+            Send email
+          </div>
+
+        </div>
+
+       </div>
+       
+       <div class="history" onclick="historypage()">
+        <img src="/images/history-solid.svg" alt="" style="height: 12px;">&nbsp;
+        Conversation history
+         </div>
+
+         <div class="historyblock" style="display: none;">
+          <header>
+            
+            <img src="/images/less-than-solid.svg" alt="" id="closeemailbody" onclick="closehistory()" > 
+            <p>Conversation history</p>    
+            
+          </header>
+          <img src="conversationhistory.png" alt="" id="historyimageinweb">
+
+         </div>
+
+
+
+   
+    </div>
+
+   
+</div>
+<div class="emailbox">
+
+
+
+</div>
+
+
+
+
+<div class="chat-body">
+
+ 
+  
+  <div class="chatbot-message" id="default-message" >
+    <div class="nameandtime">
+    
+      <p>Chat Buddy</p>
+  
+  
+    </div>
+    
+    
+    <div>    <div class="dtext">
+    <div class="ftextcb">
+      <p>Hi There,</p>
+       <p> Nice to see you 👋</p>   
+        <p>Welcome to upGrad!</p>
+      </div>
+
+        
+      <div class="stextcb" >
+        <div>       <img src="/images/robot-solid.png" alt="" height="20px"></div>
+
+        <div>      <p> Step in to learn more about the</p>
+      <p> concepts of Data  Science and</p>
+      <p>Machine learning from Top Indian</p>
+      <p>and Global Universities!😀</p></div>
+
+    </div>
+  </div>
+
+   
+</div>
+
+     
+</div>
+<div class="chatimg">
+<img src="/images/robot-solid.png" alt="" height="27px" width="27px">
+
+
+</div>
+</div>
+
+<div class="chat-input">
+
+  
+    <div class="input-sec">
+
+
+    <input type="text" id="txtinput" placeholder="Write a reply" class="textbox" autofocus >
+
+      <div data-emoji-picker="true"></div>
+
+      <div class="attachfile">
+        <label for="file-input">
+          <i class="fa-solid fa-paperclip fa-rotate-90"></i>
+      </label>
+      <input id="file-input" type="file"/>
+      </div>
+  
+    <div class="settings-button" onclick="settingwindow()">
+      <img src="/images/icons8-settings (1).svg" alt="" style="height: 22px; width: 22px;">
+      
+    <div class="settingelement">
+      
+
+      <!-- <p>press <b> Enter </b> to</p>
+
+      <div id="i1"  style="color: #050505;">
+                    <input type="radio" id="html" value="HTML" >
+                    <label for="html">Send the message</label>
+                  </div>
+                  <div id="i2" style="color: #050505;">
+                     <input type="radio" id="css" value="CSS">
+                      <label for="css">Start a new line</label>
+                  </div>
+       -->
+     </div>
+              
+        
+    </div>
+    
+    <div>
+      <div class="send"><img src="/images/send.svg" alt="" style="height: 20px; width: 20px;"></div>
+
+
+    </div>
+      </div>
+    </div> 
+  </div>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+<script src="/javascripts/chatbot.js" defer></script>
+<script src="emoji.js"></script>
+<script src="response.js"></script>
+<!-- <script src="emojiPicker.js"></script> -->
+<script>
+
+  (() => {
+      new EmojiPicker()
+    })()
+</script>
+
+
+
+
+<script>
+  
+// Select the image element by its ID
+const image = document.querySelector('.iconbase');
+let z=true;
+var newPaddingTop = 15;
+
+
+// Add a click event listener to the image
+image.addEventListener('click', function() {
+  // Change the source of the image to the new image
+ if(z)
+ {
+
+  image.src = '/images/closeicon.png';
+    image.width = 32; // 300 pixels
+   image.height = 32; // 200 pixels
+    z=false;
+ }
+ else
+ {
+
+  image.src='/images/click-to-call.svg';
+  image.width = 32; // 300 pixels
+   image.height = 32; // 200 pixels
+    z=true;
+  
+ }
+  
+});
+
+
+const a=document.querySelector('#popupwindow');
+let isclicked=true;
+
+  let showbtn=function()
+  {
+
+    if(isclicked)
+    {
+
+    a.style.display='block';
+    isclicked=false;
+    
+    
+    
+    }
+    else
+    {
+        a.style.display='none';
+        isclicked=true;
+        b.style.display='none';
+        cbb=true;
+
+    }
+  
+  }
+  
+  const b=document.querySelector('#containerchatbot');
+  let cbb=true;
+  let showchatbotbody=function()
+
+  {
+    if(cbb)
+    {
+      b.style.display='block'
+      cbb=false
+      
+    }
+    
+
+  }
+
+  const d=document.querySelector(".dotselement");
+  let ccc=true;
+  let dotsFunctions=function()
+  {
+    if(ccc)
+    {
+      d.style.display='block';
+      ccc=false;
+
+    }
+    else
+    {
+      d.style.display='none';
+      ccc=true;
+    }
+
+  }
+
+  
+
+  const f=document.querySelector(".settingelement");
+  let fff=true;
+  let settingwindow=function()
+  {
+    if(fff)
+    {
+      f.style.display='block';
+      fff=false;
+    }
+    else{
+      f.style.display='none';
+      fff=true;
+    }
+  }
+
+  const g=document.querySelector(".emailbox ");
+  let ggg=true;
+
+  let emailpage=function()
+  {
+    if(ggg)
+    {
+      g.style.display='block';
+      ggg=false;
+    }
+    else{
+      g.style.display='none';
+      ggg=true;
+    }
+  }
+  const e=document.querySelector(".emailbox ");
+  const u=document.querySelector(".dotselement");
+  let nnn=true;
+  let emailclose=function()
+  {
+    if(nnn)
+    {
+      e.style.display='none';
+      u.style.display='none';
+    }
+   
+  }
+const o=document.querySelector(".historyblock");
+let gg=true;
+
+  let historypage=function()
+  {
+    if(gg)
+    {
+      o.style.display='block';
+      gg=false;
+    }
+    else{
+      o.style.display='none';
+      gg=true;
+    }
+  }
+  const uu=document.querySelector(".historyblock");
+  let uuu=true;
+  let closehistory=function()
+  {
+    if(uuu)
+    {
+      uu.style.display='none';
+      u.style.display='none';
+    }
+  }
+
+  function validateEmail() {
+    var email = document.getElementById("email").value;
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var resultMessage = document.getElementById("resultMessage");
+
+    if (!emailRegex.test(email)) {
+      resultMessage.innerHTML = "Please enter a valid email address.";
+    } else {
+      resultMessage.innerHTML = "Email is valid.";
+    }
+  }
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+ // const chatMessages = document.getElementById("chat-messages");
+  //const userInput = document.getElementById("user-input");
+  //const sendButton = document.getElementById("send-btn");
+
+   
+  const chatBody=document.querySelector(".chat-body");
+  const txtInput=document.querySelector("#txtinput");
+  const send=document.querySelector(".send");
+  const questions = [
+      "What is your name?",
+      "What is your email id ?",
+      "What is yout contact no ?",
+  ];
+
+  let currentQuestionIndex = -1; // Start with -1 to display the welcome message
+
+   // Outputs the current time in "hh:mm" format
+
+  function appendChatbotMessage(message) {
+    
+      const chatbotMessageDiv = document.createElement("div");
+      chatbotMessageDiv.className = "chatbot-message";
+    
+     
+      const image2 =document.createElement("img");
+      image2.src="/images/robot-solid.png";
+      image2.className="avtar";
+      image2.style.height="20px";
+      image2.style.width="20px";
+      chatBody.append(image2);
+      const messageText = document.createElement("p");
+      messageText.textContent = message;
+      chatbotMessageDiv.appendChild(messageText);
+
+      chatBody.appendChild(chatbotMessageDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+  }
+  
+
+ 
+  function askQuestion() {
+      if (currentQuestionIndex < 0) {
+        appendChatbotMessage("Just one last thing,please shere your first name");;
+
+         //  appendChatbotMessage("Welcome to our LMS system!");
+          currentQuestionIndex++;
+      } else if (currentQuestionIndex < questions.length) {
+          // Append chatbot message with the logo/icon before the question
+                appendChatbotMessage(questions[currentQuestionIndex], "chatbot");
+}
+
+      if (currentQuestionIndex >= questions.length) {
+          appendChatbotMessage("Thanks, One of our super helpful counsellors will reach out to you soon. Meanwhile, why don't you see the course offerings.");
+          txtInput.disabled = true;
+          send.disabled = true;
+      }
+
+  }
+
+  function handleUserInput() {
+      const userMessage = txtInput.value.trim();
+      if (userMessage === "") return;
+
+      // Append user message without an avatar
+      const userMessageDiv = document.createElement("div");
+      userMessageDiv.className = "user-message";
+      userMessageDiv.textContent = `${userMessage}`;
+      chatBody.appendChild(userMessageDiv);
+
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex <= questions.length) {
+          askQuestion();
+      }
+
+      txtInput.value = "";
+  }
+
+  send.addEventListener("click", handleUserInput);
+
+  txtInput.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+          handleUserInput();
+      }
+  });
+
+  // Start the conversation by displaying the default message
+  askQuestion();
+
+  // Focus on the input field when the page loads
+  txtInput.focus();
+});
+
+</script>
+</body>
+
+
+
+</html>

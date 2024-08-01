@@ -1,0 +1,274 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div><h1>this is student page our courses</h1></div>
+  <% courses.forEach(course => { %>
+      <div class="containerforcourse">
+        <img class="" src="/uploads/<%= course.courseImage %>" alt="<%= course.courseName %> Image">
+        <h2><%= course.courseName %></h2>
+        <p><span>Professor</span>: <%= course.courseProfessorName %></p>
+        <p><span>Course Price</span>: <%= course.courseDescription %></p>
+        <div class="coursebtns">
+          <a href="/enroll/<%= course._id %>">
+            <button class="enrollbtn">Enroll</button>
+        </a>          <!-- Add more details as needed -->
+<!-- <a href="/courseoverview/<%= course._id %>">
+          <button class="enrollbtn">Course Overview</button>
+      </a>
+        </div>
+      </div>
+    <% }); %> -->
+<!-- </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ECOURSES - Online Courses HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+
+    <!-- Favicon -->
+    <link href="/images/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/stylesheets/course.css" rel="stylesheet" />
+    <script src="/javascripts/sendotp.js"></script>
+
+  </head>
+
+  <body>
+    <!-- Topbar Start -->
+
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+
+    <!-- Navbar End -->
+
+    <!-- Header Start -->
+    <div class="container-fluid page-header" style="margin-bottom: 90px">
+      <div class="container">
+        <div
+          class="d-flex flex-column justify-content-center"
+          style="min-height: 300px"
+        >
+          <h3 class="display-4 text-white text-uppercase">Courses</h3>
+          <div class="d-inline-flex text-white">
+            <p class="m-0 text-uppercase">
+              <a class="text-white" href="">Home</a>
+            </p>
+            <i class="fa fa-angle-double-right pt-1 px-3"></i>
+            <p class="m-0 text-uppercase">Courses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Category Start -->
+    <div class="container-fluid py-5">
+      <div class="container pt-5 pb-3">
+        <div class="text-center mb-5">
+          <h1>Explore Top Subjects</h1>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="images/cat-1.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">Web Design</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="/images/cat-2.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">Development</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="/images/cat-3.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">Game Design</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="/images/cat-4.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">Apps Design</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="/images/cat-5.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">Marketing</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="/images/cat-6.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">Research</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="/images/cat-7.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">Content Writing</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="cat-item position-relative overflow-hidden rounded mb-2"
+            >
+              <img class="img-fluid" src="/images/cat-8.jpg" alt="" />
+              <a class="cat-overlay text-white text-decoration-none" href="">
+                <h4 class="text-white font-weight-medium">SEO</h4>
+                <span>100 Courses</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Category Start -->
+
+    <!-- Courses Start -->
+    <div class="container-fluid py-5">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px">Courses</h5>
+          <h1>Our Popular Courses</h1>
+        </div>
+        <div class="row">
+          <% courses.forEach(course => { %>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="rounded overflow-hidden mb-2" style=" background: var(--bg-color); border-radius: 20px; box-shadow: 0px 5px 40px rgb(19 8 7); transition: all .40s ease;">
+              <img class="img-fluid" src="/uploads/<%= course.courseImage %>" alt="<%= course.courseName %> Image" />
+              <div class="bg-secondary p-4">
+                <div class="d-flex justify-content-between mb-3">
+                  <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>$200</small>
+                  <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>40hr</small>
+                </div>
+                <a class="h5" href=""><%= course.courseName %></a>
+                <div class="h5" href="">
+                  <span>Professor</span>: <%= course.courseProfessorName %>
+                </div>
+                <div>
+                  <span>Course Price</span>: <%= course.courseDescription %>
+                </div>
+                <div class="border-top mt-4 pt-4">
+                  <div class="d-flex justify-content-between">
+                    <% if (loggedIn) { %>
+                      <% if (enrolledCourses.includes(course._id)) { %>
+                          <h6 class="m-0">ENROLLED</h6>
+                      <% } else { %>
+                          <h6 class="m-0"><a href="/enroll/<%= course._id %>">Enroll</a></h6>
+                      <% } %>
+                  <% } else { %>
+                      <h6 class="m-0"><a href="#" class="enrollButton">Enroll</a></h6>
+                  <% } %>
+                  <h6 class="m-0"><a href="/courseoverview/<%= course._id %>">Course Overview</a></h6>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <script>
+      
+      // Check if user is logged in, if not, open signup popup when "Enroll" is clicked
+      document.addEventListener("DOMContentLoaded", function() {
+        const enrollButtons = document.querySelectorAll(".enrollButton");
+        enrollButtons.forEach(button => {
+          button.addEventListener("click", function(event) {
+            event.preventDefault();
+            // Here you can call the function to open the signup popup
+            openPopup();
+          });
+        });
+      });
+    </script>
+    <!-- Courses End -->
+
+    <!-- Footer Start -->
+
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a> -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

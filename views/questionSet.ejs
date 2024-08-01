@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questions Set</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        .options {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .option {
+            margin-bottom: 5px;
+        }
+        .correct-option, .set {
+            font-weight: bold;
+        }
+        .no-questions {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Questions Set</h1>
+    
+    <% if (course && course.questions && course.questions.length > 0) { %>
+    <ul>
+        <% course.questions.forEach((question, questionIndex) => { %>
+        <li>
+            <p class="question">Question <%= questionIndex + 1 %>: <%= question.question %></p>
+            <ul class="options">
+                <% question.options.forEach((option, optionIndex) => { %>
+                <li class="option"><%= optionIndex + 1 %>. <%= option %></li>
+                <% }); %>
+            </ul>
+            <p class="correct-option">Correct Option: <%= question.correctOption %></p>
+            <p class="set">Set: <%= question.set %></p>
+        </li>
+        <% }); %>
+    </ul>
+    <% } else { %>
+    <p class="no-questions">No questions available for this course.</p>
+    <% } %>
+</body>
+</html>

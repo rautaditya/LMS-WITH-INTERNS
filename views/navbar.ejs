@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/sendotp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   
+</head>
+
+<body>
+ 
+
+<nav class="navbarforpage">
+ <div class="routeofnavbar">
+    <a href="#" onclick="showSection('explorepage')">Home</a>
+    <a href="#" onclick="showSection('aboutuspage')">About</a>
+    <a href="#" onclick="showSection('coursespage')">Courses</a>
+    <a href="#" onclick="showSection('blogpage')">Blog</a>
+    <a href="#" onclick="showSection('portefoliopage')">Portefolio</a>
+    <a href="#" onclick="showSection('contactuspage')">Contact</a>
+    <div class="animation start-home"></div>
+  
+ </div>
+  <div class="secondofthemainnavbar">
+    <!-- <a href="#" class="end" onclick="showSignupPopup()">SignUP</a> -->
+    <div class="otp-all-container">
+        <a href="#" class="end" id="openPopupButton" >SignUP</a>
+    
+        <div class="popup" id="otpPopup">
+            <div class="pagepfthelogin">
+          <span class="popup-close" onclick="closePopup()">
+          x
+          
+          </span>
+          
+         
+          
+          <div id="result"></div>
+          <div class="otp-form">
+      
+         
+          <form id="otpForm" method="post">
+            <!-- <label for="name" class="sendotp-label">Name:</label> -->
+            <h1 class="headingoflogin">Login</h1>
+				<div class="social-container">
+					<a href="/redirect-to-google" class="social" id="googleicon"><img src="https://img.icons8.com/color/48/000000/google-logo.png" alt=""></a>
+				
+				</div>
+				<span class="oruseaccoutn">or use your account</span>
+            <input type="text" id="name" name="name" placeholder="Fullname" required />
+            
+            <!-- <label for="" class="sendotp-label">Mobile:</label> -->
+            <input type="number" id="phone" name="phone" placeholder="MobileNo" required />
+           
+            <!-- <label for="email" class="sendotp-label">Email:</label> -->
+            <input type="email" id="email" name="email" placeholder="Email" required />
+            
+            <button type="button" onclick="sendOTP()" id="sendButton" class="otp-btn">
+              Send OTP
+            </button>
+            
+           
+          </form>
+        </div>
+        <div class="otppage">
+          <label for="otp" class="sendotp-label">Enter OTP:</label>
+          <input type="text" id="otp" name="otp" placeholder="Enter OTP" required />
+     
+          <button type="button" onclick="verifyOTP()" class="otp-btn">Verify OTP</button>
+        </div>
+        <!-- <div class="sub-logo-main">
+            <p class="otp-logo">SignUp </p>
+            <p class="sub-logo">
+              Enroll now to learn LIVE Online from India's best teachers
+            </p>
+          </div> -->
+      </div>
+      
+      <div>
+        
+    </div>
+</div>
+</div>
+</nav>
+
+<div>
+   <!-- Update the IDs of your existing sections -->
+<div class="section" id="explorepage">
+    <% include explorepage.ejs %>
+</div>
+<div class="section" id="aboutuspage">
+    <% include aboutuspage.ejs %>
+</div>
+<div class="section" id="coursespage">
+    <% include courses.ejs %>
+</div>
+<!-- Add more sections with unique IDs as needed -->
+<div class="section" id="contactuspage">
+    <% include contactuspage.ejs %>
+</div>
+
+<div class="" id="">
+  <% include chatbot.ejs %>
+</div>
+<div class="popup" id="signupPopup">
+   
+</div>
+
+</div>
+
+<script src="/javascripts/navbar.js"></script>
+<script src="/javascripts/script.js"></script>
+<script src="/javascripts/navbarpagefirst.js"></script>
+<script src="/javascripts/sendotp.js"></script>
+
+</body>
+</html>

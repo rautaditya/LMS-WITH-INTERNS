@@ -1,0 +1,166 @@
+/* courseoverviewpage.css */
+
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --text-color: #333;
+    --background-color: #f9f9f9;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .Overview-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 40px 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .Overview-header h1 {
+    margin: 0;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 0.5s ease-out;
+  }
+  
+  .Overview-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: var(--card-background);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .Overview-main1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .Overview-main1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 10px auto;
+  }
+  
+  .Overviewmain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .OverviewImg {
+    flex: 1;
+    max-width: 45%;
+    margin-right: 40px;
+  }
+  
+  .OverviewImg img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transition: transform 0.3s ease;
+  }
+  
+  .OverviewImg img:hover {
+    transform: scale(1.05);
+  }
+  
+  .OverviewContent {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .OverviewContent h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin-bottom: 15px;
+  }
+  
+  p span {
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  .rating {
+    font-size: 1.4rem;
+    color: #f1c40f;
+    margin: 20px 0;
+  }
+  
+  .enroll-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+  
+  .enroll-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px var(--shadow-color);
+  }
+  
+  .footer-Overview {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .Overviewmain {
+      flex-direction: column;
+    }
+    
+    .OverviewImg, .OverviewContent {
+      max-width: 100%;
+      margin-right: 0;
+    }
+    
+    .OverviewImg {
+      margin-bottom: 30px;
+    }
+  
+    .Overview-header h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

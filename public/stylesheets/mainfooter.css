@@ -1,0 +1,133 @@
+
+    /* //fotter design */
+    .container {
+        /* background: cyan; */
+        /* position: relative; */
+    
+    }
+    
+    .footer {
+    
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    
+    }
+    
+    .data {
+        /* height: 30vh; */
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background: black;
+    
+    
+    }
+    
+    .data h3 {
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        color: aliceblue;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    /* data ul li{
+        list-style: none;
+    } */
+    .data ul li a {
+        font-size: 13px;
+        /* list-style: none; */
+        color: #c6c6c7;
+        line-height: 25px;
+        font-family: 'Open Sans', sans-serif;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .data ul :hover {
+        list-style: none;
+        color: #ff6666;
+    }
+    
+    .icon {
+        display: flex;
+        margin-top: 1cm;
+    }
+    
+    .icon a {
+        margin: 5px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 2px solid #c6c6c7;
+        color: #c6c6c7;
+        line-height: 32px;
+        font-size: 18px;
+        text-align: center;
+        font-weight: normal;
+    }
+    
+    .footeranker a
+    {
+        font-size: 19px;
+        font-family: 'Open Sans', sans-serif;
+        text-decoration: none;
+    }
+   
+    strong
+    {
+        font-size: 19px;
+        font-family: 'Open Sans', sans-serif;
+        text-decoration: none;
+       
+    }
+    .contact .TM   span,strong{
+        color: #ff6666;
+    }
+    .contact a,small{
+        color: #c6c6c7;
+        font-size: 11px;
+        cursor: text;
+    }
+    @media only screen and (max-width: 900px) {
+    .data {
+        /* height: 30vh; */
+        display: block;
+    }
+   
+    }
+
+
+    /* this is design part of sections  */
+   
+
+
+
+    .mypuchesessection
+    {
+        margin-top: 5rem;
+        text-align: center;
+    }
+    .myptext
+    {
+        margin-top: 4%;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        font-size: 19px;
+        color: gray;
+        justify-content: space-around;
+        padding-bottom: 4rem;
+       
+    }
+    .f29
+    {
+        font-size: 29px;
+    }
+    .stextofmyp
+    {
+       width: 65%;
+       margin: auto;
+    }

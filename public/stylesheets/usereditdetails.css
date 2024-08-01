@@ -1,0 +1,141 @@
+.useredtidetailsform {
+  padding: 24px 38px 24px 24px;
+  background-color: #ffffff;
+
+  width: 60%;
+  margin: auto;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+
+  display: none;
+}
+.useredtidetailsform {
+  margin-bottom: 5rem;
+  margin-top: -2rem;
+}
+.headofeducation {
+  padding: 0 0 20px 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #001620;
+}
+.detailsofedu {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0rem;
+}
+.detailsofedu span {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.detailsofedu span select {
+  padding: 1px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: gray;
+}
+.detailsofedu span input {
+  padding: 1px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: gray;
+}
+.parentinfoedit {
+  padding: 20px 0 20px 0;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #001620;
+}
+.educationinfoeditdetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.parentinfoeditopetion {
+  margin-top: 2rem;
+}
+.infoparent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.infoparent input {
+  padding: 1px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: gray;
+}
+.parentedit {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.ds {
+  display: flex;
+  justify-content: space-around;
+}
+.savebtn {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 3px;
+  background-color: #ff6d26;
+  padding: 12px;
+  text-decoration: none;
+
+  display: inline-block;
+  width: 20%;
+  margin: auto;
+}
+.savebtn:hover {
+  background-color: rgb(193, 18, 18);
+  color: orange;
+}
+/* responsive User edit */
+@media only screen and (max-width: 600px) {
+  .useredtidetailsform {
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+  }
+  .useredtidetailsform {
+    background-color: #ffffff;
+    width: 100%;
+    /* margin: auto; */
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    display: none;
+  }
+  .detailsofedu {
+    display: block;
+  }
+  .parentedit {
+    display: block;
+    justify-content: space-around;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .headofeducation {
+    font-weight: bold;
+    padding: 0px;
+    font-size: 24px;
+    line-height: 32px;
+    color: #001620;
+    align-items: center;
+    text-align: center;
+  }
+  .savebtn {
+    font-size: 18px;
+    width: 60%;
+    border-radius: 10px;
+  }
+}

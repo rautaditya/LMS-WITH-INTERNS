@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="headingoftumnale">
+      <% enrolledCourses.forEach(course => { %>
+      <div class="main-card-container">
+        <div class="course-card-enroll">
+          <img
+            src="/uploads/<%= course.courseImage %>"
+            alt="<%= course.courseName %> Image"
+          />
+          <div class="course-info-enroll">
+            <p class="course-enroll-Professor">
+              Professor : <%= course.courseProfessorName %> <br />
+              Description: <%=course.courseDescription %> <br />
+              <a
+                href="/courseoverview/<%= course._id %>"
+                id="enroll-more-details"
+              >
+                More Details
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="course-buttons-start">
+          <p class="course-enroll-title"><%= course.courseName %></p>
+          <button class="start-videos" onclick="redirectToClassroom('<%= course._id %>')">Start videos</button>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+    <!-- <a href="/certificate">Certificate</a>  -->
+
+    
+    <!-- <div class="headingoftumnale">
+      <% enrolledCourses.forEach(course => { %>
+        <div class="course-container">
+          <h4><%= course.courseName %></h4>
+          <img src="/uploads/<%= course.courseImage %>" alt="<%= course.courseName %> Image" />
+          <p>Professor: <%= course.courseProfessorName %></p>
+          <p>Description: <%= course.courseDescription %></p>
+          <button class="start-videos" onclick="redirectToClassroom('<%= course._id %>')">Start videos</button>
+        </div>
+      <% }); %>
+    
+    </div>
+    <div>
+      <a href="/certificate">Certificate</a>
+    </div>
+   -->
+   
+   
+    <script>
+ function redirectToClassroom(courseId) {
+  window.location.href = `/classroomlectures/${courseId}`;
+}
+
+    </script>
+  </body>
+</html>

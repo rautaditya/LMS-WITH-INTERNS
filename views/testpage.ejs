@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test page</title>
+  </head>
+  <body>
+    <div class="mainpageoftestpage">
+      <div class="subdivetestpage">
+        <div class="headingoftest">
+          <p>My Tests</p>
+          <img src="Images/testlogo.jpeg" alt="" />
+        </div>
+      </div>
+      <div class="subdivetestpage">
+        <div class="optionofthetest">
+          <p id="liveTab" class="tab" onclick="chnagelist('live')">
+            Live & Upcoming
+          </p>
+          <p id="attemptedTab" class="tab" onclick="chnagelist('attempted')">
+            Attempted
+          </p>
+          <p id="missedTab" class="tab" onclick="chnagelist('missed')">
+            Missed
+          </p>
+        </div>
+        <!--thisis the attemted live and missed test page changing page logic is on the test.js page-->
+
+        <!--thisis the second of test page div-->
+        <div class="optionsecondforthetest">
+          <input type="text" placeholder="Search.." class="textforsch" />
+          <button class="orangebuttopn">Search</button>
+        </div>
+      </div>
+      <div class="subdivetestpagelast">
+        <!-- <div
+          id="startExamButtonContainer"
+          style="text-align: center; margin-top: 20px"
+        >
+          <button
+            id="startExamButton"
+            class="orangebuttopn"
+            onclick="startExam()"
+          >
+            Start Exam
+          </button>
+        </div>
+        <div id="live" class="content">
+          <div class="notest" id="notest-id">
+            <img src="Images/youtube.png" alt="" />
+            <p><b> No live test available</b></p>
+            <p>
+              There is no test scheduled for you right now, please visit later
+            </p>
+          </div>
+         
+
+          <div class="all-Quiz-Code" style="display: none">
+            <div class="sub-all-Quiz-Code">
+              <h1 class="heading-of-Quiz">Take Quiz</h1>
+
+             
+              <div id="timerDisplay"></div>
+
+              <form id="quizForm" action="/submit-quiz" method="post">
+                <% questions.forEach((question, index) => { %>
+                <div
+                  class="question-container <%= index === 0 ? 'active' : 'inactive' %>"
+                  data-index="<%= index %>"
+                >
+                  <div class="question-heading">
+                    <strong>Question <%= index + 1 %>:</strong> <%=
+                    question.question %>
+                  </div>
+                  <div class="options-container">
+                    <% question.options.forEach((option, optionIndex) => { %>
+                    <div class="option">
+                      <input
+                        type="radio"
+                        name="answer<%= index %>"
+                        value="<%= optionIndex + 1 %>"
+                        class="Quiz-Options"
+                      />
+                      <label id="optionLabels"><%= option %></label>
+                    </div>
+                    <% }); %>
+                  </div>
+                </div>
+                <% }); %>
+
+                
+                <input
+                  type="hidden"
+                  id="timer"
+                  name="timer"
+                  value="<%= totalTimeInSeconds %>"
+                />
+
+                <button
+                  type="button"
+                  onclick="showNextQuestion()"
+                  class="Quiz-Buttons"
+                >
+                  Next
+                </button>
+                <button type="submit" id="submitButton" class="Quiz-Buttons">
+                  Submit Quiz
+                </button>
+              </form>
+            </div>
+          </div>
+        </div> -->
+        <div id="live" class="content">
+          <% enrolledCourses.forEach(course => { if (course &&
+          course.questions.length > 0) { %>
+          <div class="test-availables">
+            <h2 class="courseName"><%= course.courseName %></h2>
+            <a href="/questionPaper/<%= course._id %>">
+              <button class="StartExam">Start Exam</button>
+            </a>
+          </div>
+          <% } }) %>
+        </div>
+
+        <div id="attempted" class="content">
+          <!--attempted page of test is design stated-->
+          <div>
+            
+            <!-- <div class="typesoftest">
+              <div class="firsttypeoftest">
+                <div class="testtypeandoption">
+                  <span>Test type :</span>
+                  <button>ALL</button>
+                  <button>Regular</button>
+                  <button>LPT</button>
+                  <button>Mock</button>
+                  <button>Miscellaneous</button>
+                </div>
+              </div>
+              <div class="secondtypeoftest">
+                <div class="mainoftestatpage" style="margin-top: 2rem">
+                  <div class="filterdivatest">
+                    <div class="headeroffilter">
+                      <span class="df gap7">
+                        <img class="imgfilter" src="Images/sort.png" alt="" />
+                        <p class="font16">FILTERS</p>
+                      </span>
+                      <P class="clearalltest font14">Clear all</P>
+                    </div>
+                    <div class="questiontype" style="margin-top: 10px">
+                      <p class="hadingofquestionstest font14">Question type</p>
+                      <div class="lableandcheckbox">
+                        <div class="df" style="justify-content: space-between">
+                          <label for="" class="font12">Subjective</label>
+                          <input class="checkboxqut" type="checkbox" />
+                        </div>
+                        <div
+                          class="df"
+                          style="
+                            justify-content: space-between;
+                            padding-top: 10px;
+                          "
+                        >
+                          <label for="" class="font12">Objective</label>
+                          <input class="checkboxqut" type="checkbox" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="questiontype" style="margin-top: 10px">
+                      <p class="hadingofquestionstest font14">
+                        Learning progress test type
+                      </p>
+                      <div class="lableandcheckbox">
+                        <div class="df" style="justify-content: space-between">
+                          <label for="" class="font12"> LPT 1</label>
+                          <input class="checkboxqut" type="checkbox" />
+                        </div>
+                        <div
+                          class="df"
+                          style="
+                            justify-content: space-between;
+                            padding-top: 10px;
+                          "
+                        >
+                          <label for="" class="font12">LPT 2</label>
+                          <input class="checkboxqut" type="checkbox" />
+                        </div>
+                        <div
+                          class="df"
+                          style="
+                            justify-content: space-between;
+                            padding-top: 10px;
+                          "
+                        >
+                          <label for="" class="font12">LPT 3</label>
+                          <input class="checkboxqut" type="checkbox" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="questiontype" style="margin-top: 10px">
+                      <p class="hadingofquestionstest font14">Subject</p>
+                      <div class="lableandcheckbox">
+                        <div class="df" style="justify-content: space-between">
+                          <label for="" class="font12">Physics</label>
+                          <input class="checkboxqut" type="checkbox" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="questiontype" style="margin-top: 10px">
+                      <p class="hadingofquestionstest font14">Course</p>
+                      <div class="lableandcheckbox">
+                        <div class="">
+                          <span style="display: flex; flex-direction: column">
+                            <label for="" class="font12">Courses</label>
+                            <label for="" class="font10">PRIMARY COURSES</label>
+                          </span>
+                          <span
+                            class="df"
+                            style="
+                              align-items: center;
+                              justify-content: space-between;
+                            "
+                          >
+                            <label for="" class="font12">Physics</label>
+
+                            <input class="checkboxqut" type="checkbox" />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardofmarksatest">
+                    <div class="partcardTest">
+                      <p class="cardname">CBSE8-Part Test-1</p>
+                      <br />
+
+                      <div class="logoofcard">
+                        <p class="font14">
+                          <i class="fa-solid fa-trophy fa-lg"></i> Score:
+                          <b>59</b>/240
+                        </p>
+                        <img src="Images/react-removebg-preview.png" alt="" />
+                      </div>
+                      <hr class="ptfooter" />
+                      <div class="testfooter">
+                        <a href="" class="font14 ankerstestpage">
+                          <i class="fa-solid fa-download fa-lg"></i>
+                          <span>Download pdf</span>
+                        </a>
+                        <a href="" class="font14 ankerstestpage">
+                          <i class="fa-solid fa-rotate-right fa-lg"></i>
+                          <span>Re-attempt</span>
+                        </a>
+                        <a href=""
+                          ><button class="viewbtntest">View report</button></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="posterofatest">
+                    <div class="cardofstudent">
+                      <div class="cardofstudentimge">
+                        <img src="Images/girlimg.png" alt="" />
+                        <p>
+                          vivaaks test you help you practice and make prograss
+                          towards your goals !
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div id="missed" class="content">
+            <div class="notest">
+              <img src="/images/testno.png" alt="" />
+              <p><b> No missed test available</b></p>
+              <p>
+                There is no test scheduled for you right now, please visit later
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+       const examNotAvailable=document.getElementById("notest-id");
+              examNotAvailable.style.display="none";
+            document.addEventListener("DOMContentLoaded", function () {
+              const startExamButtonContainer = document.getElementById("startExamButtonContainer");
+              const startExamButton = document.getElementById("startExamButton");
+              const quizSection = document.querySelector(".all-Quiz-Code");
+              const submitButton = document.getElementById("submitButton");
+        startExamButton.addEventListener("click", function() {
+        startExamButtonContainer.style.display = "none";
+        quizSection.style.display = "flex";
+
+        startExam();
+      });
+
+              function startExam() {
+                const timerDisplay = document.getElementById("timerDisplay");
+                const questionContainers = document.querySelectorAll(".question-container");
+                const submitButton = document.getElementById("submitButton");
+                const totalTimeInSeconds = <%= totalTimeInSeconds %>;
+                let currentQuestionIndex = 0;
+                let timeRemaining = totalTimeInSeconds;
+                let timerInterval;
+
+                function updateTimerDisplay() {
+                  const minutes = Math.floor(timeRemaining / 60);
+                  const seconds = timeRemaining % 60;
+                  timerDisplay.innerHTML = `Time Remaining: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+                }
+
+                function showNextQuestion() {
+                  questionContainers[currentQuestionIndex].classList.remove("active");
+                  questionContainers[currentQuestionIndex].classList.add("inactive");
+                  currentQuestionIndex++;
+
+                  if (currentQuestionIndex < questionContainers.length) {
+                    questionContainers[currentQuestionIndex].classList.remove("inactive");
+                    questionContainers[currentQuestionIndex].classList.add("active");
+                  } else {
+                    clearInterval(timerInterval);
+                    submitButton.removeAttribute("disabled");
+                  }
+                }
+
+                function startTimer() {
+                  timerInterval = setInterval(() => {
+                    timeRemaining--;
+
+                    if (timeRemaining < 0) {
+                      clearInterval(timerInterval);
+                      document.getElementById("quizForm").submit();
+                    } else {
+                      updateTimerDisplay();
+                    }
+                  }, 1000);
+                }
+
+
+                questionContainers[currentQuestionIndex].classList.add("active");
+
+
+                document.querySelector("button[type='button']").addEventListener("click", showNextQuestion);
+
+
+                startTimer();
+                updateTimerDisplay();
+              }
+            });
+    </script>
+  </body>
+</html>

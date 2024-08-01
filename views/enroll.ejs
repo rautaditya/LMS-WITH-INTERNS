@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paymet gatway</title>
+    <link rel="stylesheet" href="/stylesheets/enroll.css">
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+    </style>
+</head>
+
+<body>
+    <% if (isEnrolled) { %>
+        <p>You are already enrolled in this course.</p>
+      <% } else { %>
+        <form action="/paymentdone/<%= course._id %>" method="get">
+          <button type="submit">Enroll Now</button>
+        </form>
+      <% } %>
+      
+    <div id="payment_main">
+        <div class="payment_one">
+            <p class="paymenttagone box-padding font18 fontw900">
+                <span>Payment Option</span>
+            </p>
+            <ul>
+                <li class="onepayment box-padding default-open borderpoint5">
+                    <span class="paymenticonupi">
+                        <span class="upiicon">
+                            <img src="/images/icons8-bhim-48.png" alt="">
+                        </span>
+                        <div class="upiicontext">
+                            <span class="font16 lineheight22 lato-bold apend-right10 ">UPI Options</span>
+                            <span class="textcolor lineheight14 font12 apend-right5">Pay Directly From Your Bank
+                                Account</span>
+                        </div>
+
+
+                    </span>
+                    <!--first hidden div for the upi id-->
+                    <div class="hidden-div">
+                        <P class="ftext yello-text font12 display-aline-center">
+                            <img src="/images/icons8-speaker-phone-50 copy.png" alt="" class="iconhw">
+                            <span>Keep your phone handy!</span>
+                        </P>
+                        <div class="make-flexcolumn borderlies ">
+                            <div class="firsthiddenitoms">
+                                <div>
+
+
+                                    <div class="firstscannandupiid">
+                                        <div class="upi-wrap1 ">
+                                            <span class="textofsap font16 lato-bold">Scan and pay</span>
+                                            <div class="qrimgaeandviewbtn">
+                                                <img src="/images/qr2.avif" alt="" class="qrimage">
+                                                <button class="button-21" role="button">View</button>
+                                            </div>
+                                            <span class=" textofsap textofsap21 font14 lato-bold width75 ">Scan and pay
+                                                using any banking app</span>
+                                        </div>
+                                        <div class="vertical-line">
+                                            <div class="center-dot">or</div>
+                                        </div>
+                                        <div class="upi-wrap2">
+                                            <div class="upiidandinput">
+                                                <label for="" class="font14 lato-bold">Enter UPI ID</label>
+                                                <input type="text" placeholder="monileNumber@upi"
+                                                    class="font14 inputforupiid">
+                                            </div>
+                                            <div>
+                                                <button type="button"
+                                                    class="prime__btn paynow__btn font16 text_capitalize margintop-30">verify
+                                                    &amp; pay</button>
+                                            </div>
+                                            <div class="listandverticleline">
+                                                <div class="vertical-line4">
+                                                    <div class="dot1 start-dot"></div>
+                                                    <div class=" dot1 center-dot"></div>
+                                                    <div class="dot1 end-dot"></div>
+                                                </div>
+                                                <ul class="vpa__step append-top20 horiz__view  lato-bold">
+                                                    <li class="font12">Enter your registered VPA</li>
+                                                    <li class="font12">Receive payment request on bank app</li>
+                                                    <li class="font12">Authorize payment request</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="logo__container make-flex hrtl-center column">
+                                <p class="make-flex hrtl-center allbanklogo">
+                                    <img src="/images/allbanks.png" alt="">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="make-flex hrtl-baseline font20 margintop10">
+                            <span class="lato-black append-right5 rupees"><b>628.00</b></span>
+                            <span class="grey-text--dark font10 margintop10">Due Now</span>
+                        </div>
+                        <p class="font12 line-height16 termsandcondition margintop30">By continuing to pay, I understand
+                            and agree with the
+                            <a href="pdf/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer"> privacy
+                                policy</a>
+                            , the <a href="pdf/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer">
+                                user agreement</a>
+                            and<a href="pdf/sample-terms-conditions-agreement.pdf" target="_blank"
+                                rel="noopener noreferrer"> terms of service</a> of LMS.
+                        </p>
+                    </div>
+
+                </li>
+                <!--icon two-->
+                <li class="onepayment box-padding borderpoint5">
+                    <span class="paymenticonupi">
+                        <span class="upiicon">
+                            <img src="/images/icons8-online-banking-64.png" alt="">
+                        </span>
+                        <div class="upiicontext">
+                            <span class="font16 lineheight22 lato-bold apend-right10 ">Net Banking</span>
+                            <span class="textcolor lineheight14 font12 apend-right5">All Major Banks Available</span>
+                        </div>
+                    </span>
+                    <!--second hidden div for the internet bandking-->
+
+                    <div class="hidden-div">
+
+                        <div class="forthesearchbank">
+                            <form action="" class="nosubmit">
+                                <input class="nosubmit" type="search" placeholder="Search Your Bank">
+                            </form>
+
+                            <form id="selectBankForm">
+                                <ul id="bankList">
+                                </ul>
+                            </form>
+                        </div>
+                        <br>
+
+                        <a href="#" class="viewallbank">Please Select Your Bank</a>
+                        <!--  <ul class="banklist"></ul>-->
+                        <div class="listoftheviewbanks">
+
+                        </div>
+
+                        <div
+                            class="make-flex hrtl-center space-between append-bottom30 make-relative margintop30 gap4rem">
+                            <div class="make-flex hrtl-baseline font20">
+                                <span class="lato-black append-right5 rupees">450.44</span>
+                                <span class="grey-text--dark font10 margintop10">Due Now</span>
+                            </div>
+                            <button type="button" class="prime__btn   paynow__btn font16 paybutton">
+                                Pay Now
+                            </button>
+                        </div>
+                        <p class="font12 line-height16 width75">
+                            By continuing to pay, I understand and agree with the
+                            <a href="/images/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer"> privacy
+                                policy</a>
+                            , the <a href="/images/sample-terms-conditions-agreement.pdf" _blank" rel="noopener noreferrer">
+                                user agreement</a>
+                            and<a href="/images/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer">
+                                terms of service</a> of LMS.
+                        </p>
+
+
+
+
+                    </div>
+
+                </li>
+                <!--thire paymetn mode-->
+                <li class="onepayment box-padding borderpoint5">
+                    <span class="paymenticonupi">
+                        <span class="upiicon">
+                            <img src="/images/icons8-google-pay-48.png" alt="">
+                        </span>
+                        <div class="upiicontext">
+                            <span class="font16 lineheight22 lato-bold apend-right10 ">GooglePay</span>
+                            <span class="textcolor lineheight14 font12 apend-right5">Pay with Googlepay</span>
+                        </div>
+                    </span>
+                    <!--third hidden div upiid-->
+
+                    <div class="hidden-div">
+                        <div class="paymentoptioncontend">
+                            <div class="iconandlable">
+                                <span class="googleicon">
+                                    <img src="/images/icons8-google-48.png" alt="">
+                                </span>
+                                <label class="font14 margintop10 fontweight800">Enter UPI ID</label>
+                            </div>
+                            <div class="inputandbutton ">
+                                <div class="form__field ">
+                                    <input type="text" id="inputVpa" placeholder="userName@upi" autocomplete="off"
+                                        name="inputVpa" class="font14a  " step="" validation="[object Object]" value="">
+                                </div>
+                                <div class="form__field__wrap append-left10">
+                                    <button type="button"
+                                        class="prime__btn paynow__btn font16 append-top25 text_capitalize prime__btn--gpay">verify
+                                        &amp; pay</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="make-flex hrtl-baseline font20 margintop10">
+                            <span class="lato-black append-right5 rupees"><b>628.00</b></span>
+                            <span class="grey-text--dark font10 margintop10">Due Now</span>
+                        </div>
+                        <p class="font12 line-height16 termsandcondition margintop30">By continuing to pay, I understand
+                            and agree with the
+                            <a href="pdf/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer"> privacy
+                                policy</a>
+                            , the <a href="pdf/sample-terms-conditions-agreement.pdf" target="_blank"
+                                rel="noopener noreferrer"> user agreement</a>
+                            and<a href="pdf/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer">
+                                terms of service</a> of LMS.
+                        </p>
+                    </div>
+
+                </li>
+                <!--fourth paymetn mode-->
+                <li class="onepayment box-padding borderpoint5">
+                    <span class="paymenticonupi">
+                        <span class="upiicon">
+                            <img src="/images/icons8-credit-card-interest-50.png" alt="">
+                        </span>
+                        <div class="upiicontext">
+                            <span class="font16 lineheight22 lato-bold apend-right10 ">Credit/Debit/ATM Card</span>
+                            <span class="textcolor lineheight14 font12 apend-right5">Visa,MasterCard,Amex,Rupay And
+                                More</span>
+                        </div>
+                    </span>
+                    <!--fourth hidden div for the upi id-->
+
+                    <div class="hidden-div">
+
+                        <div class="mainofcreditdebit">
+                            <div class="lableforinput1 make-flexcolumn rowgap3">
+                                <span class="font14 fontweight500">Card Number</span>
+                                <div class="form__field2 ">
+                                    <input type="text" id="cardNumber" placeholder="Enter Your Card Number Here"
+                                        autocomplete="off" name="cardNumber" maxlength="19" class="font14  ">
+                                </div>
+                            </div>
+
+                            <div class="lableforinput2 make-flexcolumn rowgap3">
+                                <span class="font14 fontweight500">Name on Card</span>
+                                <div class="form__field2 ">
+                                    <input type="text" id="cardNumber" placeholder="Enter Your Name on Card"
+                                        autocomplete="off" name="cardNumber" maxlength="19" class="font14  ">
+                                </div>
+                            </div>
+
+                            <div class="atmcardexpiryselector make-flexcolumn rowgap3">
+                                <div class=" ">
+                                    <label for="" class="font14 fontweight500">Expiry Month & Year</label>
+                                    <label class="marginleft40 font14 fontweight500">Card CVV</label>
+
+                                </div>
+                                <div class="thacontaineroftwoinputs make-flex rowgap8">
+                                    <div class="monthadyearforcard">
+
+                                        <div class="monthforcard">
+                                            <select class="form-select fontweight700 gray-text" id="month" name="month">
+                                                <option value="" class="gray-text">Month</option>
+                                                <option value="january">January</option>
+                                                <option value="february">February</option>
+                                                <option value="march">March</option>
+                                                <option value="april">April</option>
+                                                <option value="may">May</option>
+                                                <option value="june">June</option>
+                                                <option value="july">July</option>
+                                                <option value="august">August</option>
+                                                <option value="september">September</option>
+                                                <option value="october">October</option>
+                                                <option value="november">November</option>
+                                                <option value="december">December</option>
+                                            </select>
+                                        </div>
+                                        <div class="yearforcard">
+                                            <select class="form-select2 fontweight550 gray-text" id="year" name="year">
+                                                <option value="" class="gray-text">Year</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="forcardcvv ">
+
+
+
+                                        <div class="form__field3 font14">
+                                            <input type="text" id="cardNumber" placeholder="Enter Your Name on Card"
+                                                autocomplete="off" name="cardNumber" maxlength="19" class="font14   ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="make-flex hrtl-center space-between append-bottom30 make-relative margintop30">
+                            <div class="make-flex hrtl-baseline font20">
+                                <span class="lato-black append-right5 rupees">450.44</span>
+                                <span class="grey-text--dark font10 margintop10">Due Now</span>
+                            </div>
+                            <button type="button" class="prime__btn   paynow__btn font16">
+                                <span>pay now</span>
+                            </button>
+                        </div>
+                        <p class="font12 line-height16 width75">
+                            By continuing to pay, I understand and agree with the
+                            <a href="pdf/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer"> privacy
+                                policy</a>
+                            , the <a href="pdf/sample-terms-conditions-agreement.pdf" target="_blank"
+                                rel="noopener noreferrer"> user agreement</a>
+                            and<a href="pdf/privacy-policy-template.pdf" target="_blank" rel="noopener noreferrer">
+                                terms of service</a> of LMS.
+                        </p>
+
+                    </div>
+
+                </li>
+                <!--FIFTH paymetn mode-->
+                <li class="onepayment box-padding borderpoint5">
+                    <span class="paymenticonupi">
+                        <span class="upiicon">
+                            <img src="/images/icons8-time-to-pay-24.png" alt="">
+                        </span>
+                        <div class="upiicontext">
+                            <span class="font16 lineheight22 lato-bold apend-right10 ">Book Now Pay later</span>
+                            <span class="textcolor lineheight14 font12 apend-right5">TripMoney, Lazypay, Simpl,
+                                ZestMoney, ICICI, HDFC</span>
+                        </div>
+                    </span>
+                    <!--fifth hidden div for the upi id-->
+
+                    <div class="hidden-div">
+                        <div class="payment__options__content">
+                            <p class="font14 lato-bold append-bottom20">Benefits of pay later</p>
+                            <ul class="append-bottom30 pay__later__benefits">
+                                <li class="append-bottom20 make-flex">
+                                    <img src="https://jsak.mmtcdn.com/payment-ui-service/images/payment/zero_interest_bnpl.png"
+                                        class="pay__later__advantages append-right15" alt="">
+                                    <div class="make-flex column margintop10">
+                                        <p class="font14 lato-bold append-bottom5 green-text">Starts at 0% Interest</p>
+                                        <p class="font12">Starts at 0% Interest</p>
+                                    </div>
+                                </li>
+                                <li class="append-bottom20 make-flex"><img
+                                        src="https://jsak.mmtcdn.com/payment-ui-service/images/payment/credit_period.png"
+                                        class="pay__later__advantages append-right15" alt="">
+                                    <div class="make-flex column">
+                                        <p class="font14 lato-bold append-bottom5 green-text">15 days-18 Months</p>
+                                        <p class="font12">Pay in 15 days - 18 months</p>
+                                    </div>
+                                </li>
+                                <li class="append-bottom20 make-flex"><img
+                                        src="https://jsak.mmtcdn.com/payment-ui-service/images/payment/no-document_bnpl.png"
+                                        class="pay__later__advantages append-right15" alt="">
+                                    <div class="make-flex column">
+                                        <p class="font14 lato-bold append-bottom5 green-text">No Paperwork</p>
+                                        <p class="font12">No Paperwork</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="chek__eli__wrap">
+                            <div class="make-flex append-bottom10 ">
+                                <span class="font16 lato-bold line-height20">Check eligibility of mobile no.
+                                    8*******31</span>
+                                <button type="button"
+                                    class="prime__btn font16 noshrink append-left10 append-bottom10">PROCEED</button>
+                            </div>
+                            <ul class="brand__list">
+                                <li>
+                                    <img src="https://jsak.mmtcdn.com/payment-ui-service/images/bank_logos/paytm.png"
+                                        data-bank="PAYTM" alt="brand-img">
+                                </li>
+                                <li>
+                                    <img src="https://jsak.mmtcdn.com/payment-ui-service/images/bank_logos/lazypay.png"
+                                        data-bank="LAZYPAY" alt="brand-img">
+                                </li>
+                                <li>
+                                    <img src="https://jsak.mmtcdn.com/payment-ui-service/images/bank_logos/simpl.png"
+                                        data-bank="SIMPL" alt="brand-img">
+                                </li>
+                                <li>
+                                    <img src="https://jsak.mmtcdn.com/payment-ui-service/images/bank_logos/icicipaylater.png"
+                                        data-bank="ICICIPAYLATER" alt="brand-img">
+                                </li>
+                                <li>
+                                    <img src="https://jsak.mmtcdn.com/payment-ui-service/images/bank_logos/BajajFS.png"
+                                        data-bank="BAJAJFS" alt="brand-img">
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+                </li>
+                <!--six paymetn mode-->
+                <li class="onepayment box-padding borderpoint5">
+                    <span class="paymenticonupi">
+                        <span class="upiicon">
+                            <img src="/images/icons8-card-wallet-48.png" alt="">
+                        </span>
+                        <div class="upiicontext">
+                            <span class="font16 lineheight22 lato-bold apend-right10 ">Gift Cards, Wallets& More</span>
+                            <span class="textcolor lineheight14 font12 apend-right5">Gift cards, Mobikwik,
+                                AmazonPay</span>
+                        </div>
+                    </span>
+                    <!--six hidden div for the upi id-->
+
+                    <div class="hidden-div">
+                        <p class="font18 fontweight500 marginleft10">Select Wallet to Pay</p>
+
+                        <div class="iconcontianer  marginleft10">
+                            <a href="https://www.airtel.in/bank/" class="giftbanks"">
+
+                            <div class=" giftallicon font10 ">
+                                <img src=" /images/airtel_payment_bank_new.png" alt="">
+                                <p>Airtel Payment Bank</p>
+
+                        </div>
+                        </a>
+                        <a href="https://www.itzcash.com/myaccount/jsp/Login.jsp" class="giftbanks"">
+
+                            <div class=" giftallicon font10">
+                            <img src="/images/icons8-card-wallet-48.png" alt="">
+                            <p>Itz Cash Card</p>
+                    </div>
+                    </a>
+                    <a href="https://www.mobikwik.com/" class="giftbanks"">
+
+                            <div class=" giftallicon font10">
+                        <img src="/images/mobiqwik_v2.png" alt="">
+                        <p>Mobikwik</p>
+        </div>
+        </a>
+        </a>
+        <a href="https://www.amazon.in/amazonpay/home/" class="giftbanks"">
+
+                            <div class=" giftallicon font10">
+            <img src="/images/new_amazonpay.png" alt="">
+            <p>AmazonPay</p>
+    </div>
+    </a>
+    <a href="https://www.makemytrip.com/gift-cards/" class="giftbanks"">
+
+                            <div class=" giftallicon font10">
+        <img src="/images/icons8-wallet-50.png" alt="">
+        <p>Makemytrip Giftcard</p>
+        </div>
+    </a>
+    </div>
+    </div>
+
+    </li>
+    <li class="onepayment box-padding borderpoint5 borderbottom">
+        <span class="paymenticonupi">
+            <span class="upiicon">
+                <img src="/images/emi.png" alt="">
+            </span>
+            <div class="upiicontext">
+                <span class="font16 lineheight22 lato-bold apend-right10 ">EMI</span>
+                <span class="textcolororange lineheight14 font12 apend-right5">No cost EMI available</span>
+            </div>
+        </span>
+        <!--seventh hidden div upiid-->
+
+        <div class="hidden-div">
+            <a href="#" class="viewallbank">EMI Available Banks</a>
+
+            <div class="emibanks">
+
+                <div id="scrollableDiv">
+                    <ul>
+
+                        <li class="fb">
+                            <input type="radio">
+                            <img src="/images/banofindia.png" alt="">
+                            <lable>Bank Of India</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/canerabank.png" alt="">
+                            <lable>Canera Bank</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/citybank.png" alt="">
+                            <lable>City Bank</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/au.png" alt="">
+                            <lable>AU small finance</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/bankofbaroda.png" alt="">
+                            <lable>Bank Of Baroda</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/bj.png" alt="">
+                            <lable>Bajaj Finance</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/yesbank.png" alt="">
+                            <lable>Yes Bank</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/rblbank.png" alt="">
+                            <lable>RBL Bank</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/hdfc.png" alt="">
+                            <lable>HDFC Bank</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/kotak.png" alt="">
+                            <lable>Kotak Mahindra Bank</lable>
+                        </li>
+                        <li>
+                            <input type="radio">
+                            <img src="/images/idfc.png" alt="">
+                            <lable>IDFC Bank</lable>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </li>
+    </ul>
+    </div>
+
+    <div class="payment_jspages"></div>
+    </div>
+    <h4 style="margin-left: 72rem;color: rgb(119, 183, 232);"><b>VIVAAKS TECHNOLOGY</b></h4>
+    <a href="/paymentdone/<%= course._id %>">
+        <button class="enrollbtn">Enroll</button>
+    </a> 
+    <script src="/javascripts/enrollpage.js"></script>
+</body>
+
+</html>

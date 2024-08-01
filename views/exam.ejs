@@ -1,0 +1,236 @@
+<!-- questionsSet.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Take Quiz</title>
+    <style>
+      /* Add your custom styles here */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .quiz-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      .question-container {
+        margin-bottom: 20px;
+      }
+
+      .options-container {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .option {
+        margin-bottom: 10px;
+      }
+
+      #scoreDisplay {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .Quiz-Buttons {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .Quiz-Buttons:hover {
+        background-color: #45a049;
+      }
+
+      #nextButton {
+        background-color: #2196f3;
+      }
+
+      #nextButton:hover {
+        background-color: #0d8bf2;
+      }
+    </style>
+  </head>
+  <body>
+    <body>
+      <div class="quiz-container">
+        <!-- Timer display -->
+        <div id="timerDisplay" style="text-align: center; font-size: 18px; margin-bottom: 10px;"></div>
+        <h1 style="text-align: center">Quiz</h1>
+        <div id="scoreDisplay" class="hidden">
+          <p>Your Score: <span id="userScore"></span></p>
+        </div>
+      
+        <% if (alreadyAttempted) { %>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              alert("You have already attempted this exam.");
+              window.location.href = "/home"; // Redirect to home or any other page
+            });
+          </script>
+        <% } else if (course && course.questions && course.questions.length > 0) { %>
+          <form id="quizForm" method="post">
+            <div class="question-container">
+              <p style="text-align: center">Course Name: <%= course.courseName %></p>
+              <div id="questionContainer" class="all-Quiz-Code">
+                <% course.questions.forEach((question, questionIndex) => { %>
+                  <div class="options-container <%= questionIndex === 0 ? 'active' : 'hidden' %>" id="question<%= questionIndex %>">
+                    <p><strong>Question <%= questionIndex + 1 %>:</strong> <%= question.question %></p>
+                    <% question.options.forEach((option, optionIndex) => { %>
+                      <div class="option">
+                        <input type="radio" name="answer<%= questionIndex %>" value="<%= optionIndex + 1 %>" class="quiz-option" />
+                        <%= option %>
+                      </div>
+                    <% }); %>
+                  </div>
+                <% }); %>
+                <!-- "Next" button is initially hidden -->
+                <button type="button" onclick="showNextQuestion()" class="Quiz-Buttons" id="nextButton">Next</button>
+                <!-- "Submit Quiz" button is hidden until the last question -->
+                <button type="submit" id="submitButton" class="Quiz-Buttons hidden">Submit Quiz</button>
+              </div>
+            </div>
+          </form>
+        <% } else { %>
+          <p>No questions available for this course.</p>
+        <% } %>
+      </div>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          <% if (!alreadyAttempted) { %>
+            const course = <%- JSON.stringify(course) %>;
+            const quizForm = document.getElementById("quizForm");
+            const scoreDisplay = document.getElementById("scoreDisplay");
+            const userScoreDisplay = document.getElementById("userScore");
+            const questionContainers = document.querySelectorAll(".options-container");
+            let userScore = 0;
+            let currentQuestionIndex = 0;
+            const totalTimeInSeconds = <%= totalTimeInSeconds %>;
+            let timeRemaining = totalTimeInSeconds;
+            let timerInterval;
+      
+            function updateTimerDisplay() {
+              const minutes = Math.floor(timeRemaining / 60);
+              const seconds = timeRemaining % 60;
+              document.getElementById("timerDisplay").innerHTML = `Time Remaining: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+            }
+      
+            function showNextQuestion() {
+              const currentQuestionContainer = document.getElementById("question" + currentQuestionIndex);
+              currentQuestionContainer.classList.add("hidden");
+              currentQuestionIndex++;
+              if (currentQuestionIndex < questionContainers.length) {
+                const nextQuestionContainer = document.getElementById("question" + currentQuestionIndex);
+                nextQuestionContainer.classList.remove("hidden");
+                document.getElementById("nextButton").classList.add("hidden");
+              } else {
+                clearInterval(timerInterval);
+                document.getElementById("submitButton").classList.remove("hidden");
+                document.getElementById("nextButton").classList.add("hidden");
+              }
+            }
+      
+            function startTimer() {
+              timerInterval = setInterval(() => {
+                timeRemaining--;
+                if (timeRemaining < 0) {
+                  clearInterval(timerInterval);
+                  document.getElementById("quizForm").submit();
+                } else {
+                  updateTimerDisplay();
+                }
+              }, 1000);
+            }
+      
+            quizForm.addEventListener("submit", function (event) {
+              event.preventDefault();
+              questionContainers.forEach((questionContainer, questionIndex) => {
+                const selectedOption = questionContainer.querySelector("input:checked");
+                if (selectedOption) {
+                  const selectedOptionValue = parseInt(selectedOption.value);
+                  const correctOption = parseInt(course.questions[questionIndex].correctOption);
+                  if (selectedOptionValue === correctOption) {
+                    userScore++;
+                  }
+                }
+              });
+      
+              const courseData = {
+                courseName: course.courseName,
+                userScore: userScore,
+                totalQuestions: questionContainers.length,
+              };
+      
+              fetch("/submit-quiz", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(courseData),
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.message) {
+                  alert("Your exam is ended. Thank you!");
+                } else {
+                  alert("There was an issue submitting your quiz. Please try again.");
+                }
+              })
+              .catch((error) => console.error(error.message));
+      
+              quizForm.classList.add("hidden");
+              scoreDisplay.classList.remove("hidden");
+              userScoreDisplay.textContent = userScore + " out of " + questionContainers.length;
+              window.location.href = "/home";
+            });
+      
+            questionContainers.forEach((questionContainer, questionIndex) => {
+              const options = questionContainer.querySelectorAll(".quiz-option");
+              options.forEach((option) => {
+                option.addEventListener("change", function () {
+                  const allOptionsSelected = Array.from(options).some((opt) => opt.checked);
+                  const nextButton = document.getElementById("nextButton");
+                  if (allOptionsSelected) {
+                    nextButton.classList.remove("hidden");
+                  } else {
+                    nextButton.classList.add("hidden");
+                  }
+                });
+              });
+            });
+      
+            document.getElementById("nextButton").addEventListener("click", showNextQuestion);
+            startTimer();
+            updateTimerDisplay();
+          <% } %>
+        });
+      </script>
+      
+      
+    </body>
+    </html>
