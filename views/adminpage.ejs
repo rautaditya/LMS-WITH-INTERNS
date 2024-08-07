@@ -28,12 +28,13 @@
             </li>
             <li><a href="#">
                 <i class="uil uil-files-landscapes"></i>
-                <span class="link-name">Content</span>
+                <span class="link-name">Enroll Students</span>
             </a></li>
             <li>
                 <a href="#" onclick="toggleSection('courseinfo')">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name">Courses</span>
+                    <i class="uil uil-chart">  
+                    </i>
+                    <span class="link-name">Total Courses</span>
                 </a>
             </li>
             <!-- <li><a href="#" onclick="toggleSection('setExamSection_')">
@@ -61,9 +62,9 @@
                 <i class="uil uil-comments"></i>
                 <span class="link-name">Studnet-Data</span>
             </a></li>
-            <li><a href="#">
-                <i class="uil uil-share"></i>
-                <span class="link-name">Share</span>
+            <li><a href="#" onclick="toggleSection('chatbotdata')">
+                <i class="uil uil-message"></i>
+                <span class="link-name">Chatbot Message</span>
             </a></li>
         </ul>
         
@@ -117,12 +118,12 @@
               <div class="box box1">
                   <i class="uil uil-thumbs-up"></i>
                   <span class="text">courses</span>
-                  <span class="number">120</span>
+                  <span class="number"><%= courseCount %></span>
               </div>
               <div class="box box2">
                   <i class="uil uil-comments"></i>
                   <span class="text">student</span>
-                  <span class="number">20,120</span>
+                  <span class="number"><%= totalEnrolledStudents %></span>
               </div>
               <div class="box box3">
                   <i class="uil uil-share"></i>
@@ -535,7 +536,35 @@
   </table>
 </section>
 
+<section class="dashboard" id="chatbotdata">
+
+  <h1>Chatbot Responses</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Course</th>
+              <th>Date Submitted</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% chatbotResponses.forEach(response => { %>
+              <tr>
+                  <td><%= response.name %></td>
+                  <td><%= response.email %></td>
+                  <td><%= response.mobile %></td>
+                  <td><%= response.course %></td>
+                  <td><%= new Date(response.createdAt).toLocaleString() %></td>
+              </tr>
+          <% }) %>
+      </tbody>
+  </table>
+    
+</section>
 <script>
+         
 async function fetchStudentsByCourse() {
     const selectedCourse = document.getElementById('courseSelect').value;
     try {
@@ -587,6 +616,9 @@ async function generateCertificate(userId) {
 document.addEventListener('DOMContentLoaded', () => {
     fetchStudentsByCourse();
 });
+//chatbot data
+
+
 </script>
 
 <script src="/javascripts/scriptforadminpage.js"></script>

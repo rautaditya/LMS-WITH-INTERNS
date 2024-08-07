@@ -214,26 +214,32 @@
       <div class="section hidden-section" id="aboutuspage" class="">
         <% include aboutuspage.ejs %>
       </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          // Set the default section to 'explorepage' (Home)
-          showSection("explorepage");
+
+      <div class="animationrighttoleft" id="">
+        <% include chatbot.ejs %>
+      </div>
+      
+      
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set the default section to 'explorepage' (Home)
+        showSection("explorepage");
+      });
+
+      function showSection(sectionId) {
+        // Hide all sections
+        var sections = document.querySelectorAll(".section");
+        sections.forEach(function (section) {
+          section.style.display = "none";
         });
 
-        function showSection(sectionId) {
-          // Hide all sections
-          var sections = document.querySelectorAll(".section");
-          sections.forEach(function (section) {
-            section.style.display = "none";
-          });
-
-          // Show the selected section
-          var selectedSection = document.getElementById(sectionId);
-          if (selectedSection) {
-            selectedSection.style.display = "block";
-          }
+        // Show the selected section
+        var selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+          selectedSection.style.display = "block";
         }
-      </script>
-    </div>
+      }
+    </script>
   </body>
 </html>

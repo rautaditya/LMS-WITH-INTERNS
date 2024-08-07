@@ -423,3 +423,37 @@ btn:hover{
 
 }
 */
+.animationlefttoright
+{
+    animation: lefttoright 1s linear;
+}
+@keyframes lefttoright
+{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+.animationrighttoleft
+
+{
+    animation: righttoleft 1s linear;
+}
+
+@keyframes righttoleft
+{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}

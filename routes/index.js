@@ -151,7 +151,8 @@ router.get("/enroll/:courseId", async (req, res) => {
     const user = await VerifiedUserData.findOne({ email: userEmail });
 
     if (!user) {
-      return res.status(404).send("User not found");
+      // return res.status(404).send("User not found");
+        return res.send("User not found");
     }
 
     // Check if the user is already enrolled in the course
@@ -441,7 +442,85 @@ router.post("/submit-quiz", async (req, res) => {
   }
 });
 
+// router.post("/submit-quiz", async (req, res) => {
+//   try {
+//     const { courseName, userScore, totalQuestions } = req.body;
+//     const email = req.session.userEmail;
+//     const name = req.session.name;
+//     const studentId = req.session.userId; // Make sure this is set during login
 
+//     if (!email || !name || !studentId) {
+//       return res.status(401).json({ error: "User session not found" });
+//     }
+
+//     // Record the exam attempt
+//     const course = await Course.findOne({ courseName: courseName });
+//     if (course) {
+//       await ExamAttempt.create({
+//         student: studentId,
+//         course: course._id
+//       });
+//     } else {
+//       console.error("Course not found:", courseName);
+//     }
+
+//     const currentDate = new Date();
+//     const dayOfWeek = getDayOfWeek(currentDate);
+
+//     const quizResult = new QuizResult({
+//       courseName,
+//       email,
+//       name,
+//       score: userScore,
+//       totalQuestions,
+//       date: currentDate.toISOString().split("T")[0],
+//       dayOfWeek,
+//     });
+
+//     await quizResult.save();
+
+//     const transporter = nodemailer.createTransport({
+//       service: "gmail",
+//       auth: {
+//         user: "adityaraut4289@gmail.com",
+//         pass: "your_gmail_app_password", // Use environment variable for security
+//       },
+//     });
+
+//     const mailOptions = {
+//       from: "adityaraut4289@gmail.com",
+//       to: email,
+//       subject: "Quiz Results",
+//       text: `Name: ${name} 
+//         scored ${userScore} out of ${totalQuestions} in the quiz.`,
+//     };
+
+//     transporter.sendMail(mailOptions, (error, info) => {
+//       if (error) {
+//         console.error("Error sending email:", error);
+//         return res.status(500).json({ error: "Failed to send email" });
+//       }
+//       console.log("Email sent: " + info.response);
+//       res.status(200).json({ message: "Quiz submitted and email sent successfully" });
+//     });
+//   } catch (error) {
+//     console.error("Error saving quiz results:", error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
+
+function getDayOfWeek(date) {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[date.getDay()];
+}
 function getDayOfWeek(date) {
   const days = [
     "Sunday",
@@ -516,12 +595,21 @@ router.get("/adminpage", isAuthenticated, async (req, res) => {
     const totalTimeInSeconds = await getTotalTimeFromDatabase();
     const usersdata = await VerifiedUserData.find();
     const StudentResult = await QuizResult.find();
+    const courseCount = courses.length;
+    const enrolledStudentCount = await VerifiedUserData.aggregate([
+      { $unwind: "$enrolledCourses" },
+      { $group: { _id: null, count: { $sum: 1 } } }
+    ]);
+    const totalEnrolledStudents = enrolledStudentCount.length > 0 ? enrolledStudentCount[0].count : 0;
+
     res.render("adminpage", {
       courses,
       questionCount,
       totalTimeInSeconds,
       usersdata,
       StudentResult,
+      courseCount,
+      totalEnrolledStudents
     });
   } catch (error) {
     console.error(error);
@@ -741,6 +829,7 @@ router.get("/students", async (req, res) => {
   }
 });
 
+
 // New route to fetch and render individual student details
 router.get("/student/:id", async (req, res) => {
   try {
@@ -748,7 +837,14 @@ router.get("/student/:id", async (req, res) => {
     if (!student) {
       return res.status(404).send("Student not found");
     }
-    res.render('studentDetail', { student });
+    const examResults = await QuizResult.find({ email: student.userEmail });
+
+    // res.json({ student, examResults });
+    res.render('studentDetail', { student,examResults });
+
+    
+  
+  
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
@@ -994,9 +1090,11 @@ router.get("/studentDataPage/:id", async (req, res) => {
     if (!student) {
       return res.status(404).send('Student not found');
     }
+    const examResults = await QuizResult.find({ email: student.userEmail });
+
 
     // Render a page with the student data
-    res.render('studetnDataPage', { student });
+    res.render('studetnDataPage', { student, examResults });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
@@ -1374,4 +1472,9 @@ router.get('/set-exam/:courseId', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
+const chatbotController = require('../controllers/chatbotmiddleware.js');
+router.use('/api', chatbotController);
+
+
 module.exports = router;

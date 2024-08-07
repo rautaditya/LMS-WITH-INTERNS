@@ -74,6 +74,20 @@ a:hover {
   <p><strong>Certificate Generated:</strong> 
     <input type="checkbox" id="certificateCheckbox" disabled <%= student.certificateGenerated ? 'checked' : '' %>>
   </p>
+  <h2>Exam Results</h2>
+<% if (examResults.length > 0) { %>
+  <ul>
+    <% examResults.forEach(result => { %>
+      <li>
+        Course: <%= result.courseName %> | 
+        Score: <%= result.score %> / <%= result.totalQuestions %> | 
+        Date: <%= result.date %>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No exam results found for this student.</p>
+<% } %>
   <button onclick="generateCertificate('<%= student._id %>')">Generate Certificate</button>
   <br>
   <a href="/dashboard">Back to Dashboard</a>
