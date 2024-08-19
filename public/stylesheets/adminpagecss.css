@@ -1267,3 +1267,80 @@ Course Section Styles
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
+.admin-container {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.admin-heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Filter Form Styles */
+.admin-filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-filter-form .admin-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.admin-filter-form .admin-form-row .admin-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.admin-filter-form .admin-form-row .admin-col label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.admin-filter-form .admin-form-row .admin-col input,
+.admin-filter-form .admin-form-row .admin-col select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.admin-filter-form .admin-form-row .admin-col button {
+  align-self: flex-end;
+  padding: 10px 20px;
+}
+
+/* Table Styles */
+.admin-table {
+  width: 87%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.admin-table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.admin-table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}

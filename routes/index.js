@@ -1476,5 +1476,7 @@ router.get('/set-exam/:courseId', async (req, res) => {
 const chatbotController = require('../controllers/chatbotmiddleware.js');
 router.use('/api', chatbotController);
 
+const courseRoutes = require('./courseRoutes');
+router.use(courseRoutes);
 
 module.exports = router;

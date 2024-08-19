@@ -6,6 +6,8 @@
     <title>Welcome Admin </title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="/stylesheets/adminpagecss.css">
+
+
 </head>
 
 <body>
@@ -60,7 +62,7 @@
 
             <li><a href="#"  onclick="toggleSection('student-data')">
                 <i class="uil uil-comments"></i>
-                <span class="link-name">Studnet-Data</span>
+                <span class="link-name">Student-Data</span>
             </a></li>
             <li><a href="#" onclick="toggleSection('chatbotdata')">
                 <i class="uil uil-message"></i>
@@ -190,7 +192,7 @@
       <button type="submit">Submit</button>
     </form>
   </div> -->
-  <div class="fortheaddcourse">
+  <!-- <div class="fortheaddcourse">
     <form action="/courses/submit" method="post" enctype="multipart/form-data">
       <fieldset>
         <legend>Basic Course Information</legend>
@@ -211,7 +213,6 @@
         <input type="file" id="courseImage" name="courseImage" accept="image/*" required>
     </fieldset>
 
-    <!-- Course Details -->
     <fieldset>
         <legend>Course Details</legend>
         
@@ -228,7 +229,6 @@
         <input type="text" id="languages" name="languages" placeholder="Comma-separated list">
     </fieldset>
 
-    <!-- Course Content -->
     <fieldset>
         <legend>Course Content</legend>
         
@@ -248,7 +248,6 @@
         <input type="number" id="downloadableResources" name="downloadableResources" min="0" required>
     </fieldset>
 
-    <!-- Course Statistics -->
     <fieldset>
         <legend>Course Statistics</legend>
         
@@ -262,7 +261,6 @@
         <input type="number" id="studentsEnrolled" name="studentsEnrolled" min="0" required>
     </fieldset>
 
-    <!-- Course Curriculum -->
     <fieldset>
         <legend>Curriculum</legend>
         
@@ -276,7 +274,6 @@
         <textarea id="overviewDescription" name="overviewDescription" required></textarea>
     </fieldset>
 
-    <!-- Course Requirements and Objectives -->
     <fieldset>
         <legend>Requirements and Objectives</legend>
         
@@ -290,93 +287,33 @@
         <textarea id="courseIncludes" name="courseIncludes" placeholder="Enter each item on a new line" required></textarea>
     </fieldset>
 
-    <!-- Submit Button -->
     <button type="submit">Submit Course</button>
     </form>
+</div> -->
+
+<div class="fortheaddcourse">
+  <h1>Create a New Course</h1>
+  <form action="/courses/create" method="POST" enctype="multipart/form-data">
+    <label for="courseName">Course Name:</label>
+    <input type="text" id="courseName" name="courseName" required>
+    <label for="courseImage">Course Image:</label>
+    <input type="file" id="courseImage" name="courseImage" required>
+    <button type="submit">Create Course</button>
+  </form>
 </div>
-
-
     
 
   <div class="fortheeditcourse">
 
-    <div class="containerforcourse">
-      <!-- <h1>Admin Page</h1> -->
-    
-     <div class="showonlycourses">
-      <% if (courses.length === 0) { %>
-        <p>No courses available.</p>
-      <% } else { %>
-        <% courses.forEach(course => { %>
-          <div class="forshwingthecourses">
-            <img src="/uploads/<%= course.courseImage %>" alt="<%= course.courseName %> Image">
-            <h2><%= course.courseName %></h2>
-            <p>Professor: <%= course.courseProfessorName %></p>
-            <p>Description: <%= course.courseDescription %></p>
-    
-            <!-- Add an Edit button with a link to the edit route -->
-            <span style="display: flex;">
-              <a href="/editcourse/<%= course._id %>">
-                <button type="button">Edit Course</button>
-              </a>
-              <a href="/questionsSet/<%= course._id %>">
-                <button type="button">Show Questions</button>
-              </a>
-            </span>
-<!-- 
-            <button style="width: max-content;" type="button" class="set-exam-button" data-course-id="<%= course._id %>">
-              Set Exam
-            </button> -->
-            <!-- <button style="width: max-content;" type="button" class="set-exam-button" data-course-id="/set-exam/:courseId">
-              Set Exam
-            </button> -->
-            <a href="/set-exam/<%= course._id %>" target="_blank" class="set-exam-button">
-              <button style="width: max-content;" type="button">Set Exam</button>
-            </a>
-
-          <span style="display: flex;">
-            <a href="#" id="deleteExamButton" data-course-id="<%= course._id %>">
-              <button type="button">Delete Exam</button>
-            </a>
-            <!-- Add more details as needed -->
-    
-            <form method="post" action="/delete/<%= course._id %>">
-              <button type="submit">Delete Course</button>
-            </form>
-          </span>
-          </div>
-          <!-- <section id="setExamSection_<%= course._id %>" class="dashboard examsection" style="display: none;">
-
-            <div class="set-paper-heading">
-              <h1 class="exam-heading">Add Question for <%= course.courseName %></h1>
-              <p>Total Questions Set: <%=  course.questions.length  %> </p>
-            </div>
-            <form action="/add-question/<%= course._id%>" method="post" id="exma-form-id">
-              <label for="set" class="exam-lable">Question Set:</label>
-              <input type="text" name="set" class="exam-inputs" required /><br />
-          
-              <label for="question" class="exam-lable">Question:</label>
-              <input type="text" name="question" class="exam-inputs" required /><br />
-              <label for="options" class="exam-lable">Options (comma-separated):</label>
-              <input type="text" name="options" class="exam-inputs" required /><br />
-              <label for="correctOption" class="exam-lable"
-                >Correct Option (1-indexed):</label
-              >
-              <input
-                type="number"
-                name="correctOption"
-                class="exam-inputs"
-                required
-              /><br />
-              <button type="submit" class="exam-button">Add Question</button>
-            </form>
-          
-            
-          </section>       -->
-        <% }); %>
-      <% } %>
-     </div>
-    </div>
+    <h1>Edit Courses</h1>
+    <ul>
+      <% courses.forEach(course => { %>
+        <li>
+          <img src="<%= course.courseImage %>" alt="<%= course.courseName %>" width="100">
+          <a href="/courses/edit/<%= course._id %>"><%= course.courseName %></a>
+        </li>
+      <% }) %>
+    </ul>
 
   </div>
   
@@ -538,33 +475,53 @@
 
 <section class="dashboard" id="chatbotdata">
 
-  <h1>Chatbot Responses</h1>
-  <table>
-      <thead>
-          <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Mobile</th>
-              <th>Course</th>
-              <th>Date Submitted</th>
-          </tr>
-      </thead>
-      <tbody>
-          <% chatbotResponses.forEach(response => { %>
-              <tr>
-                  <td><%= response.name %></td>
-                  <td><%= response.email %></td>
-                  <td><%= response.mobile %></td>
-                  <td><%= response.course %></td>
-                  <td><%= new Date(response.createdAt).toLocaleString() %></td>
-              </tr>
-          <% }) %>
-      </tbody>
-  </table>
+  <div class="admin-container">
+    <h1 class="admin-heading my-4">Chatbot Responses</h1>
+    
+    <!-- Filter Form -->
+    <form id="filter-form" class="admin-filter-form mb-4">
+        <div class="admin-form-row">
+            <div class="admin-col">
+                <label for="course">Course</label>
+                <select id="course" class="form-control">
+                    <option value="">All Courses</option>
+                    <!-- Add options dynamically if needed -->
+                    <option value="Course1">Course1</option>
+                    <option value="Course2">Course2</option>
+                </select>
+            </div>
+            <div class="admin-col">
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date" class="form-control">
+            </div>
+            <div class="admin-col">
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date" class="form-control">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Filter</button>
+    </form>
+
+    <table class="admin-table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Course</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data will be inserted here by admin.js -->
+        </tbody>
+    </table>
+</div>
     
 </section>
 <script>
-         
+
+
 async function fetchStudentsByCourse() {
     const selectedCourse = document.getElementById('courseSelect').value;
     try {
@@ -618,7 +575,59 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 //chatbot data
 
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('filter-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
+        const course = document.getElementById('course').value;
+        const startDate = document.getElementById('start-date').value;
+        const endDate = document.getElementById('end-date').value;
+
+        let query = '/api/chatbotresponses?';
+        if (course) query += `course=${course}&`;
+        if (startDate) query += `startDate=${startDate}&`;
+        if (endDate) query += `endDate=${endDate}`;
+
+        fetch(query)
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('table-body');
+                tableBody.innerHTML = '';
+                data.forEach(response => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${response.name}</td>
+                        <td>${response.email}</td>
+                        <td>${response.mobile}</td>
+                        <td>${response.course}</td>
+                        <td>${new Date(response.createdAt).toLocaleString()}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching chatbot responses:', error));
+    });
+
+    // Initial fetch to populate table with all data
+    fetch('/api/chatbotresponses')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('table-body');
+            data.forEach(response => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${response.name}</td>
+                    <td>${response.email}</td>
+                    <td>${response.mobile}</td>
+                    <td>${response.course}</td>
+                    <td>${new Date(response.createdAt).toLocaleString()}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching chatbot responses:', error));
+});
 </script>
 
 <script src="/javascripts/scriptforadminpage.js"></script>

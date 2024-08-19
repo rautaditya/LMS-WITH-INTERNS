@@ -1,422 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Add your head content here -->
-  <link rel="stylesheet" href="path/to/your/external.css" />
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
-<style>
-  /* External CSS */
-  :root {
-    --background: #f0f4f8;
-    --foreground: #333;
-    --card: #fff;
-    --card-foreground: #444;
-    --primary: #007bff;
-    --primary-foreground: #fff;
-  }
 
-  .bg-background {
-    background-color: var(--background);
-  }
-
-  .text-foreground {
-    color: var(--foreground);
-  }
-
-  .min-h-screen {
-    min-height: 100vh;
-  }
-
-  .flex {
-    display: flex;
-  }
-
-  .flex-col {
-    flex-direction: column;
-  }
-
-  .items-center {
-    align-items: center;
-  }
-
-  .justify-center {
-    justify-content: center;
-  }
-
-  .text-3xl {
-    font-size: 1.875rem;
-  }
-
-  .font-bold {
-    font-weight: bold;
-  }
-
-  .mb-8 {
-    margin-bottom: 2rem;
-  }
-
-  .bg-card {
-    background-color: var(--card);
-  }
-
-  .text-card-foreground {
-    color: var(--card-foreground);
-  }
-
-  .p-6 {
-    padding: 1.5rem;
-  }
-
-  .rounded-lg {
-    border-radius: 0.5rem;
-  }
-
-  .shadow-lg {
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .max-w-md {
-    max-width: 28rem;
-  }
-
-  .w-full {
-    width: 100%;
-  }
-
-  .block {
-    display: block;
-  }
-
-  .mb-2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .mt-4 {
-    margin-top: 1rem;
-  }
-
-  .px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
-  .py-2 {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .rounded {
-    border-radius: 0.25rem;
-  }
-
-  .border {
-    border: 1px solid #ccc;
-  }
-
-  .focus\:outline-none {
-    outline: none;
-  }
-
-  .focus\:ring {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
-  }
-
-  .focus\:ring-primary {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
-  }
-
-  .bg-primary {
-    background-color: var(--primary);
-  }
-
-  .text-primary-foreground {
-    color: var(--primary-foreground);
-  }
-
-  .py-2 {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .mt-6 {
-    margin-top: 1.5rem;
-  }
-
-  .hover\:bg-primary\/80:hover {
-    background-color: rgba(0, 123, 255, 0.8);
-  }
-</style>
 <body>
   <div class="bg-background text-foreground min-h-screen flex flex-col items-center justify-center">
     <h1 class="text-3xl font-bold mb-8">Edit Course: <%= course.courseName %></h1>
-    <form
-      class="bg-card text-card-foreground p-6 rounded-lg shadow-lg max-w-md w-full"
-      action="/editcourse/<%= course._id %>"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <label for="courseName" class="block mb-2">Course Name:</label>
-      <input
-        type="text"
-        id="courseName"
-        name="courseName"
-        value="<%= course.courseName %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-        required
-      />
+    <button type="button" id="showCourseDetails">Course Details</button>
+    <button type="button" id="showLesson">Add Lesson</button>
+    <button type="button" id="showChapter">Add Chapter</button>
+    <button type="button" id="showQuiz">Add Quiz</button>
+    <button type="button" id="showVideo">Add Video</button>
+  
+    <div id="coursedetails" class="hidden">
+      <h1>add basic details of course</h1>
+      <form action="/courses/editcourse/<%= course._id %>" method="POST" enctype="multipart/form-data">
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName" name="courseName" value="<%= course.courseName %>">
 
-      <label for="courseProfessorName" class="block mt-4 mb-2">Professor Name:</label>
-      <input
-        type="text"
-        id="courseProfessorName"
-        name="courseProfessorName"
-        value="<%= course.courseProfessorName %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-        required
-      />
+        <!-- <label for="courseImage">Course Image:</label>
+        <input type="file" id="courseImage" name="courseImage"> -->
 
-      <label for="courseDescription" class="block mt-4 mb-2">Course Description:</label>
-      <textarea
-        id="courseDescription"
-        name="courseDescription"
-        rows="4"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-        required
-      ><%= course.courseDescription %></textarea>
+        <label for="courseDescription">Course Description:</label>
+        <textarea id="courseDescription" name="courseDescription"><%= course.courseDescription %></textarea>
 
-      <label for="overviewTitle" class="block mt-4 mb-2">Overview Title:</label>
-      <input
-        type="text"
-        id="overviewTitle"
-        name="overviewTitle"
-        value="<%= course.overviewTitle %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <!-- Add other fields as per your schema -->
+        <label for="courseProfessorName">Professor Name:</label>
+        <input type="text" id="courseProfessorName" name="courseProfessorName" value="<%= course.courseProfessorName %>">
 
-      <label for="overviewDescription" class="block mt-4 mb-2">Overview Description:</label>
-      <textarea
-        id="overviewDescription"
-        name="overviewDescription"
-        rows="4"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      ><%= course.overviewDescription %></textarea>
+        <label for="courseDescription">Description:</label>
+        <textarea id="courseDescription" name="courseDescription"><%= course.courseDescription %></textarea>
 
-      <label for="rating" class="block mt-4 mb-2">Rating:</label>
-      <input
-        type="number"
-        id="rating"
-        name="rating"
-        value="<%= course.rating %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="overviewTitle">Overview Title:</label>
+        <input type="text" id="overviewTitle" name="overviewTitle" value="<%= course.overviewTitle %>">
 
-      <label for="duration" class="block mt-4 mb-2">Duration:</label>
-      <input
-        type="text"
-        id="duration"
-        name="duration"
-        value="<%= course.duration %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="overviewDescription">Overview Description:</label>
+        <textarea id="overviewDescription" name="overviewDescription"><%= course.overviewDescription %></textarea>
 
-      <label for="videos" class="block mt-4 mb-2">Number of Videos:</label>
-      <input
-        type="number"
-        id="videos"
-        name="videos"
-        value="<%= course.videos %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" value="<%= course.rating %>" step="0.1">
 
-      <label for="liveLectures" class="block mt-4 mb-2">Number of Live Lectures:</label>
-      <input
-        type="number"
-        id="liveLectures"
-        name="liveLectures"
-        value="<%= course.liveLectures %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="duration">Duration:</label>
+        <input type="text" id="duration" name="duration" value="<%= course.duration %>">
 
-      <label for="curriculumTitle" class="block mt-4 mb-2">Curriculum Title:</label>
-      <input
-        type="text"
-        id="curriculumTitle"
-        name="curriculumTitle"
-        value="<%= course.curriculumTitle %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="videos">Number of Videos:</label>
+        <input type="number" id="videos" name="videos" value="<%= course.videos %>">
 
-      <label for="price" class="block mt-4 mb-2">Price:</label>
-      <input
-        type="number"
-        step="0.01"
-        id="price"
-        name="price"
-        value="<%= course.price %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="liveLectures">Number of Live Lectures:</label>
+        <input type="number" id="liveLectures" name="liveLectures" value="<%= course.liveLectures %>">
 
-      <label for="studentsEnrolled" class="block mt-4 mb-2">Students Enrolled:</label>
-      <input
-        type="number"
-        id="studentsEnrolled"
-        name="studentsEnrolled"
-        value="<%= course.studentsEnrolled %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="curriculumTitle">Curriculum Title:</label>
+        <input type="text" id="curriculumTitle" name="curriculumTitle" value="<%= course.curriculumTitle %>">
 
-      <label for="instructors" class="block mt-4 mb-2">Instructors:</label>
-      <input
-        type="text"
-        id="instructors"
-        name="instructors"
-        value="<%= course.instructors %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
-      <!-- <label for="instructors" class="block mt-4 mb-2">instructors</label>
-      <input type="text"
-      id="instructors"
-      name="instructors"
-      value="<%= course.instructors %>"
-      class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      
-      > -->
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value="<%= course.price %>" step="0.01">
 
-      <label for="lastUpdated" class="block mt-4 mb-2">Last Updated:</label>
-      <input
-        type="date"
-        id="lastUpdated"
-        name="lastUpdated"
-        value="<%= new Date(course.lastUpdated).toISOString().split('T')[0] %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <label for="studentsEnrolled">Students Enrolled:</label>
+        <input type="number" id="studentsEnrolled" name="studentsEnrolled" value="<%= course.studentsEnrolled %>">
+
+        <label for="instructors">Instructors:</label>
+        <input type="text" id="instructors" name="instructors" value="<%= course.instructors.join(', ') %>">
+
+        <label for="lastUpdated">Last Updated:</label>
+        <input type="date" id="lastUpdated" name="lastUpdated" value="<%= course.lastUpdated.toISOString().split('T')[0] %>">
+
+        <label for="languages">Languages:</label>
+        <input type="text" id="languages" name="languages" value="<%= course.languages.join(', ') %>">
+
+        <label for="requirements">Requirements:</label>
+        <input type="text" id="requirements" name="requirements" value="<%= course.requirements.join(', ') %>">
+
+        <label for="learningObjectives">Learning Objectives:</label>
+        <input type="text" id="learningObjectives" name="learningObjectives" value="<%= course.learningObjectives.join(', ') %>">
+
+        <label for="courseIncludes">Course Includes:</label>
+        <input type="text" id="courseIncludes" name="courseIncludes" value="<%= course.courseIncludes.join(', ') %>">
+
+        <label for="ratingCount">Rating Count:</label>
+        <input type="number" id="ratingCount" name="ratingCount" value="<%= course.ratingCount %>">
+
+        <label for="courseDuration">Course Duration:</label>
+        <input type="text" id="courseDuration" name="courseDuration" value="<%= course.courseDuration %>">
+
+        <label for="articles">Number of Articles:</label>
+        <input type="number" id="articles" name="articles" value="<%= course.articles %>">
+
+        <label for="codingExercises">Number of Coding Exercises:</label>
+        <input type="number" id="codingExercises" name="codingExercises" value="<%= course.codingExercises %>">
+
+        <label for="downloadableResources">Number of Downloadable Resources:</label>
+        <input type="number" id="downloadableResources" name="downloadableResources" value="<%= course.downloadableResources %>">
 
 
-      <label for="languages" class="block mt-4 mb-2">Languages:</label>
-      <input
-        type="text"
-        id="languages"
-        name="languages"
-        value="<%= course.languages %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>  
+    <div id="addlesson" class="hidden">
+      <!-- Content for Add Lesson -->
+      <h2>Add Lesson</h2>
+      <!-- Add your Add Lesson form or content here -->
+      <h2>Add Lesson</h2>
+      <form action="/courses/edit/<%= course._id %>/add-lesson" method="POST">
+        <label for="lessonTitle">Lesson Title:</label>
+        <input type="text" id="lessonTitle" name="lessonTitle" required>
 
-      <label for="requirements" class="block mt-4 mb-2">Requirements:</label>
-      <textarea
-        id="requirements"
-        name="requirements"
-        rows="4"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      ><%= course.requirements %></textarea>
+        <label for="lessonContent">Lesson Content:</label>
+        <textarea id="lessonContent" name="lessonContent" required></textarea>
 
-      <label for="learningObjectives" class="block mt-4 mb-2">Learning Objectives:</label>
-      <textarea
-        id="learningObjectives"
-        name="learningObjectives"
-        rows="4"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      ><%= course.learningObjectives %></textarea>
+        <label for="lessonVideoUrl">Lesson Video URL:</label>
+        <input type="text" id="lessonVideoUrl" name="lessonVideoUrl" required>
 
-      <label for="courseIncludes" class="block mt-4 mb-2">Course Includes:</label>
-      <textarea
-        id="courseIncludes"
-        name="courseIncludes"
-        rows="4"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      ><%= course.courseIncludes %></textarea>
+        <button type="submit">Add Lesson</button>
+    </div>
 
-      <label for="ratingCount" class="block mt-4 mb-2">Rating Count:</label>
-      <input
-        type="number"
-        id="ratingCount"
-        name="ratingCount"
-        value="<%= course.ratingCount %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+    <div id="addchapter" class="hidden">
+      <!-- Content for Add Chapter -->
+       
+      <!-- Add your Add Chapter form or content here -->
+    </div>
 
-      <label for="courseDuration" class="block mt-4 mb-2">Course Duration:</label>
-      <input
-        type="text"
-        id="courseDuration"
-        name="courseDuration"
-        value="<%= course.courseDuration %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
+    <div id="addquiz" class="hidden">
+      <!-- Content for Add Quiz -->
+      <h2>Add Quiz</h2>
+      <!-- Add your Add Quiz form or content here -->
+    </div>
 
-      <label for="articles" class="block mt-4 mb-2">Articles:</label>
-      <input
-        type="number"
-        id="articles"
-        name="articles"
-        value="<%= course.articles %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
-
-      <label for="codingExercises" class="block mt-4 mb-2">Coding Exercises:</label>
-      <input
-        type="number"
-        id="codingExercises"
-        name="codingExercises"
-        value="<%= course.codingExercises %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
-
-      <label for="downloadableResources" class="block mt-4 mb-2">Downloadable Resources:</label>
-      <input
-        type="number"
-        id="downloadableResources"
-        name="downloadableResources"
-        value="<%= course.downloadableResources %>"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
-
-      <label for="image" class="block mt-4 mb-2">Course Image:</label>
-      <input
-        type="file"
-        id="image"
-        name="image"
-        class="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:ring-primary"
-      />
-
-      <button
-        type="submit"
-        class="bg-primary text-primary-foreground py-2 px-4 mt-6 rounded hover:bg-primary/80"
-      >
-        Update Course
-      </button>
-    </form>
+    <div id="addvideo" class="hidden">
+      <!-- Content for Add Video -->
+      <h2>Add Video</h2>
+      <!-- Add your Add Video form or content here -->
+    </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const form = document.querySelector('form');
-      form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission
-        const formData = new FormData(form);
+      const buttons = {
+        showCourseDetails: document.getElementById('showCourseDetails'),
+        showLesson: document.getElementById('showLesson'),
+        showChapter: document.getElementById('showChapter'),
+        showQuiz: document.getElementById('showQuiz'),
+        showVideo: document.getElementById('showVideo')
+      };
 
-        fetch(form.action, {
-          method: 'POST',
-          body: formData,
-        })
-        .then(response => {
-          if (response.ok) {
-            alert('Course updated successfully!');
-            form.reset(); // Reset the form after successful submission
-          } else {
-            alert('Failed to update course. Please try again.');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('An error occurred while updating the course.');
-        });
+      const sections = {
+        coursedetails: document.getElementById('coursedetails'),
+        addlesson: document.getElementById('addlesson'),
+        addchapter: document.getElementById('addchapter'),
+        addquiz: document.getElementById('addquiz'),
+        addvideo: document.getElementById('addvideo')
+      };
+
+      function toggleSection(sectionId) {
+        for (const key in sections) {
+          sections[key].classList.add('hidden');
+        }
+        sections[sectionId].classList.remove('hidden');
+      }
+
+      buttons.showCourseDetails.addEventListener('click', function() {
+        toggleSection('coursedetails');
       });
+
+      buttons.showLesson.addEventListener('click', function() {
+        toggleSection('addlesson');
+      });
+
+      buttons.showChapter.addEventListener('click', function() {
+        toggleSection('addchapter');
+      });
+
+      buttons.showQuiz.addEventListener('click', function() {
+        toggleSection('addquiz');
+      });
+
+      buttons.showVideo.addEventListener('click', function() {
+        toggleSection('addvideo');
+      });
+
+      // Initialize with course details shown by default
+      toggleSection('coursedetails');
     });
+   
   </script>
 </body>
 </html>

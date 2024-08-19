@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Course</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add New Course</h1>
+
+  <p><a href="/adminpage">Back to Courses</a></p>
+  <button type="button" id="showCourseDetails">Add Course Details</button>
+  <button type="button" id="showLesson">Add Lesson</button>
+  <button type="button" id="showChapter">Add Chapter</button>
+  <button type="button" id="showQuiz">Add Quiz</button>
+  <button type="button" id="showVideo">Add Video</button>
+
+  <div id="coursedetails" class="hidden">
+    <form action="/courses/submit" method="post" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Basic Course Information</legend>
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName" name="courseName" required>
+        <label for="courseProfessorName">Professor Name:</label>
+        <input type="text" id="courseProfessorName" name="courseProfessorName" required>
+        <label for="instructors">Additional Instructors:</label>
+        <input type="text" id="instructors" name="instructors" placeholder="Comma-separated names">
+        <label for="courseDescription">Course Description:</label>
+        <textarea id="courseDescription" name="courseDescription" required></textarea>
+        <label for="courseImage">Course Image:</label>
+        <input type="file" id="courseImage" name="courseImage" accept="image/*" required>
+      </fieldset>
+      <fieldset>
+        <legend>Course Details</legend>
+        <label for="price">Price ($):</label>
+        <input type="number" id="price" name="price" step="0.01" min="0" required>
+        <label for="duration">Total Course Duration:</label>
+        <input type="text" id="duration" name="duration" required>
+        <label for="lastUpdated">Last Updated:</label>
+        <input type="date" id="lastUpdated" name="lastUpdated" required>
+        <label for="languages">Languages:</label>
+        <input type="text" id="languages" name="languages" placeholder="Comma-separated list">
+      </fieldset>
+      <fieldset>
+        <legend>Course Content</legend>
+        <label for="videos">Number of Videos:</label>
+        <input type="number" id="videos" name="videos" min="0" required>
+        <label for="liveLectures">Number of Live Lectures:</label>
+        <input type="number" id="liveLectures" name="liveLectures" min="0" required>
+        <label for="articles">Number of Articles:</label>
+        <input type="number" id="articles" name="articles" min="0" required>
+        <label for="codingExercises">Number of Coding Exercises:</label>
+        <input type="number" id="codingExercises" name="codingExercises" min="0" required>
+        <label for="downloadableResources">Number of Downloadable Resources:</label>
+        <input type="number" id="downloadableResources" name="downloadableResources" min="0" required>
+      </fieldset>
+      <fieldset>
+        <legend>Course Statistics</legend>
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" required>
+        <label for="ratingCount">Number of Ratings:</label>
+        <input type="number" id="ratingCount" name="ratingCount" min="0" required>
+        <label for="studentsEnrolled">Number of Students Enrolled:</label>
+        <input type="number" id="studentsEnrolled" name="studentsEnrolled" min="0" required>
+      </fieldset>
+      <fieldset>
+        <legend>Curriculum</legend>
+        <label for="curriculumTitle">Curriculum Title:</label>
+        <input type="text" id="curriculumTitle" name="curriculumTitle" required>
+        <label for="overviewTitle">Overview Title:</label>
+        <input type="text" id="overviewTitle" name="overviewTitle" required>
+        <label for="overviewDescription">Overview Description:</label>
+        <textarea id="overviewDescription" name="overviewDescription" required></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>Requirements and Objectives</legend>
+        <label for="requirements">Requirements:</label>
+        <textarea id="requirements" name="requirements" placeholder="Enter each requirement on a new line" required></textarea>
+        <label for="learningObjectives">Learning Objectives:</label>
+        <textarea id="learningObjectives" name="learningObjectives" placeholder="Enter each objective on a new line" required></textarea>
+        <label for="courseIncludes">Course Includes:</label>
+        <textarea id="courseIncludes" name="courseIncludes" placeholder="Enter each item on a new line" required></textarea>
+      </fieldset>
+      <button type="submit">Submit Course</button>
+    </form>
+  </div>
+
+  <div id="addlesson" class="hidden">
+    <!-- Content for Add Lesson -->
+    <h2>Add Lesson</h2>
+    <!-- Add your Add Lesson form or content here -->
+  </div>
+
+  <div id="addchapter" class="hidden">
+    <!-- Content for Add Chapter -->
+    <h2>Add Chapter</h2>
+    <!-- Add your Add Chapter form or content here -->
+  </div>
+
+  <div id="addquiz" class="hidden">
+    <!-- Content for Add Quiz -->
+    <h2>Add Quiz</h2>
+    <!-- Add your Add Quiz form or content here -->
+  </div>
+  <div id="addchapter" class="hidden"><h2>Add Chapter</h2></div>
+  <div id="addvideo" class="hidden">
+    <!-- Content for Add Video -->
+    <h2>Add Video</h2>
+    <!-- Add your Add Video form or content here -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = {
+        showCourseDetails: document.getElementById('showCourseDetails'),
+        showLesson: document.getElementById('showLesson'),
+        showChapter: document.getElementById('showChapter'),
+        showQuiz: document.getElementById('showQuiz'),
+        showVideo: document.getElementById('showVideo')
+      };
+
+      const sections = {
+        coursedetails: document.getElementById('coursedetails'),
+        addlesson: document.getElementById('addlesson'),
+        addchapter: document.getElementById('addchapter'),
+        addquiz: document.getElementById('addquiz'),
+        addvideo: document.getElementById('addvideo')
+      };
+
+      function toggleSection(sectionId) {
+        // Hide all sections
+        Object.values(sections).forEach(section => {
+          section.classList.add('hidden');
+        });
+        // Show the selected section
+        if (sections[sectionId]) {
+          sections[sectionId].classList.remove('hidden');
+        }
+      }
+
+      // Add event listeners to buttons
+      buttons.showCourseDetails.addEventListener('click', function() {
+        toggleSection('coursedetails');
+      });
+
+      buttons.showLesson.addEventListener('click', function() {
+        toggleSection('addlesson');
+      });
+
+      buttons.showChapter.addEventListener('click', function() {
+        toggleSection('addchapter');
+      });
+
+      buttons.showQuiz.addEventListener('click', function() {
+        toggleSection('addquiz');
+      });
+
+      buttons.showVideo.addEventListener('click', function() {
+        toggleSection('addvideo');
+      });
+    });
+  </script>
+</body>
+</html>
