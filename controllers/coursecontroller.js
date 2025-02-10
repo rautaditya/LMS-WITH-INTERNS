@@ -1,6 +1,7 @@
 const Course = require('../models/course');
 const multer = require('multer');
 const path = require('path');
+const mongoose = require('mongoose');
 
 // Set up multer for file uploads
 const storage = multer.diskStorage({
@@ -40,24 +41,19 @@ exports.createCourse = async (req, res) => {
 // Display the edit course form
 exports.displayEditCourseForm = async (req, res) => {
   try {
-    const courseId = req.params.courseId;
-    const course = await Course.findById(courseId);
+    const course = await Course.findById(req.params.id);
+    if (!course) return res.status(404).send("Course not found");
 
-    if (!course) {
-      return res.status(404).send('Course not found');
-    }
-
-    res.render('editcourse', { course });
+    res.render('admin/editCourse', { course }); // Render the edit page
   } catch (error) {
     console.error(error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send("Internal Server Error");
   }
 };
-
 // Update an existing course
 exports.updateCourse = async (req, res) => {
   try {
-    const courseId = req.params.courseId;
+    const { id } = req.params; // Ensure this matches your route
     const {
       courseName,
       courseProfessorName,
@@ -84,12 +80,14 @@ exports.updateCourse = async (req, res) => {
       downloadableResources
     } = req.body;
 
+    // Handle Course Image Upload
     const courseImage = req.file ? `/uploads/${req.file.filename}` : null;
 
     if (!courseName || !courseDescription || !price) {
-      return res.status(400).send('Course name, description, and price are required.');
+      return res.status(400).json({ error: "Course name, description, and price are required." });
     }
 
+    // Prepare updated course object
     const updatedCourse = {
       courseName,
       courseProfessorName,
@@ -117,18 +115,21 @@ exports.updateCourse = async (req, res) => {
     };
 
     if (courseImage) {
-      updatedCourse.courseImage = courseImage;
+      updatedCourse.courseImage = courseImage; // Only update image if a new one is uploaded
     }
 
-    const course = await Course.findByIdAndUpdate(courseId, updatedCourse, { new: true });
+    // Update course in the database
+    const course = await Course.findByIdAndUpdate(id, updatedCourse, { new: true });
 
     if (!course) {
-      return res.status(404).send('Course not found');
+      return res.status(404).json({ error: "Course not found" });
     }
-    res.send(`alerts: ${course.courseName} updated successfully`);
+
+    res.json({ success: true, message: `Course "${course.courseName}" updated successfully!`, course });
+
   } catch (error) {
-    console.error('Error updating course:', error.message, error.stack);
-    res.status(500).send('Internal Server Error');
+    console.error("Error updating course:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
