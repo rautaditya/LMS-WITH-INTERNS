@@ -8,27 +8,36 @@
     <link rel="stylesheet" href="/stylesheets/paymetsusccesfullpage.css">
 </head>
 <body>
-  
-    <div class="payment-container">
-        <!-- <div class="success-icon">✔️</div> -->
-        <div class="success-icon">
-          <img src="/images/payment.png" alt="">
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <div class="success-icon">
+                <i class="checkmark">✔</i>
+            </div>
+            <h2>Thank You!</h2>
+            <p>Payment done successfully</p>
+            <p class="small-text">You will be redirected to the home page shortly <br> or click below to return.</p>
+            <button onclick="closePopup()">Home</button>
         </div>
-        <!-- <div class="message">Thank You..</div> -->
-        <div class="success-message">Payment Successfull</div>
-        <p>You have successfully completed the payment for <%= course.courseName %> course.</p>
+    </div>
 
-        <p>Thank You...</p>
-      </div>
-    <!-- Add a script to show a pop-up and redirect to the home page -->
     <script>
-        // Show a pop-up message
-        alert('Payment Successful!');
+        document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("popup");
+    popup.classList.add("show");
 
-        // Redirect to the home page after 2 seconds
-        setTimeout(function () {
-            window.location.href = '/home';
-        }, 4000); // 2000 milliseconds (2 seconds)
+    setTimeout(() => {
+        closePopup();
+    }, 5000);
+});
+
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.opacity = "0";
+    setTimeout(() => {
+        popup.style.visibility = "hidden";
+    }, 400);
+}
     </script>
+
 </body>
 </html>
