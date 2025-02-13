@@ -3,15 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title>    
+    <style>
+     
+      .enrolled-courses-purchase-container {
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        padding: 20px;
+      }
+     
+      .headbot {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff; 
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff9800, #ff3eac);
+    background-size: 300% 300%;
+    border-radius: px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    animation: gradientAnimation 5s infinite linear;
+}
+
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+
+      
+    
+      .course-card-purchase-wrapper {
+        width: 300px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+      }
+      
+      .course-card-purchase-wrapper:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      
+  
+      .course-thumbnail-purchase {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      
+     
+      .course-details-purchase {
+        padding: 15px;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+      }
+      
+     
+      .course-professor-purchase {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #555;
+      }
+      
+     
+      .course-price-purchase {
+        font-size: 16px;
+        font-weight: bold;
+        color: #27ae60;
+      }
+      
+    
+      .course-purchased-time {
+        font-size: 12px;
+        color: #888;
+      }
+      
+      
+      .course-more-info-purchase {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 12px;
+        background: #295dec;
+        color: white;
+        font-size: 14px;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.3s ease;
+      }
+      
+      .course-more-info-purchase:hover {
+        background:  #555;
+        color: #fff
+        ;
+      }
+      
+      /* 🏷️ Course Title */
+      .course-title-purchase-wrapper {
+        text-align: center;
+        background: #d8d4d2;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+      }
+      .course-title-purchase{
+        color:#444444 ;
+      }
+      .purchased-badge {
+         position: absolute;
+         bottom: 10px;
+         right: 10px;
+         color: rgb(40, 218, 16);
+         padding: 1px 1px;
+         font-size: 12px;
+         font-weight: bold;
+         border-radius: 5px;
+                    
+}
+      </style>
+    
 </head>
 <body>
-    <div class="mypuchesessection">
-        <p class="f29">My Purchases</p>
+
+    <div class="mypurchasehead">
+        <p class="headbot">My Purchases</p>
         <div class="myptext">
             <p>It seems like you are not enrolled in any course on vivaaks, yet</p>
     <p class="stextofmyp">In order to get a FREE trial enrollment for vivaaks courses (which includes LIVE Classes, Concept Videos, Practice Tests, Unlimited Doubts & more), please write to us at 	vivaaks.hr@gmail.com or call us on 1800-120-456-456 or +91-988-660-2456.</p>
         </div>
     </div>
+    <div class="enrolled-courses-purchase-container">
+      <% enrolledCourses.forEach(course => { %>
+        <div class="course-card-purchase-wrapper">
+          
+          <!-- Move course title wrapper and course title here to appear first -->
+          <div class="course-title-purchase-wrapper">
+            <p class="course-title-purchase"><%= course.courseName %></p>
+          </div>
+          
+          <div class="course-card-purchase">
+            <img
+              src="/uploads/<%= course.courseImage %>"
+              alt="<%= course.courseName %> Image"
+              class="course-thumbnail-purchase"
+            />
+            <div class="course-details-purchase">
+              <p class="course-professor-purchase">
+                Professor: <%= course.courseProfessorName %> <br />
+                Duration: <%= course.courseDurationTime %> <br />
+                
+                <span class="course-price-purchase">Price: ₹<%= course.coursePrice %> </span> <br />
+                <span class="course-purchased-time">Purchased On: </span> <br />
+                <a
+                  href="/courseoverview/<%= course._id %>"
+                  class="course-more-info-purchase"
+                >
+                  More Details
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="purchased-badge">
+            Owned ✅
+          </div>
+          
+        </div>
+      <% }); %>
+    </div>
+   
+    
+     
+
+     <script>
+       document.addEventListener("DOMContentLoaded", function () {
+         let enrolledCourses = JSON.parse('<%- JSON.stringify(enrolledCourses) %>');
+
+         console.log("Enrolled Courses:", enrolledCourses);
+
+         let myptext = document.querySelector(".myptext");
+         let stextofmyp = document.querySelector(".stextofmyp");
+
+         if (enrolledCourses.length > 0) {
+           if (myptext) myptext.style.display = "none";
+           if (stextofmyp) stextofmyp.style.display = "none";
+         }
+       });
+
+
+     </script>
+
+      
+
+
 </body>
 </html>
