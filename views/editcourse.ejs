@@ -1,52 +1,471 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>edit course page </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Course - Innovation Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #7C3AED;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #1F2937;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f6f7ff 0%, #eef1ff 100%);
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            margin: -2.5rem -2.5rem 2rem -2.5rem;
+            padding: 2rem;
+            border-radius: 24px 24px 0 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('/api/placeholder/1000/300') center/cover;
+            opacity: 0.1;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            border: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .chapter-card {
+            border-left: 4px solid var(--primary);
+        }
+
+        .lesson-card {
+            border-left: 4px solid var(--success);
+        }
+
+        .quiz-card {
+            border-left: 4px solid var(--warning);
+        }
+
+        .btn {
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #059669);
+            border: none;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning), #D97706);
+            border: none;
+            color: white;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .remove-btn {
+            background: var(--danger);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            transform: rotate(90deg);
+            background: #DC2626;
+        }
+
+        .floating-help {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .floating-help:hover {
+            transform: scale(1.1);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            height: 2px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="edit-course">
-    <h1>Edit Course: <%= course.courseName %></h1>
-    
-    <form action="/courses/update/<%= course._id %>" method="POST" enctype="multipart/form-data">
-      <label for="courseName">Course Name:</label>
-      <input type="text" id="courseName" name="courseName" value="<%= course.courseName %>" required>
-  
-      <label for="courseProfessorName">Professor Name:</label>
-      <input type="text" id="courseProfessorName" name="courseProfessorName" value="<%= course.courseProfessorName || '' %>" required>
-  
-      <label for="courseDescription">Description:</label>
-      <textarea id="courseDescription" name="courseDescription" required><%= course.courseDescription || '' %></textarea>
-  
-      <label for="courseImage">Course Image:</label>
-      <input type="file" id="courseImage" name="courseImage">
-      <img src="<%= course.courseImage %>" alt="Course Image" width="150">
-  
-      <label for="price">Course Price ($):</label>
-      <input type="number" id="price" name="price" value="<%= course.price || 0 %>" required>
-  
-      <button type="submit">Update Course</button>
-    </form>
-  
-    <h2>Chapters</h2>
-    <ul>
-      <% course.chapters.forEach((chapter, index) => { %>
-        <li>
-          <strong>Chapter <%= index + 1 %>: <%= chapter.title %></strong>
-          <p><%= chapter.description %></p>
-        </li>
-      <% }) %>
-    </ul>
-  
-    <form action="/courses/addChapter/<%= course._id %>" method="POST">
-      <h3>Add New Chapter</h3>
-      <input type="text" name="title" placeholder="Chapter Title" required>
-      <textarea name="description" placeholder="Chapter Description" required></textarea>
-      <button type="submit">Add Chapter</button>
-    </form>
-  </div>
-  
-</body>
 
+<div class="container">
+    <div class="header-section">
+        <h1><i class="fas fa-graduation-cap"></i> Create Your Course</h1>
+        <p class="mb-0">Transform your knowledge into an engaging learning experience</p>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressBar"></div>
+    </div>
+
+    <form id="courseForm">
+        <div class="section-divider">
+            <h4><i class="fas fa-info-circle"></i> Basic Information</h4>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-8">
+                <label class="form-label">
+                    <i class="fas fa-book-open"></i> Course Name
+                </label>
+                <input type="text" class="form-control" name="courseName" required 
+                       placeholder="Enter an engaging course title">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">
+                    <i class="fas fa-tag"></i> Price (USD)
+                </label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" name="price" placeholder="99.99">
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+            <div class="col-md-6">
+                <label class="form-label">
+                    <i class="fas fa-image"></i> Course Image URL
+                </label>
+                <input type="text" class="form-control" name="courseImage" 
+                       placeholder="Paste your image URL here">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">
+                    <i class="fas fa-user-tie"></i> Professor Name
+                </label>
+                <input type="text" class="form-control" name="courseProfessorName" 
+                       placeholder="Who's teaching this course?">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">
+                    <i class="fa-solid fa-file-lines"></i> Overview Title
+                </label>
+                <input type="text" class="form-control" name="OverviewTitle" 
+                       placeholder="Name">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">
+                    <i class="fa-solid fa-calendar-xmark"></i> Duration
+                </label>
+                <input type="text" class="form-control" name="Duration" 
+                       placeholder="e.g., 8 weeks">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">
+                    <i class="fa-solid fa-video"></i> Videos
+                </label>
+                <input type="number" name="videos" class="form-control" placeholder="Enter number of videos">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">
+                    <i class="fa-solid fa-video"></i> Live Lectures
+                </label>
+                <input type="number" class="form-control" name="liveLectures"  placeholder="Number of live lectures">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">
+                    <i class="fa-regular fa-star"></i> Rating
+                </label>
+                <input type="number" class="form-control" name="rating"  placeholder="Type Rating">
+            </div>
+
+        </div>
+
+        <div class="mt-4">
+            <label class="form-label">
+                <i class="fas fa-align-left"></i> Course Description
+            </label>
+            <textarea class="form-control" name="courseDescription" rows="4" 
+                      placeholder="Write an engaging description that will make students excited about your course"></textarea>
+        </div>
+
+        <div class="mt-4">
+            <label class="form-label">
+                <i class="fas fa-align-left"></i> Overview Description
+            </label>
+            <textarea class="form-control" name="overviewDescription" rows="4" 
+                      placeholder="Write Overview description "></textarea>
+        </div>
+
+        <div class="section-divider">
+            <h4><i class="fas fa-book"></i> Course Content</h4>
+        </div>
+
+        <div id="chaptersContainer"></div>
+        
+        <button type="button" class="btn btn-primary mt-4 pulse" onclick="addChapter()">
+            <i class="fas fa-plus"></i> Add New Chapter
+        </button>
+
+        <div class="section-divider">
+            <h4><i class="fas fa-check-circle"></i> Finalize</h4>
+        </div>
+
+        <button type="submit" class="btn btn-success mt-4 pulse">
+            <i class="fas fa-save"></i> Publish Course
+        </button>
+    </form>
+</div>
+
+<div class="floating-help" onclick="alert('Need help? Contact our support team!')">
+    <i class="fas fa-question-circle fa-2x text-primary"></i>
+</div>
+
+<script>
+    let chapterCount = 0;
+    
+    function updateProgress() {
+        const totalFields = $('#courseForm').find('input, textarea').length;
+        const filledFields = $('#courseForm').find('input, textarea').filter(function() {
+            return $(this).val() !== '';
+        }).length;
+        const progress = (filledFields / totalFields) * 100;
+        $('#progressBar').css('width', progress + '%');
+    }
+
+    function addChapter() {
+        chapterCount++;
+        let chapterHtml = `
+            <div class="card chapter-card mt-4 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0">
+                            <i class="fas fa-book-open"></i> Chapter ${chapterCount}
+                        </h5>
+                        <div class="remove-btn" onclick="this.closest('.card').remove(); updateProgress()">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Chapter Title</label>
+                        <input type="text" class="form-control" name="chapters[${chapterCount}][title]" 
+                               required placeholder="What's this chapter about?" onchange="updateProgress()">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Chapter Description</label>
+                        <textarea class="form-control" name="chapters[${chapterCount}][description]" 
+                                 placeholder="Describe what students will learn" onchange="updateProgress()"></textarea>
+                    </div>
+                    <div id="lessonsContainer${chapterCount}"></div>
+                    <button type="button" class="btn btn-success mt-3" onclick="addLesson(${chapterCount})">
+                        <i class="fas fa-plus"></i> Add Lesson
+                    </button>
+                </div>
+            </div>
+        `;
+        $('#chaptersContainer').append(chapterHtml);
+        updateProgress();
+    }
+
+    function addLesson(chapterIndex) {
+        let lessonHtml = `
+            <div class="card lesson-card mt-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0"><i class="fas fa-video"></i> New Lesson</h6>
+                        <div class="remove-btn" onclick="this.closest('.card').remove(); updateProgress()">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Lesson Title</label>
+                        <input type="text" class="form-control" name="chapters[${chapterIndex}][lessons][][title]" 
+                               required placeholder="What's this lesson about?" onchange="updateProgress()">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Video URL</label>
+                        <input type="text" class="form-control" name="chapters[${chapterIndex}][lessons][][videoUrl]" 
+                               placeholder="Paste your video URL here" onchange="updateProgress()">
+                    </div>
+                    <div id="quizzesContainer${chapterIndex}"></div>
+                    <button type="button" class="btn btn-warning mt-3" onclick="addQuiz(${chapterIndex})">
+                        <i class="fas fa-plus"></i> Add Quiz
+                    </button>
+                </div>
+            </div>
+        `;
+        $(`#lessonsContainer${chapterIndex}`).append(lessonHtml);
+        updateProgress();
+    }
+
+    function addQuiz(chapterIndex) {
+        let quizHtml = `
+            <div class="card quiz-card mt-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0"><i class="fas fa-question-circle"></i> Quiz</h6>
+                        <div class="remove-btn" onclick="this.closest('.card').remove(); updateProgress()">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Question</label>
+                        <input type="text" class="form-control" name="chapters[${chapterIndex}][lessons][][quizzes][][question]" 
+                               required placeholder="Enter your question" onchange="updateProgress()">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Options</label>
+                        <input type="text" class="form-control" name="chapters[${chapterIndex}][lessons][][quizzes][][options]" 
+                               required placeholder="Option 1, Option 2, Option 3, Option 4" onchange="updateProgress()">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correct Answer</label>
+                        <input type="text" class="form-control" name="chapters[${chapterIndex}][lessons][][quizzes][][answer]" 
+                               required placeholder="Enter the correct answer" onchange="updateProgress()">
+                    </div>
+                </div>
+            </div>
+        `;
+        $(`#quizzesContainer${chapterIndex}`).append(quizHtml);
+        updateProgress();
+    }
+
+    $(document).on('input', '#courseForm input, #courseForm textarea', function () {
+        updateProgress();
+    });
+
+    $('#courseForm').on('submit', function (event) {
+        event.preventDefault();
+        alert('Course successfully submitted!');
+        // You can process form submission here, e.g., sending data to backend via AJAX
+    });
+
+</script>
+
+</body>
 </html>

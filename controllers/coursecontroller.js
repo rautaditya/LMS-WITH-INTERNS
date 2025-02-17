@@ -31,108 +31,68 @@ exports.createCourse = async (req, res) => {
     });
 
     const savedCourse = await newCourse.save();
-    res.redirect(`/courses/editcourse/${savedCourse._id}`);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-};
+    console.log("Saved Course ID:", savedCourse._id); // Debugging output
 
-// Display the edit course form
-exports.displayEditCourseForm = async (req, res) => {
-  try {
-    const course = await Course.findById(req.params.id);
-    if (!course) return res.status(404).send("Course not found");
+    if (!savedCourse) {
+      return res.status(500).send("Failed to create course");
+    }
 
-    res.render('admin/editCourse', { course }); // Render the edit page
+res.redirect(`/courses/editcourse/${savedCourse._id}`);
   } catch (error) {
-    console.error(error);
+    console.error("Error creating course:", error);
     res.status(500).send("Internal Server Error");
   }
 };
+
+
+// Display the edit course form
+// Display the edit course form
+exports.displayEditCourseForm = async (req, res) => {
+  try {
+    const { courseId } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(courseId)) {
+      return res.status(400).send("Invalid Course ID");
+    }
+
+    const course = await Course.findById(courseId);
+    if (!course) return res.status(404).send("Course not found");
+
+    res.render('editCourse', { course });  // Corrected this line
+  } catch (error) {
+    console.error("Error fetching course:", error.message);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+// Update an existing course
 // Update an existing course
 exports.updateCourse = async (req, res) => {
   try {
-    const { id } = req.params; // Ensure this matches your route
-    const {
-      courseName,
-      courseProfessorName,
-      courseDescription,
-      overviewTitle,
-      overviewDescription,
-      rating,
-      duration,
-      videos,
-      liveLectures,
-      curriculumTitle,
-      price,
-      studentsEnrolled,
-      instructors,
-      lastUpdated,
-      languages,
-      requirements,
-      learningObjectives,
-      courseIncludes,
-      ratingCount,
-      courseDuration,
-      articles,
-      codingExercises,
-      downloadableResources
-    } = req.body;
-
-    // Handle Course Image Upload
-    const courseImage = req.file ? `/uploads/${req.file.filename}` : null;
+    const { courseId } = req.params; // Changed from req.params.id to req.params.courseId
+    const { courseName, courseDescription, price } = req.body;
 
     if (!courseName || !courseDescription || !price) {
       return res.status(400).json({ error: "Course name, description, and price are required." });
     }
 
-    // Prepare updated course object
     const updatedCourse = {
       courseName,
-      courseProfessorName,
       courseDescription,
-      overviewTitle,
-      overviewDescription,
-      rating,
-      duration,
-      videos,
-      liveLectures,
-      curriculumTitle,
       price,
-      studentsEnrolled,
-      instructors,
-      lastUpdated: lastUpdated ? new Date(lastUpdated) : new Date(),
-      languages,
-      requirements,
-      learningObjectives,
-      courseIncludes,
-      ratingCount,
-      courseDuration,
-      articles,
-      codingExercises,
-      downloadableResources
+      courseImage: req.file ? `/uploads/${req.file.filename}` : null,
     };
 
-    if (courseImage) {
-      updatedCourse.courseImage = courseImage; // Only update image if a new one is uploaded
-    }
-
-    // Update course in the database
-    const course = await Course.findByIdAndUpdate(id, updatedCourse, { new: true });
-
+    const course = await Course.findByIdAndUpdate(courseId, updatedCourse, { new: true });
     if (!course) {
       return res.status(404).json({ error: "Course not found" });
     }
 
     res.json({ success: true, message: `Course "${course.courseName}" updated successfully!`, course });
-
   } catch (error) {
     console.error("Error updating course:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
 // Add a new chapter to a course
 exports.addChapter = async (req, res) => {
   try {
