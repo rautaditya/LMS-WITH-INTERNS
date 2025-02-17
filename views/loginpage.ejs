@@ -3,94 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
-    <link rel="stylesheet" href="/stylesheets/loginpage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="containerforloginpage" id="container">
-        <div class="form-containerforlogin log-in-container">
-            <form method="post" class="formforlogin" id="loginForm">
-                <h1 class="headingoflogin">Login</h1>
-                <div class="social-container">
-                    <a href="#" class="social" aria-label="Login with Facebook"><i class="fa fa-facebook fa-2x"></i></a>
-                    <a href="#" class="social" aria-label="Login with Twitter"><i class="fa fa-twitter fa-2x"></i></a>
-                </div>
-                <span class="oruseaccoutn">t</span>
-                <input type="text" id="name" name="name" placeholder="Name" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <input type="tel" id="phone" name="phone" placeholder="Phone" required>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <button type="button" class="loginbtnforloginpage otp-btn" id="sendButton">Log In</button>
-                <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
-                <button type="button" id="verifyButton" class="otp-btn">Verify OTP</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1>Welcome Back!</h1>
-                    <p class="descroptionoflogin">To keep connected with us please login with your personal info</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="popup" id="otpPopup">
-        <span class="popup-close" id="closePopup">X</span>
-        <p>OTP sent successfully! Please check your phone.</p>
-    </div>
-
-    <script src="/javascripts/setotp.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sendButton = document.getElementById('sendButton');
-            const verifyButton = document.getElementById('verifyButton');
-            const closePopup = document.getElementById('closePopup');
-            const otpPopup = document.getElementById('otpPopup');
-            const loginForm = document.getElementById('loginForm');
-
-            sendButton.addEventListener('click', function() {
-                if (validateForm()) {
-                    sendOTP();
-                    otpPopup.style.display = 'block';
-                }
-            });
-
-            verifyButton.addEventListener('click', verifyOTP);
-
-            closePopup.addEventListener('click', function() {
-                otpPopup.style.display = 'none';
-            });
-
-            function validateForm() {
-                const name = document.getElementById('name').value;
-                const password = document.getElementById('password').value;
-                const phone = document.getElementById('phone').value;
-                const email = document.getElementById('email').value;
-
-                if (!name || !password || !phone || !email) {
-                    alert('Please fill in all fields');
-                    return false;
-                }
-                return true;
-            }
-
-            function sendOTP() {
-                // Implement OTP sending logic here
-                console.log('Sending OTP...');
-            }
-
-            function verifyOTP() {
-                const otp = document.getElementById('otp').value;
-                if (!otp) {
-                    alert('Please enter OTP');
-                    return;
-                }
-                // Implement OTP verification logic here
-                console.log('Verifying OTP...');
-            }
-        });
-    </script>
+    hii
 </body>
 </html>

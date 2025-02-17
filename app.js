@@ -70,4 +70,9 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+
 module.exports = app;
